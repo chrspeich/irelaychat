@@ -9,11 +9,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class ChannelView;
+
 @interface MyDocument : NSDocument
 {
 	IBOutlet NSOutlineView	*channelList;
 	IBOutlet NSView			*contentView;
 	IBOutlet NSTextField	*inputField;
 	NSMutableArray			*servers;
+	NSMutableArray			*channelViews;
+	ChannelView				*currentView;
 }
 @end

@@ -41,6 +41,7 @@ extern NSString *IRCUserQuit;
 
 - (NSArray*) knownUsers;
 - (void) addUser:(IRCUser*)user;
+- (void) removeUser:(IRCUser*)user;
 
 @property(readonly,copy)	NSString	*serverName;
 @property(readonly,copy)	NSString	*host;

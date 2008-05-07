@@ -9,10 +9,11 @@
 #import "ChannelView.h"
 #import "IRCServer.h"
 #import "IRCUser.h"
+#import "IRCUserMode.h"
 
 @implementation ChannelView
 
-@synthesize view=channelView, inputField;
+@synthesize view=channelView, inputField, channel;
 
 - (id) initWithChannel:(IRCChannel*)chan
 {
@@ -28,21 +29,22 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCNewChannelMessage object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userJoins:) name:IRCUserJoinsChannel object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLeaves:) name:IRCUserLeavesChannel object:channel];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:IRCUserQuit object:channel.server];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:IRCUserQuit object:channel];
 		messageViewController = [[MessageViewController alloc] initWithMessageView:messageView];
+		NSImageCell *cell = [[NSImageCell alloc] init];
+		[cell autorelease];
+		[[userTable tableColumnWithIdentifier:@"Status"] setDataCell:cell];
 	}
 	return self;
 }
 
 - (void) reloadUserTable:(NSNotification*)unused
 {
-	NSLog(@"reload");
 	[userTable reloadData];
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-	NSLog(@"count %i", [channel.userList count]);
 	return [channel.userList count];
 }
 
@@ -51,7 +53,22 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			row:(int)rowIndex
 {
 	NSParameterAssert(rowIndex >= 0 && rowIndex < [channel.userList count]);
-	return [channel.userList objectAtIndex:rowIndex];
+	if ([[aTableColumn identifier] isEqualToString:@"Name"]) {
+		return [[channel.userList objectAtIndex:rowIndex] nickname];
+	}
+	else {
+		IRCUserMode *mode = [[channel.userList objectAtIndex:rowIndex] userModeForChannel:channel];
+		NSImage *image = nil;
+		if ([mode hasOp]) {
+			image = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"green" ofType:@"tiff"]];
+		}
+		else if ([mode hasVoice]) {
+			image = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"yellow" ofType:@"tiff"]];
+		}
+
+		[image autorelease];
+		return image;
+	}
 }
 
 - (void) newMessage:(NSNotification*)noti

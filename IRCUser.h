@@ -9,18 +9,26 @@
 #import <Cocoa/Cocoa.h>
 
 @class IRCServer;
+@class IRCChannel;
+@class IRCUserMode;
+
+extern NSString *IRCUserChanged;
 
 @interface IRCUser : NSObject {
-	NSString	*nickname;
-	NSString	*user;
-	NSString	*host;
-	IRCServer	*server;
+	NSString			*nickname;
+	NSString			*user;
+	NSString			*host;
+	IRCServer			*server;
+	NSMutableDictionary	*userModes;
 }
 
 + (id) userWithNickname:(NSString*)name onServer:(IRCServer*)server;
 + (id) userWithString:(NSString*)string onServer:(IRCServer*)server;
 
 - (bool) isMe;
+- (IRCUserMode*) userModeForChannel:(IRCChannel*)channel;
+- (void) setUserMode:(IRCUserMode*)userMode forChannel:(IRCChannel*)channel;
+- (bool) isEqualToUser:(IRCUser*)_user;
 
 @property(readonly)	NSString	*string;
 @property(retain)	NSString	*nickname;

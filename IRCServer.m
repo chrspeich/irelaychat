@@ -119,12 +119,15 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 			IRCMessage *message = [[IRCMessage alloc] initWithOrginalMessage:line withEncoding:NSUTF8StringEncoding andServer:self];
 			
-			for (IRCObserveContainer *container in observerObjects) {
+			NSArray *observers = [observerObjects copy];
+			
+			for (IRCObserveContainer *container in observers) {
 				if ([container.message isEqualToMessage:message]) {
 					[container.observer performSelectorOnMainThread:container.selector withObject:message waitUntilDone:NO];
 				}
 			}
 			
+			[observers release];
 			[message release];
 			free(line);
 		}
@@ -212,6 +215,11 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 {
 	[user retain];
 	[knownUsers addObject:user];
+}
+
+- (void) removeUser:(IRCUser*)user
+{
+	[knownUsers removeObject:user];
 }
 
 #define IRC_MAX_LINE_LENGTH 512

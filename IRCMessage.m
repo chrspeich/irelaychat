@@ -41,7 +41,7 @@
 
 - (bool)isEqualToMessage:(IRCMessage*)message
 {
-	if (from && (from != message.from))
+	if (from && ![from isEqualToUser:message.from])
 		return NO;
 	
 	if (![command isEqualToString:@"*"] && ([command caseInsensitiveCompare:message.command] != NSOrderedSame))
