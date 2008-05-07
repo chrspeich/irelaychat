@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'iRelayChat' target in the 'iRelayChat' project
+//
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <netdb.h>
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+	#import <WebKit/WebKit.h>
+#endif
