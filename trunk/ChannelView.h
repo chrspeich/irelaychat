@@ -25,5 +25,6 @@
 
 @property(readonly,assign) NSView *view;
 @property(retain) NSTextField *inputField;
+@property(readonly) IRCChannel *channel;
 
 @end

@@ -107,7 +107,6 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 
 - (bool) isEqualToUser:(IRCUser*)_user
 {
-	NSLog(@"%@ ? %@", self.nickname, _user.nickname);
 	return [self.nickname isEqualToString:_user.nickname];
 }
 

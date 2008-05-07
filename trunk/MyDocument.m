@@ -17,9 +17,12 @@
     self = [super init];
     if (self) {
 		servers = [[NSMutableArray alloc] init];
+		channelViews = [[NSMutableArray alloc] init];
 		IRCServer *server = [[IRCServer alloc] initWithHost:@"localhost" andPort:@"6667"];
 		[server connect];
 		[server joinChannel:@"#Apachefriends"];
+		[server joinChannel:@"#Linuxpaten"];
+		[server joinChannel:@"#ubuntu"];
 		[servers addObject:server];
 		[server release];
     }
@@ -34,15 +37,11 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
     [super windowControllerDidLoadNib:aController];
-	ChannelView *channelView = [[ChannelView alloc] initWithChannel:[[[servers objectAtIndex:0] channels] objectAtIndex:0]];
-	[channelView.view setFrame:[contentView bounds]];
-	channelView.inputField = inputField;
-	[inputField setTarget:channelView];
-	[inputField setAction:@selector(sendMessage)];
-	[contentView addSubview:channelView.view];
+	for (IRCChannel *chan in [[servers objectAtIndex:0] channels]) {
+		[channelViews addObject:[[ChannelView alloc] initWithChannel:chan]];
+	}
 	[[aController window] setAutorecalculatesContentBorderThickness:YES forEdge:NSMinYEdge];
 	[[aController window] setContentBorderThickness:35 forEdge:NSMinYEdge];
-	[channelView performSelector:@selector(splitViewDidResizeSubviews:) withObject:nil];
 	[self performSelector:@selector(splitViewDidResizeSubviews:) withObject:nil];
 }
 
@@ -52,7 +51,7 @@
 		return [servers count];
 	}
 	else if ([item isKindOfClass:[IRCServer class]]) {
-		return [[item channels] count];
+		return [channelViews count];
 	}
 	
     return 0;
@@ -74,7 +73,7 @@
 		return [servers objectAtIndex:index];
 	}
 	else {
-		return [[item channels] objectAtIndex:index];
+		return [channelViews objectAtIndex:index];
 	}
 
 	return nil;
@@ -89,7 +88,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 			return [item serverName];
 		}
 		else {
-			return [item name];
+			return [[item channel] name];
 		}
 	}
 	else {
@@ -103,6 +102,25 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 		return YES;
 	}
 	return NO;
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item;
+{
+	if ([item isKindOfClass:[IRCServer class]]) {
+		return NO;
+	}
+	
+	if (currentView != item) {
+		currentView.inputField = nil;
+		[currentView.view removeFromSuperview];
+		[contentView addSubview:[item view]];
+		currentView = item;
+		currentView.inputField = inputField;
+		[currentView.view setFrame:[contentView bounds]];
+		[inputField setTarget:currentView];
+		[inputField setAction:@selector(sendMessage)];
+	}
+	return YES;
 }
 
 - (void)splitView:(NSSplitView*)sender resizeSubviewsWithOldSize:(NSSize)oldSize

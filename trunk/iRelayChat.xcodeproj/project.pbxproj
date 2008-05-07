@@ -14,6 +14,10 @@
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9224306D0DD1E912005FF883 /* IRCUserMode.m */; };
+		922430D00DD1F732005FF883 /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CE0DD1F732005FF883 /* green.tiff */; };
+		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
+		922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430FC0DD1FD8A005FF883 /* yellow.tiff */; };
 		9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 926705390DCF31C800E5D085 /* IRCUser.m */; };
 		9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9294743D0DCC63EC0022A391 /* WebKit.framework */; };
 		92FD87520DCC78610024661C /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD87510DCC78610024661C /* MessageViewController.m */; };
@@ -41,6 +45,11 @@
 		32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRelayChat_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iRelayChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRelayChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9224306C0DD1E912005FF883 /* IRCUserMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserMode.h; sourceTree = "<group>"; };
+		9224306D0DD1E912005FF883 /* IRCUserMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserMode.m; sourceTree = "<group>"; };
+		922430CE0DD1F732005FF883 /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
+		922430CF0DD1F732005FF883 /* red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = red.tiff; sourceTree = "<group>"; };
+		922430FC0DD1FD8A005FF883 /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = yellow.tiff; sourceTree = "<group>"; };
 		926705380DCF31C800E5D085 /* IRCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUser.h; sourceTree = "<group>"; };
 		926705390DCF31C800E5D085 /* IRCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUser.m; sourceTree = "<group>"; };
 		9294743D0DCC63EC0022A391 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
@@ -137,6 +146,9 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				922430FC0DD1FD8A005FF883 /* yellow.tiff */,
+				922430CE0DD1F732005FF883 /* green.tiff */,
+				922430CF0DD1F732005FF883 /* red.tiff */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
@@ -171,6 +183,8 @@
 				AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */,
 				926705380DCF31C800E5D085 /* IRCUser.h */,
 				926705390DCF31C800E5D085 /* IRCUser.m */,
+				9224306C0DD1E912005FF883 /* IRCUserMode.h */,
+				9224306D0DD1E912005FF883 /* IRCUserMode.m */,
 			);
 			name = irc;
 			sourceTree = "<group>";
@@ -227,6 +241,9 @@
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
 				AA3CC4990DCB117B002D70DC /* ChannelView.xib in Resources */,
 				92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */,
+				922430D00DD1F732005FF883 /* green.tiff in Resources */,
+				922430D10DD1F732005FF883 /* red.tiff in Resources */,
+				922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +263,7 @@
 				AA3CC49E0DCB1465002D70DC /* ChannelView.m in Sources */,
 				92FD87520DCC78610024661C /* MessageViewController.m in Sources */,
 				9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */,
+				922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

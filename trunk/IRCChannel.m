@@ -10,11 +10,33 @@
 #import "IRCServer.h"
 #import "IRCMessage.h"
 #import "IRCUser.h"
+#import "IRCUserMode.h"
 
 NSString *IRCUserListHasChanged  = @"iRelayChat-IRCUserListHasChanged";
 NSString *IRCNewChannelMessage = @"iRelayChat-IRCNewChannelMessage";
 NSString *IRCUserJoinsChannel = @"iRelayChat-IRCUserJoinsChannel";
 NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
+
+NSComparisonResult sortUsers(id first, id second, void *contex) {
+	IRCChannel *channel = (IRCChannel*)contex;
+	
+	IRCUserMode *firstMode = [first userModeForChannel:channel];
+	IRCUserMode *secondMode = [second userModeForChannel:channel];
+	
+	if (firstMode.hasOp && !secondMode.hasOp)
+		return NSOrderedAscending;
+	
+	if (!firstMode.hasOp && secondMode.hasOp)
+		return NSOrderedDescending;
+	
+	if (firstMode.hasVoice && !secondMode.hasVoice)
+		return NSOrderedAscending;
+	
+	if (!firstMode.hasVoice && secondMode.hasVoice)
+		return NSOrderedDescending;
+	
+	return [[first nickname] compare:[second nickname]];
+}
 
 @implementation IRCChannel
 
@@ -61,6 +83,7 @@ NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
 		[server send:[NSString stringWithFormat:@"JOIN %@", name]];
 		[[NSNotificationCenter defaultCenter] postNotificationName:IRCJoinChannel object:self];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuits:) name:IRCUserQuit object:self.server];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userChanged:) name:IRCUserChanged object:nil];
 		[NSTimer scheduledTimerWithTimeInterval:120.f target:self selector:@selector(reloadUserList) userInfo:nil repeats:YES];
 	}
 	return self;
@@ -81,19 +104,23 @@ NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
 	if (!tmpUserList)
 		tmpUserList = [[NSMutableArray alloc] init];
 	
-	[tmpUserList addObjectsFromArray:[[message.parameters objectAtIndex:3] componentsSeparatedByString:@" "]];
+	NSArray *users = [[message.parameters objectAtIndex:3] componentsSeparatedByString:@" "];
+	
+	for (NSString *username in users) {
+		IRCUser *user = [IRCUser userWithNickname:username onServer:self.server];
+		IRCUserMode *mode = [[IRCUserMode alloc] initFromUserString:username];
+		[user setUserMode:mode forChannel:self];
+		[mode release];
+		[tmpUserList addObject:user];
+		[user release];
+	}
 }
 
 - (void) userListEnd:(IRCMessage*)message
 {
-	[tmpUserList sortUsingSelector:@selector(compare:)];
-	if ([userList isEqualToArray:tmpUserList])
-		NSLog(@"Nothing to change!");
-	else
-		NSLog(@"Something to change!");
+	[tmpUserList sortUsingFunction:sortUsers context:self];
 	[userList release];
-	userList = [tmpUserList mutableCopy];
-	[tmpUserList release];
+	userList = tmpUserList;
 	tmpUserList = nil;
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
@@ -111,8 +138,8 @@ NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	[dict setObject:message.from forKey:@"FROM"];
-	[userList addObject:[message.from nickname]];
-	[userList sortUsingSelector:@selector(compare:)];
+	[userList addObject:message.from];
+	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserJoinsChannel object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
@@ -121,16 +148,25 @@ NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	[dict setObject:message.from forKey:@"FROM"];
-	[userList removeObject:[message.from nickname]];
-	[userList sortUsingSelector:@selector(compare:)];
+	[userList removeObject:message.from];
+	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserLeavesChannel object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
 
 - (void) userQuits:(NSNotification*)noti
 {
-	[userList removeObject:[[noti userInfo] objectForKey:@"FROM"]];
-	[userList sortUsingSelector:@selector(compare:)];
+	if ([userList containsObject:[[noti userInfo] objectForKey:@"FROM"]]) {
+		[userList removeObject:[[noti userInfo] objectForKey:@"FROM"]];
+		[userList sortUsingFunction:sortUsers context:self];
+		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserQuit object:self userInfo:[noti userInfo]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+	}
+}
+
+- (void) userChanged:(NSNotification*)noti
+{
+	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
 
