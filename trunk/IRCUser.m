@@ -8,10 +8,16 @@
 
 #import "IRCUser.h"
 #import "IRCServer.h"
+#import "IRCUserMode.h"
+#import "IRCChannel.h"
+#import "IRCMessage.h"
+
+NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 
 @interface IRCUser (PRIVATE)
 - (id) initWithString:(NSString*)string onServer:(IRCServer*)server;
 - (id) initWithNickname:(NSString*)string onServer:(IRCServer*)server;
+- (void) setupObservers;
 @end
 
 @implementation IRCUser
@@ -34,14 +40,23 @@
 		}
 		
 		nickname = [[firstComponents objectAtIndex:0] copy];
+		if ([nickname characterAtIndex:0] == '+' || [nickname characterAtIndex:0] == '@') {
+			NSMutableString *tmp = [nickname mutableCopy];
+			[nickname release];
+			[tmp deleteCharactersInRange:NSMakeRange(0, 1)];
+			nickname = [tmp copy];
+			[tmp release];
+		}
 		user = [[secondComponents objectAtIndex:0] copy];
 		host = [[secondComponents objectAtIndex:1] copy];
+		userModes = [[NSMutableDictionary alloc] init];
 		
 		server = _server;
 		
 		if (server) {
 			[server addUser:self];
 		}
+		[self setupObservers];
 	}
 	return self;
 }
@@ -50,19 +65,34 @@
 {
 	self = [super init];
 	if (self != nil) {	
-		nickname = string;
+		nickname = [string copy];
 		user = nil;
 		host = nil;
+		userModes = [[NSMutableDictionary alloc] init];
+		
+		if ([nickname characterAtIndex:0] == '+' || [nickname characterAtIndex:0] == '@') {
+			NSMutableString *tmp = [nickname mutableCopy];
+			[nickname release];
+			[tmp deleteCharactersInRange:NSMakeRange(0, 1)];
+			nickname = [tmp copy];
+			[tmp release];
+		}
 		
 		server = _server;
 		
 		if (server) {
 			[server addUser:self];
 		}
+		[self setupObservers];
 	}
 	return self;
 }
 
+- (void) setupObservers
+{
+	[server removeObserver:self];
+	[server addObserver:self selector:@selector(nickNameChanged:) message:[[IRCMessage alloc] initWithCommand:@"NICK" from:self andPrarameters:nil]];
+}
 
 - (bool) isMe
 {
@@ -77,7 +107,8 @@
 
 - (bool) isEqualToUser:(IRCUser*)_user
 {
-	return (self.nickname == _user.nickname);
+	NSLog(@"%@ ? %@", self.nickname, _user.nickname);
+	return [self.nickname isEqualToString:_user.nickname];
 }
 
 + (id) userWithString:(NSString*)string onServer:(IRCServer*)server
@@ -130,6 +161,26 @@
 	}
 	
 	return [user autorelease];
+}
+
+- (IRCUserMode*) userModeForChannel:(IRCChannel*)channel
+{
+	return [userModes objectForKey:channel.name];
+}
+
+- (void) setUserMode:(IRCUserMode*)userMode forChannel:(IRCChannel*)channel
+{
+	[userModes setObject:userMode forKey:channel.name];
+}
+
+- (void) nickNameChanged:(IRCMessage*)message
+{
+	[nickname release];
+	[server removeUser:message.from];
+	NSLog(@"test");
+	nickname = [[message.parameters objectAtIndex:0] copy];
+	[self setupObservers];
+	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserChanged object:self];
 }
 
 @end
