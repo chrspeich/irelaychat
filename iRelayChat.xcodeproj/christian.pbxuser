@@ -1,0 +1,261 @@
+// !$*UTF8*$!
+{
+	2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+		activeArchitecture = i386;
+		activeBuildConfigurationName = Debug;
+		activeExecutable = AA05E0A40DB784B90018FBCC /* iRelayChat */;
+		activeTarget = 8D15AC270486D014006FF6A4 /* iRelayChat */;
+		addToTargets = (
+			8D15AC270486D014006FF6A4 /* iRelayChat */,
+		);
+		breakpoints = (
+			AAC0345A0DB8F32B002D6711 /* IRCMessage.m:34 */,
+			AAC0345C0DB8F338002D6711 /* malloc_error_break */,
+		);
+		codeSenseManager = AA05E0B20DB784CC0018FBCC /* Code sense */;
+		executables = (
+			AA05E0A40DB784B90018FBCC /* iRelayChat */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 231422067;
+			PBXWorkspaceStateSaveDate = 231422067;
+		};
+		sourceControlManager = AA05E0B10DB784CC0018FBCC /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 1358}}";
+			sepNavSelRange = "{1839, 0}";
+			sepNavVisRange = "{1198, 799}";
+		};
+	};
+	2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 615}}";
+			sepNavSelRange = "{308, 0}";
+			sepNavVisRange = "{0, 316}";
+		};
+	};
+	2A37F4B0FDCFA73011CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {633, 224}}";
+			sepNavSelRange = "{223, 0}";
+			sepNavVisRange = "{14, 269}";
+		};
+	};
+	32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {833, 414}}";
+			sepNavSelRange = "{211, 0}";
+			sepNavVisRange = "{0, 264}";
+		};
+	};
+	8D15AC270486D014006FF6A4 /* iRelayChat */ = {
+		activeExec = 0;
+		executables = (
+			AA05E0A40DB784B90018FBCC /* iRelayChat */,
+		);
+	};
+	AA05E0A40DB784B90018FBCC /* iRelayChat */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = iRelayChat;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	AA05E0B10DB784CC0018FBCC /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	AA05E0B20DB784CC0018FBCC /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 686}}";
+			sepNavSelRange = "{454, 0}";
+			sepNavVisRange = "{82, 1153}";
+		};
+	};
+	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 2954}}";
+			sepNavSelRange = "{3835, 0}";
+			sepNavVisRange = "{3291, 1049}";
+		};
+	};
+	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 615}}";
+			sepNavSelRange = "{249, 0}";
+			sepNavVisRange = "{0, 601}";
+		};
+	};
+	AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 1302}}";
+			sepNavSelRange = "{2518, 0}";
+			sepNavVisRange = "{1397, 1260}";
+		};
+	};
+	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 615}}";
+			sepNavSelRange = "{463, 0}";
+			sepNavVisRange = "{0, 511}";
+		};
+	};
+	AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 840}}";
+			sepNavSelRange = "{1324, 0}";
+			sepNavVisRange = "{232, 1095}";
+		};
+	};
+	AA3CC4B40DCB1942002D70DC /* MessageView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 592}}";
+			sepNavSelRange = "{318, 0}";
+			sepNavVisRange = "{0, 365}";
+		};
+	};
+	AA3CC4B50DCB1942002D70DC /* MessageView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 840}}";
+			sepNavSelRange = "{414, 0}";
+			sepNavVisRange = "{268, 1009}";
+		};
+	};
+	AAC033780DB85BAE002D6711 /* IRCMessage.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 592}}";
+			sepNavSelRange = "{554, 0}";
+			sepNavVisRange = "{0, 820}";
+		};
+	};
+	AAC033790DB85BAE002D6711 /* IRCMessage.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 2058}}";
+			sepNavSelRange = "{1812, 0}";
+			sepNavVisRange = "{1788, 1001}";
+		};
+	};
+	AAC033D90DB8D053002D6711 /* IRCObserveContainer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 615}}";
+			sepNavSelRange = "{375, 0}";
+			sepNavVisRange = "{0, 441}";
+		};
+	};
+	AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {790, 615}}";
+			sepNavSelRange = "{264, 0}";
+			sepNavVisRange = "{0, 271}";
+		};
+	};
+	AAC0345A0DB8F32B002D6711 /* IRCMessage.m:34 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = AAC033790DB85BAE002D6711 /* IRCMessage.m */;
+		functionName = "-initWithOrginalMessage:withEncoding:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 34;
+		modificationTime = 230230965.499561;
+		state = 2;
+	};
+	AAC0345C0DB8F338002D6711 /* malloc_error_break */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 1;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		location = libSystem.B.dylib;
+		modificationTime = 230230965.499981;
+		state = 1;
+		symbolName = malloc_error_break;
+	};
+}
