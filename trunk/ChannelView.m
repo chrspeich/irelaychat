@@ -9,6 +9,7 @@
 #import "ChannelView.h"
 #import "IRCServer.h"
 #import "IRCUser.h"
+#import "IRCChannel.h"
 #import "IRCUserMode.h"
 
 @implementation ChannelView
@@ -30,6 +31,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userJoins:) name:IRCUserJoinsChannel object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLeaves:) name:IRCUserLeavesChannel object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:IRCUserQuit object:channel];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLooesMode:) name:IRCUserHasLoseMode object:channel];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userGotMode:) name:IRCUserHasGotMode object:channel];
 		messageViewController = [[MessageViewController alloc] initWithMessageView:messageView];
 		NSImageCell *cell = [[NSImageCell alloc] init];
 		[cell autorelease];
@@ -97,6 +100,20 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	NSDictionary *dict = [noti userInfo];
 
 	[messageViewController userQuit:[[dict objectForKey:@"FROM"] nickname] withMessage:[dict objectForKey:@"MESSAGE"]];
+}
+
+- (void) userLooesMode:(NSNotification*)noti
+{
+	NSDictionary *dict = [noti userInfo];
+
+	[messageViewController user:[[dict objectForKey:@"FROM"] nickname] remove:[dict objectForKey:@"MODE"] toUser:[[dict objectForKey:@"USER"] nickname]];
+}
+
+- (void) userGotMode:(NSNotification*)noti
+{
+	NSDictionary *dict = [noti userInfo];
+	
+	[messageViewController user:[[dict objectForKey:@"FROM"] nickname] give:[dict objectForKey:@"MODE"] toUser:[[dict objectForKey:@"USER"] nickname]];
 }
 
 - (void)splitView:(NSSplitView*)sender resizeSubviewsWithOldSize:(NSSize)oldSize

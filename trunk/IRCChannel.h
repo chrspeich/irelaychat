@@ -12,6 +12,8 @@ extern NSString *IRCUserListHasChanged;
 extern NSString *IRCNewChannelMessage;
 extern NSString *IRCUserJoinsChannel;
 extern NSString *IRCUserLeavesChannel;
+extern NSString *IRCUserHasGotMode;
+extern NSString *IRCUserHasLoseMode;
 
 @class IRCServer;
 

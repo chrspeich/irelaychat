@@ -92,6 +92,11 @@
 - (void) parseMessage
 {
 	NSString *cmd = [[NSString alloc] initWithCString:orgMessage encoding:encoding];
+	if (!cmd) {
+		/* Our Encoding does not work, use ASCII */
+		cmd = [[NSString alloc] initWithCString:orgMessage encoding:NSASCIIStringEncoding];
+		encoding = NSASCIIStringEncoding;
+	}
 	NSMutableString *tmp;
 	NSArray	 *cmdComponents = [cmd componentsSeparatedByString:@" "];
 	NSUInteger i=2, count;

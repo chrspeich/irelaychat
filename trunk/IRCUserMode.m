@@ -52,6 +52,16 @@
 	return self;
 }
 
+- (id) initOpAndVoice;
+{
+	self = [super init];
+	if (self != nil) {
+		hasVoice = YES;
+		hasOp = YES;
+	}
+	return self;
+}
+
 - (id) init
 {
 	self = [super init];
