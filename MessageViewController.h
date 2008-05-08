@@ -21,6 +21,8 @@
 - (void) userJoins:(NSString*)user channel:(NSString*)channel;
 - (void) userLeaves:(NSString*)user channel:(NSString*)channel;
 - (void) userQuit:(NSString*)user withMessage:(NSString*)message;
+- (void) user:(NSString*)user remove:(NSString*)mode toUser:(NSString*)user2;
+- (void) user:(NSString*)user give:(NSString*)mode toUser:(NSString*)user2;
 
 - (NSString*) escapeString:(NSString*)string;
 

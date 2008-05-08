@@ -59,6 +59,18 @@
 	[messageView stringByEvaluatingJavaScriptFromString:script];
 }
 
+- (void) user:(NSString*)user remove:(NSString*)mode toUser:(NSString*)user2
+{
+	NSString *script = [NSString stringWithFormat:@"appendRemoveMode('%@','%@','%@');", user, mode, user2];
+	[messageView stringByEvaluatingJavaScriptFromString:script];
+}
+
+- (void) user:(NSString*)user give:(NSString*)mode toUser:(NSString*)user2
+{
+	NSString *script = [NSString stringWithFormat:@"appendGiveMode('%@','%@','%@');", user, mode, user2];
+	[messageView stringByEvaluatingJavaScriptFromString:script];
+}
+
 - (NSString*) escapeString:(NSString*)string
 {
 	NSString *tmp;

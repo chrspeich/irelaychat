@@ -4,13 +4,13 @@
 	  function appendMessage(user,message,mode) {
 		time = new Date();
 		if (mode == 'highlighted_message') {
-			html = "<tr><td class=\"user_high\"><b>"+user+"</b></td><td class=\"message_high\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user_high\"><b>"+user+":</b></td><td class=\"message_high\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
 		}
 		else if (mode == 'self_message') {
-			html = "<tr><td class=\"user_self\"><b>"+user+"</b></td><td class=\"message_self\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user_self\"><b>"+user+":</b></td><td class=\"message_self\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
 		}
 		else {
-			html = "<tr><td class=\"user\"><b>"+user+"</b></td><td class=\"message\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user\"><b>"+user+":</b></td><td class=\"message\">"+message+"</td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
 		}
 		
 		appendHTML(html);
@@ -37,6 +37,20 @@
 		appendHTML(html);
 	  }
 	  
+	  function appendRemoveMode(user, mode, user2) {
+		time = new Date();
+		html = "<tr><td class=\"action\" colspan=\"2\"><b>"+user+" entfernt "+mode+"-Status bei "+user2+".</b></td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
+		
+		appendHTML(html);
+	  }
+	  
+	  function appendGiveMode(user, mode, user2) {
+		time = new Date();
+		html = "<tr><td class=\"action\" colspan=\"2\"><b>"+user+" gibt "+mode+"-Status an "+user2+".</b></td><td class=\"time\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</td></tr><tr height=\"4px\"></tr>";
+		
+		appendHTML(html);
+	  }
+	  
 	  function appendHTML(html) {
 		messages = document.getElementById("messages");
 		range = document.createRange();
@@ -47,7 +61,6 @@
 	  }
 	</script>
 	<style type="text/css">	
-		*{ word-wrap:break-word; }
 		
 		body {
 			font-family:'Lucida Grande';
@@ -71,6 +84,7 @@
 			background-color:rgb(235,235,235);
 			padding:2px;
 			width: 100%;
+			word-wrap: break-word;
 		}
 		
 		.user_self {
@@ -90,6 +104,7 @@
 			background-color:rgb(200,255,230);
 			padding:2px;
 			width: 100%;
+			word-wrap: break-all;
 		}
 		
 		.time {

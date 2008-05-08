@@ -16,12 +16,18 @@ NSString *IRCUserListHasChanged  = @"iRelayChat-IRCUserListHasChanged";
 NSString *IRCNewChannelMessage = @"iRelayChat-IRCNewChannelMessage";
 NSString *IRCUserJoinsChannel = @"iRelayChat-IRCUserJoinsChannel";
 NSString *IRCUserLeavesChannel = @"iRelayChat-IRCUserLeavesChannel";
+NSString *IRCUserHasGotMode = @"iRelayChat-IRCUserHasGotMode";
+NSString *IRCUserHasLoseMode = @"iRelayChat-IRCUserHasLoseMode";
 
 NSComparisonResult sortUsers(id first, id second, void *contex) {
 	IRCChannel *channel = (IRCChannel*)contex;
-	
+	NSLog(@"sort");
 	IRCUserMode *firstMode = [first userModeForChannel:channel];
 	IRCUserMode *secondMode = [second userModeForChannel:channel];
+	
+	if ((firstMode.hasOp && secondMode.hasOp) ||
+		(firstMode.hasVoice && secondMode.hasVoice))
+		return [[first nickname] compare:[second nickname]];
 	
 	if (firstMode.hasOp && !secondMode.hasOp)
 		return NSOrderedAscending;
@@ -80,6 +86,11 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 		[server addObserver:self selector:@selector(userLeave:) message:[[IRCMessage alloc] initWithCommand:@"PART" from:nil andPrarameters:para]];
 		[para release];
 		
+		para = [[NSMutableArray alloc] init];
+		[para addObject:name];
+		[server addObserver:self selector:@selector(modeChanged:) message:[[IRCMessage alloc] initWithCommand:@"MODE" from:nil andPrarameters:para]];
+		[para release];
+		
 		[server send:[NSString stringWithFormat:@"JOIN %@", name]];
 		[[NSNotificationCenter defaultCenter] postNotificationName:IRCJoinChannel object:self];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuits:) name:IRCUserQuit object:self.server];
@@ -96,7 +107,12 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 - (void) sendMessage:(NSString*)message
 {
-	[server send:[NSString stringWithFormat:@"PRIVMSG %@ :%@", name, message]];
+	if ([message characterAtIndex:0] == '/') {
+		
+	}
+	else {
+		[server send:[NSString stringWithFormat:@"PRIVMSG %@ :%@", name, message]];
+	}
 }
 
 - (void) userList:(IRCMessage*)message
@@ -119,10 +135,18 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 - (void) userListEnd:(IRCMessage*)message
 {
 	[tmpUserList sortUsingFunction:sortUsers context:self];
-	[userList release];
-	userList = tmpUserList;
-	tmpUserList = nil;
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+	if (![userList isEqualToArray:tmpUserList]) {
+		NSLog(@"we've loosed some changes!");
+		[userList release];
+		userList = tmpUserList;
+		tmpUserList = nil;
+		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+	}
+	else {
+		[tmpUserList release];
+		tmpUserList = nil;
+	}
+
 }
 
 - (void) channelMessage:(IRCMessage*)message
@@ -152,6 +176,52 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserLeavesChannel object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+}
+
+- (void) modeChanged:(IRCMessage*)message
+{
+	IRCUser *user = [IRCUser userWithNickname:[message.parameters objectAtIndex:2] onServer:server];
+	IRCUserMode *mode = [user userModeForChannel:self];
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	[dict setObject:user forKey:@"USER"];
+	[dict setObject:message.from forKey:@"FROM"];
+	
+	if ([[message.parameters objectAtIndex:1] isEqualToString:@"+v"]) {
+		if (!mode.hasVoice) {
+			mode.hasVoice = YES;
+			[dict setObject:@"Voice" forKey:@"MODE"];
+			[userList sortUsingFunction:sortUsers context:self];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserHasGotMode object:self userInfo:dict];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+		}
+	}
+	else if ([[message.parameters objectAtIndex:1] isEqualToString:@"-v"]) {
+		if (mode.hasVoice) {
+			mode.hasVoice = NO;
+			[userList sortUsingFunction:sortUsers context:self];
+			[dict setObject:@"Voice" forKey:@"MODE"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserHasLoseMode object:self userInfo:dict];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+		}
+	}
+	else if ([[message.parameters objectAtIndex:1] isEqualToString:@"+o"]) {
+		if (!mode.hasOp) {
+			mode.hasOp = YES;
+			[userList sortUsingFunction:sortUsers context:self];
+			[dict setObject:@"Op" forKey:@"MODE"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserHasGotMode object:self userInfo:dict];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+		}
+	}
+	else if ([[message.parameters objectAtIndex:1] isEqualToString:@"-o"]) {
+		if (mode.hasOp) {
+			mode.hasOp = NO;
+			[dict setObject:@"Op" forKey:@"MODE"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserHasLoseMode object:self userInfo:dict];
+			[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+		}
+	}
+	[dict release];
 }
 
 - (void) userQuits:(NSNotification*)noti

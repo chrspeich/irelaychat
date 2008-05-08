@@ -17,8 +17,9 @@
 - (id) initFromUserString:(NSString*)string;
 - (id) initOp;
 - (id) initVoice;
+- (id) initOpAndVoice;
 
-@property(readonly)	bool	hasOp;
-@property(readonly) bool	hasVoice;
+@property	bool	hasOp;
+@property bool	hasVoice;
 
 @end
