@@ -11,6 +11,7 @@
 #import "IRCMessage.h"
 #import "IRCUser.h"
 #import "IRCUserMode.h"
+#import "IRCChannelMessage.h"
 
 NSString *IRCUserListHasChanged  = @"iRelayChat-IRCUserListHasChanged";
 NSString *IRCNewChannelMessage = @"iRelayChat-IRCNewChannelMessage";
@@ -21,7 +22,7 @@ NSString *IRCUserHasLoseMode = @"iRelayChat-IRCUserHasLoseMode";
 
 NSComparisonResult sortUsers(id first, id second, void *contex) {
 	IRCChannel *channel = (IRCChannel*)contex;
-	NSLog(@"sort");
+
 	IRCUserMode *firstMode = [first userModeForChannel:channel];
 	IRCUserMode *secondMode = [second userModeForChannel:channel];
 	
@@ -107,12 +108,31 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 - (void) sendMessage:(NSString*)message
 {
+	NSString *messageString;
 	if ([message characterAtIndex:0] == '/') {
+		NSMutableArray *components = [[message componentsSeparatedByString:@" "] mutableCopy];
+		NSString *command = [components objectAtIndex:0];
+		[components removeObjectAtIndex:0];
 		
+		if ([command isEqualToString:@"/action"] || [command isEqualToString:@"/me"]) {
+			messageString = [NSString stringWithFormat:@"\001ACTION %@\001", [components componentsJoinedByString:@" "]];
+		}
+		[components release];
 	}
 	else {
-		[server send:[NSString stringWithFormat:@"PRIVMSG %@ :%@", name, message]];
+		messageString = message;
 	}
+	
+	[server send:[NSString stringWithFormat:@"PRIVMSG %@ :%@", name, messageString]];
+
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	IRCMessage *ircmessage = [[IRCMessage alloc] initWithCommand:@"PRIVMSG" from:server.me andPrarameters:[NSArray arrayWithObjects:name, messageString, nil]];
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithIRCMessage:ircmessage];
+	[dict setObject:mess forKey:@"MESSAGE"];
+						   
+	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
+	[mess release];
+	[ircmessage release];
 }
 
 - (void) userList:(IRCMessage*)message
@@ -152,10 +172,11 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 - (void) channelMessage:(IRCMessage*)message
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:message.from forKey:@"FROM"];
-	[dict setObject:[message.parameters objectAtIndex:1] forKey:@"MESSAGE"];
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithIRCMessage:message];
+	[dict setObject:mess forKey:@"MESSAGE"];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
+	[mess release];
 }
 
 - (void) userJoin:(IRCMessage*)message

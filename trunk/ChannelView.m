@@ -33,8 +33,11 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:IRCUserQuit object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLooesMode:) name:IRCUserHasLoseMode object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userGotMode:) name:IRCUserHasGotMode object:channel];
+		[messageView setMaintainsBackForwardList:NO];
+		[messageView setPolicyDelegate:self];
 		messageViewController = [[MessageViewController alloc] initWithMessageView:messageView];
 		NSImageCell *cell = [[NSImageCell alloc] init];
+		[cell setImageAlignment:NSImageAlignCenter];
 		[cell autorelease];
 		[[userTable tableColumnWithIdentifier:@"Status"] setDataCell:cell];
 	}
@@ -68,6 +71,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		else if ([mode hasVoice]) {
 			image = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"yellow" ofType:@"tiff"]];
 		}
+		else
+			image = [[NSImage alloc] init];
 
 		[image autorelease];
 		return image;
@@ -78,7 +83,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 {
 	NSDictionary *dict = [noti userInfo];
 	
-	[messageViewController addMessage:[dict objectForKey:@"MESSAGE"] fromUser:[[dict objectForKey:@"FROM"] nickname] highlighted:NO];
+	[messageViewController addMessage:[dict objectForKey:@"MESSAGE"]];
 }
 
 - (void) userJoins:(NSNotification*)noti
@@ -150,8 +155,29 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		return;
 	
 	[channel sendMessage:[inputField stringValue]];
-	[messageViewController addMyMessage:[inputField stringValue] withUserName:[[channel server] nick]];
 	[inputField setStringValue:@""];
+}
+
+- (void)webView:(WebView *)sender
+decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+		request:(NSURLRequest *)request
+		  frame:(WebFrame *)frame
+decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+	NSLog(@"test");
+	int actionKey = [[actionInformation objectForKey: WebActionNavigationTypeKey] intValue];
+	if (actionKey == WebNavigationTypeOther) {
+		[listener use];
+	} else {
+		NSURL *url = [actionInformation objectForKey:WebActionOriginalURLKey];
+		
+		//Ignore file URLs, but open anything else
+		if (![url isFileURL]) {
+			[[NSWorkspace sharedWorkspace] openURL:url];
+		}
+		
+		[listener ignore];
+	}
 }
 
 @end

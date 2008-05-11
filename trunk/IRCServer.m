@@ -10,6 +10,7 @@
 #import "IRCMessage.h"
 #import "IRCObserveContainer.h"
 #import "IRCChannel.h"
+#import "IRCMeUser.h"
 #include <sys/socket.h>
 
 NSString *IRCConnected = @"iRelayChat-IRCConnected";
@@ -20,7 +21,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 
 @implementation IRCServer
 
-@synthesize serverName, host, port, isConnected, channels;
+@synthesize serverName, host, port, isConnected, channels, me;
 
 - (id) initWithHost:(NSString*)_host andPort:(NSString*)_port;
 {
@@ -34,6 +35,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		serverName = @"FreeNode";
 		observerObjects = [[NSMutableArray alloc] init];
 		knownUsers = [[NSMutableArray alloc] init];
+		me = [IRCMeUser userWithNickname:nick onServer:self];
 		[self addObserver:self selector:@selector(ping:) message:[[IRCMessage alloc] initWithCommand:@"PING" from:nil andPrarameters:nil]];
 		[self addObserver:self selector:@selector(userQuit:) message:[[IRCMessage alloc] initWithCommand:@"QUIT" from:nil andPrarameters:nil]];
 	}

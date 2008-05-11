@@ -7,7 +7,8 @@
 //
 
 #import "MessageViewController.h"
-
+#import "IRCChannelMessage.h"
+#import "IRCUser.h"
 
 @implementation MessageViewController
 
@@ -29,15 +30,22 @@
 	[mainFrame loadHTMLString:template baseURL:[NSURL URLWithString:[[NSBundle mainBundle] resourcePath]]];
 }
 
-- (void) addMessage:(NSString*)message fromUser:(NSString*)user highlighted:(BOOL)highlighted
+- (void) addMessage:(IRCChannelMessage*)message
 {
-	NSString *script = [NSString stringWithFormat:@"appendMessage('%@','%@', '%@');", user, [self escapeString:message], highlighted?@"highlighted_message":@"message"];
-	[messageView stringByEvaluatingJavaScriptFromString:script];
-}
-
-- (void) addMyMessage:(NSString*)message withUserName:(NSString*)user
-{
-	NSString *script = [NSString stringWithFormat:@"appendMessage('%@','%@', 'self_message');", user, [self escapeString:message]];
+	NSString *mode;
+	
+	if (message.from.isMe && message.action)
+		mode = @"self_action_message";
+	else if (message.from.isMe)
+		mode = @"self_message";
+	else if (message.action)
+		mode = @"action_message";
+	else if (message.highlight)
+		mode = @"highlighted_message";
+	else
+		mode = @"message";
+		
+	NSString *script = [NSString stringWithFormat:@"appendMessage('%@','%@', '%@');", message.from.nickname, [self escapeString:[message htmlUseableMessage]], mode];
 	[messageView stringByEvaluatingJavaScriptFromString:script];
 }
 

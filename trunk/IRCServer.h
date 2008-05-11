@@ -1,10 +1,14 @@
-//
-//  IRCServer.h
-//  iRelayChat
-//
-//  Created by Christian Speich on 17.04.08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat- A better IRC Client for Mac OS X                              *
+ * - Backend Class -                                                         *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import <Cocoa/Cocoa.h>
 
@@ -28,6 +32,7 @@ extern NSString *IRCUserQuit;
 	NSMutableArray	*observerObjects;
 	NSMutableArray	*knownUsers;
 	int				sock;
+	IRCUser			*me;
 }
 
 - (id) initWithHost:(NSString*)host andPort:(NSString*)port;
@@ -43,12 +48,13 @@ extern NSString *IRCUserQuit;
 - (void) addUser:(IRCUser*)user;
 - (void) removeUser:(IRCUser*)user;
 
-@property(readonly,copy)	NSString	*serverName;
-@property(readonly,copy)	NSString	*host;
-@property(readonly,copy)	NSString	*port;
-@property(readwrite,copy)	NSString	*nick;
+@property(readonly)	NSString	*serverName;
+@property(readonly)	NSString	*host;
+@property(readonly)	NSString	*port;
+@property(readwrite, copy)	NSString	*nick;
 @property(readonly)			bool		isConnected;
-@property(readonly,retain)	NSMutableArray*channels;
+@property(readonly)	NSMutableArray*channels;
+@property(readonly) IRCUser *me;
 
 - (char *)readLine;
 
