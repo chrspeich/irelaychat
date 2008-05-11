@@ -25,11 +25,11 @@ extern NSString *IRCUserChanged;
 + (id) userWithNickname:(NSString*)name onServer:(IRCServer*)server;
 + (id) userWithString:(NSString*)string onServer:(IRCServer*)server;
 
-- (bool) isMe;
 - (IRCUserMode*) userModeForChannel:(IRCChannel*)channel;
 - (void) setUserMode:(IRCUserMode*)userMode forChannel:(IRCChannel*)channel;
 - (bool) isEqualToUser:(IRCUser*)_user;
 
+@property(readonly) bool		isMe;
 @property(readonly)	NSString	*string;
 @property(retain)	NSString	*nickname;
 @property(retain)	NSString	*user;

@@ -30,26 +30,30 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 	if (self != nil) {	
 		NSArray *firstComponents = [string componentsSeparatedByString:@"!"];
 		if ([firstComponents count] < 2) {
-			[self release];
-			return nil;
+			nickname = [string copy];
+			user = nil;
+			host = nil;
+			userModes = [[NSMutableDictionary alloc] init];
 		}
-		NSArray *secondComponents = [[firstComponents objectAtIndex:1] componentsSeparatedByString:@"@"];
-		if ([secondComponents count] < 2) {
-			[self release];
-			return nil;
-		}
+		else {
+			NSArray *secondComponents = [[firstComponents objectAtIndex:1] componentsSeparatedByString:@"@"];
+			if ([secondComponents count] < 2) {
+				[self release];
+				return nil;
+			}
 		
-		nickname = [[firstComponents objectAtIndex:0] copy];
-		if ([nickname characterAtIndex:0] == '+' || [nickname characterAtIndex:0] == '@') {
-			NSMutableString *tmp = [nickname mutableCopy];
-			[nickname release];
-			[tmp deleteCharactersInRange:NSMakeRange(0, 1)];
-			nickname = [tmp copy];
-			[tmp release];
+			nickname = [[firstComponents objectAtIndex:0] copy];
+			if ([nickname characterAtIndex:0] == '+' || [nickname characterAtIndex:0] == '@') {
+				NSMutableString *tmp = [nickname mutableCopy];
+				[nickname release];
+				[tmp deleteCharactersInRange:NSMakeRange(0, 1)];
+				nickname = [tmp copy];
+				[tmp release];
+			}
+			user = [[secondComponents objectAtIndex:0] copy];
+			host = [[secondComponents objectAtIndex:1] copy];
+			userModes = [[NSMutableDictionary alloc] init];
 		}
-		user = [[secondComponents objectAtIndex:0] copy];
-		host = [[secondComponents objectAtIndex:1] copy];
-		userModes = [[NSMutableDictionary alloc] init];
 		
 		server = _server;
 		
