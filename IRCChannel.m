@@ -12,6 +12,7 @@
 #import "IRCUser.h"
 #import "IRCUserMode.h"
 #import "IRCChannelMessage.h"
+#import "IRCProtocol.h"
 
 NSString *IRCUserListHasChanged  = @"iRelayChat-IRCUserListHasChanged";
 NSString *IRCNewChannelMessage = @"iRelayChat-IRCNewChannelMessage";
@@ -59,33 +60,12 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 		userList = nil;
 		
 		NSMutableArray *para = [[NSMutableArray alloc] init];
-		[para addObject:@"*"];
-		[para addObject:@"*"];
-		[para addObject:name];
 		
-		[server addObserver:self selector:@selector(userList:) message:[[IRCMessage alloc] initWithCommand:@"353" from:nil andPrarameters:para]];
-		[para release];
-		
-		para = [[NSMutableArray alloc] init];
-		[para addObject:@"*"];
-		[para addObject:name];
-		[server addObserver:self selector:@selector(userListEnd:) message:[[IRCMessage alloc] initWithCommand:@"366" from:nil andPrarameters:para]];
-		[para release];
-		
-		para = [[NSMutableArray alloc] init];
-		[para addObject:name];
-		[server addObserver:self selector:@selector(channelMessage:) message:[[IRCMessage alloc] initWithCommand:@"PRIVMSG" from:nil andPrarameters:para]];
-		[para release];
-		
-		para = [[NSMutableArray alloc] init];
-		[para addObject:name];
-		[server addObserver:self selector:@selector(userJoin:) message:[[IRCMessage alloc] initWithCommand:@"JOIN" from:nil andPrarameters:para]];
-		[para release];
-		
-		para = [[NSMutableArray alloc] init];
-		[para addObject:name];
-		[server addObserver:self selector:@selector(userLeave:) message:[[IRCMessage alloc] initWithCommand:@"PART" from:nil andPrarameters:para]];
-		[para release];
+		[server addObserver:self selector:@selector(userList:) pattern:[server.protocol patternNameReplyForChannel:name]];
+		[server addObserver:self selector:@selector(userListEnd:) pattern:[server.protocol patternNameReplyEndForChannel:name]];
+		[server addObserver:self selector:@selector(channelMessage:) pattern:[server.protocol patternPirvmsgFor:name]];
+		[server addObserver:self selector:@selector(userJoin:) pattern:[server.protocol patternJoinForChannel:name]];
+		[server addObserver:self selector:@selector(userLeave:) pattern:[server.protocol patternPartForChannel:name]];
 		
 		para = [[NSMutableArray alloc] init];
 		[para addObject:name];
@@ -135,14 +115,19 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[ircmessage release];
 }
 
-- (void) userList:(IRCMessage*)message
+- (void) userList:(NSString*)messageLine
 {
+	NSString *nicks = NULL;
 	if (!tmpUserList)
 		tmpUserList = [[NSMutableArray alloc] init];
 	
-	NSArray *users = [[message.parameters objectAtIndex:3] componentsSeparatedByString:@" "];
+	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternNameReplyForChannel:name],@"${nicks}",&nicks,nil];
+		
+	NSArray *users = [nicks componentsSeparatedByString:@" "];
 	
 	for (NSString *username in users) {
+		if ([username isEqualToString:@""] || [username isEqualToString:@" "])
+			continue;
 		IRCUser *user = [IRCUser userWithNickname:username onServer:self.server];
 		IRCUserMode *mode = [[IRCUserMode alloc] initFromUserString:username];
 		[user setUserMode:mode forChannel:self];
@@ -152,7 +137,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	}
 }
 
-- (void) userListEnd:(IRCMessage*)message
+- (void) userListEnd:(NSString*)messageLine
 {
 	[tmpUserList sortUsingFunction:sortUsers context:self];
 	if (![userList isEqualToArray:tmpUserList]) {
@@ -169,31 +154,50 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 }
 
-- (void) channelMessage:(IRCMessage*)message
+- (void) channelMessage:(NSString*)messageLine
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithIRCMessage:message];
+	NSString *from = NULL, *message = NULL;
+	
+	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPirvmsgFor:name],@"${from}",&from,@"${message}",&message,nil];
+	
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithUser:[IRCUser userWithString:from onServer:self.server] andMessage:message];
 	[dict setObject:mess forKey:@"MESSAGE"];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[mess release];
 }
 
-- (void) userJoin:(IRCMessage*)message
+- (void) userJoin:(NSString*)messageLine
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:message.from forKey:@"FROM"];
-	[userList addObject:message.from];
+	NSString *from = NULL;
+	IRCUser *user;
+	
+	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternJoinForChannel:name],@"${from}",&from,nil];
+	
+	user = [IRCUser userWithString:from onServer:self.server];
+	
+	[dict setObject:user forKey:@"FROM"];
+	[userList addObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserJoinsChannel object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
 
-- (void) userLeave:(IRCMessage*)message
+- (void) userLeave:(NSString*)messageLine
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:message.from forKey:@"FROM"];
-	[userList removeObject:message.from];
+	NSString *from = NULL, *reason = NULL;
+	IRCUser *user;
+	
+	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPartForChannel:name],@"${from}",&from,@"${reason}",&reason,nil];
+	
+	user = [IRCUser userWithString:from onServer:self.server];
+	
+	[dict setObject:user forKey:@"FROM"];
+	[dict setObject:reason forKey:@"REASON"];
+	[userList removeObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserLeavesChannel object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];

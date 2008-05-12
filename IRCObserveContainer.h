@@ -13,11 +13,13 @@
 @interface IRCObserveContainer : NSObject {
 	SEL		selector;
 	id		observer;
+	id		pattern;
 	IRCMessage *message;
 }
 
 @property(readwrite, assign) SEL selector;
 @property(readwrite, assign) id	observer;
 @property(readwrite, assign) IRCMessage *message;
+@property(readwrite, retain) id pattern;
 
 @end

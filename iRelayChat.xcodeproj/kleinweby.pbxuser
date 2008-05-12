@@ -140,12 +140,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 232198650;
-			PBXWorkspaceStateSaveDate = 232198650;
-		};
-		perUserProjectItems = {
-			92911F070DD7156D009C2C16 /* PBXTextBookmark */ = 92911F070DD7156D009C2C16 /* PBXTextBookmark */;
-			92911F080DD7156D009C2C16 /* PBXTextBookmark */ = 92911F080DD7156D009C2C16 /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 232300685;
+			PBXWorkspaceStateSaveDate = 232300685;
 		};
 		sourceControlManager = 92238EE60DCBB9EF00933D94 /* Source Control */;
 		userBuildSettings = {
@@ -153,9 +149,9 @@
 	};
 	2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {836, 2170}}";
-			sepNavSelRange = "{3516, 0}";
-			sepNavVisRange = "{2581, 1223}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 1638}}";
+			sepNavSelRange = "{765, 0}";
+			sepNavVisRange = "{851, 1113}";
 		};
 	};
 	2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {
@@ -180,16 +176,16 @@
 	};
 	921442360DD61C6800A19EAF /* IRCChannelMessage.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 602}}";
-			sepNavSelRange = "{159, 79}";
-			sepNavVisRange = "{0, 1751}";
+			sepNavIntBoundsRect = "{{0, 0}, {828, 602}}";
+			sepNavSelRange = "{1569, 66}";
+			sepNavVisRange = "{0, 1855}";
 		};
 	};
 	921442370DD61C6800A19EAF /* IRCChannelMessage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 1274}}";
-			sepNavSelRange = "{1061, 0}";
-			sepNavVisRange = "{0, 1920}";
+			sepNavIntBoundsRect = "{{0, 0}, {828, 1260}}";
+			sepNavSelRange = "{1265, 0}";
+			sepNavVisRange = "{1345, 986}";
 		};
 	};
 	92238EDB0DCBB9ED00933D94 /* iRelayChat */ = {
@@ -257,54 +253,64 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = CoreFoundation;
-		modificationTime = 232203090.805789;
+		modificationTime = 232285210.861708;
 		state = 1;
 		symbolName = "-[NSException raise]";
 	};
 	926705380DCF31C800E5D085 /* IRCUser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 546}}";
-			sepNavSelRange = "{550, 0}";
-			sepNavVisRange = "{0, 908}";
+			sepNavIntBoundsRect = "{{0, 0}, {957, 560}}";
+			sepNavSelRange = "{940, 0}";
+			sepNavVisRange = "{0, 947}";
 		};
 	};
 	926705390DCF31C800E5D085 /* IRCUser.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 2646}}";
-			sepNavSelRange = "{3686, 0}";
-			sepNavVisRange = "{3126, 183}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 2702}}";
+			sepNavSelRange = "{3181, 0}";
+			sepNavVisRange = "{2753, 916}";
 		};
-	};
-	92911F070DD7156D009C2C16 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: syntax error before 'ESWebView'";
-		fRef = AA3CC49D0DCB1465002D70DC /* ChannelView.m */;
-		rLen = 1;
-		rLoc = 160;
-		rType = 1;
-	};
-	92911F080DD7156D009C2C16 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = AA3CC49D0DCB1465002D70DC /* ChannelView.m */;
-		name = "ChannelView.m: 159";
-		rLen = 0;
-		rLoc = 5181;
-		rType = 0;
-		vrLen = 300;
-		vrLoc = 5031;
 	};
 	92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 542}}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 571}}";
 			sepNavSelRange = "{188, 0}";
 			sepNavVisRange = "{0, 232}";
 		};
 	};
 	92911F280DD71DBA009C2C16 /* IRCMeUser.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 565}}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 571}}";
 			sepNavSelRange = "{166, 0}";
 			sepNavVisRange = "{0, 233}";
+		};
+	};
+	9298CC590DD8459600023EBE /* DebugWindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {758, 574}}";
+			sepNavSelRange = "{888, 0}";
+			sepNavVisRange = "{0, 940}";
+		};
+	};
+	9298CC5A0DD8459600023EBE /* DebugWindow.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {758, 1302}}";
+			sepNavSelRange = "{583, 0}";
+			sepNavVisRange = "{392, 1745}";
+		};
+	};
+	9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {758, 571}}";
+			sepNavSelRange = "{455, 49}";
+			sepNavVisRange = "{0, 510}";
+		};
+	};
+	9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {758, 714}}";
+			sepNavSelRange = "{1015, 48}";
+			sepNavVisRange = "{193, 973}";
 		};
 	};
 	92FD87500DCC78610024661C /* MessageViewController.h */ = {
@@ -323,23 +329,23 @@
 	};
 	92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 2408}}";
-			sepNavSelRange = "{2382, 0}";
-			sepNavVisRange = "{1532, 1324}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 2618}}";
+			sepNavSelRange = "{3466, 0}";
+			sepNavVisRange = "{3949, 754}";
 		};
 	};
 	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 812}}";
-			sepNavSelRange = "{1405, 0}";
-			sepNavVisRange = "{333, 1094}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 994}}";
+			sepNavSelRange = "{1769, 0}";
+			sepNavVisRange = "{1204, 1209}";
 		};
 	};
 	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 2100}}";
-			sepNavSelRange = "{659, 0}";
-			sepNavVisRange = "{34, 1343}";
+			sepNavIntBoundsRect = "{{0, 0}, {859, 3262}}";
+			sepNavSelRange = "{1118, 0}";
+			sepNavVisRange = "{695, 1145}";
 		};
 	};
 	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
@@ -351,9 +357,9 @@
 	};
 	AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 3192}}";
-			sepNavSelRange = "{4945, 0}";
-			sepNavVisRange = "{4063, 1408}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 2660}}";
+			sepNavSelRange = "{4995, 0}";
+			sepNavVisRange = "{4740, 322}";
 		};
 	};
 	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
@@ -365,9 +371,9 @@
 	};
 	AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1101, 1666}}";
-			sepNavSelRange = "{1769, 0}";
-			sepNavVisRange = "{383, 1793}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 2114}}";
+			sepNavSelRange = "{2257, 51}";
+			sepNavVisRange = "{1960, 1122}";
 		};
 	};
 	AAC033780DB85BAE002D6711 /* IRCMessage.h */ = {
@@ -386,16 +392,16 @@
 	};
 	AAC033D90DB8D053002D6711 /* IRCObserveContainer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {712, 547}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 441}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 571}}";
+			sepNavSelRange = "{481, 0}";
+			sepNavVisRange = "{0, 496}";
 		};
 	};
 	AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {712, 547}}";
-			sepNavSelRange = "{264, 0}";
-			sepNavVisRange = "{0, 271}";
+			sepNavIntBoundsRect = "{{0, 0}, {758, 548}}";
+			sepNavSelRange = "{333, 0}";
+			sepNavVisRange = "{0, 409}";
 		};
 	};
 }

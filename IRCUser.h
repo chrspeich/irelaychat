@@ -34,5 +34,6 @@ extern NSString *IRCUserChanged;
 @property(retain)	NSString	*nickname;
 @property(retain)	NSString	*user;
 @property(retain)	NSString	*host;
+@property(readonly)	IRCServer	*server;
 
 @end
