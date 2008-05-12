@@ -11,6 +11,7 @@
 #import "IRCObserveContainer.h"
 #import "IRCChannel.h"
 #import "IRCMeUser.h"
+#import "IRCProtocol.h"
 #include <sys/socket.h>
 
 NSString *IRCConnected = @"iRelayChat-IRCConnected";
@@ -21,7 +22,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 
 @implementation IRCServer
 
-@synthesize serverName, host, port, isConnected, channels, me;
+@synthesize serverName, host, port, isConnected, channels, me, protocol, messages;
 
 - (id) initWithHost:(NSString*)_host andPort:(NSString*)_port;
 {
@@ -31,13 +32,16 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		port = [_port retain];
 		isConnected = NO;
 		channels = [[NSMutableArray alloc] init];
-		nick = @"webyTest";
+		nick = @"kleinweby";
 		serverName = @"FreeNode";
 		observerObjects = [[NSMutableArray alloc] init];
 		knownUsers = [[NSMutableArray alloc] init];
+		messages = [[NSMutableArray alloc] init];
+		protocol = [[IRCProtocol alloc] initWithServer:self];
 		me = [IRCMeUser userWithNickname:nick onServer:self];
-		[self addObserver:self selector:@selector(ping:) message:[[IRCMessage alloc] initWithCommand:@"PING" from:nil andPrarameters:nil]];
-		[self addObserver:self selector:@selector(userQuit:) message:[[IRCMessage alloc] initWithCommand:@"QUIT" from:nil andPrarameters:nil]];
+		missedMessages = 0;
+		[self addObserver:self selector:@selector(ping:) pattern:[self.protocol patternPing]];
+		[self addObserver:self selector:@selector(userQuit:) pattern:[self.protocol patternQuit]];
 	}
 	return self;
 }
@@ -49,7 +53,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	struct hostent *_host;
 	int status;
 	//freenode=140.211.166.3
-	if (!inet_aton("127.0.0.1", &inaddr)) {
+	if (!inet_aton("140.211.166.3", &inaddr)) {
 		NSLog(@"inet_aton fails");
 		return NO;
 	}
@@ -82,8 +86,8 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	
 	[NSThread detachNewThreadSelector:@selector(runLoop) toTarget:self withObject:nil];
 	
-	[self send:[NSString stringWithFormat:@"NICK %@", nick]];
-	[self send:[NSString stringWithFormat:@"USER %@ %@ %@ :Christian Speich", nick, nick, nick]];
+	[self send:[self.protocol nickTo:nick]];
+	[self send:[self.protocol user:nick andRealName:@"Christian Speich"]];
 	
 	return YES;
 }
@@ -121,15 +125,36 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 			IRCMessage *message = [[IRCMessage alloc] initWithOrginalMessage:line withEncoding:NSUTF8StringEncoding andServer:self];
 			
-			NSArray *observers = [observerObjects copy];
+			NSString *messageLine = [NSString stringWithCString:message.orgMessage encoding:message.encoding];
+						
+			int matched = 0;
 			
-			for (IRCObserveContainer *container in observers) {
-				if ([container.message isEqualToMessage:message]) {
-					[container.observer performSelectorOnMainThread:container.selector withObject:message waitUntilDone:NO];
+			@synchronized(observerObjects)
+			{
+				for (IRCObserveContainer *container in observerObjects) {
+					if (container.message && [container.message isEqualToMessage:message]) {
+						[container.observer performSelectorOnMainThread:container.selector withObject:message waitUntilDone:NO];
+						matched++;
+					}
+					else if (container.pattern && [messageLine isMatchedByRegex:container.pattern]) {
+						[container.observer performSelectorOnMainThread:container.selector withObject:messageLine waitUntilDone:NO];
+						matched++;
+					}
 				}
 			}
 			
-			[observers release];
+			NSDictionary *dict;
+			NSDate *date = [NSDate date];
+
+			if (matched < 2) {
+				missedMessages++;
+				dict = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"YES",@"MISSED",nil];
+			}
+			else
+				dict = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"NO",@"MISSED",nil];
+			
+			[messages addObject:dict];
+			
 			[message release];
 			free(line);
 		}
@@ -171,39 +196,80 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	container.selector = selector;
 	container.observer = observer;
 	container.message = message;
-	[observerObjects addObject:container];
+	@synchronized(observerObjects)
+	{
+		[observerObjects addObject:container];
+	}
+	[container release];
+}
+
+- (void) addObserver:(id)observer selector:(SEL)selector pattern:(id)pattern
+{
+	IRCObserveContainer *container = [[IRCObserveContainer alloc] init];
+	container.selector = selector;
+	container.observer = observer;
+	container.pattern = pattern;
+	@synchronized(observerObjects)
+	{
+		[observerObjects addObject:container];
+	}
 	[container release];
 }
 
 - (void) removeObserver:(id)observer
 {
-	for (IRCObserveContainer* container in observerObjects) {
-		if (container.observer == observer)
-			[observerObjects removeObject:container];
+	@synchronized(observerObjects) 
+	{
+		for (IRCObserveContainer* container in observerObjects) {
+			if (container.observer == observer)
+				[observerObjects removeObject:container];
+		}
 	}
 }
 
 - (void) removeObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
 {
-	for (IRCObserveContainer* container in observerObjects) {
-		if (container.observer == observer &&
-			container.selector == selector &&
-			[message isEqualToMessage:container.message])
-			[observerObjects removeObject:container];
+	@synchronized(observerObjects)
+	{
+		for (IRCObserveContainer* container in observerObjects) {
+			if (container.observer == observer &&
+				container.selector == selector &&
+				[message isEqualToMessage:container.message])
+				[observerObjects removeObject:container];
+		}
 	}
 }
 
-- (void) ping:(IRCMessage*)message
+- (NSArray*) registerdObservers
 {
-	/* Just ping back to the Server */
-	[self send:[NSString stringWithFormat:@"PONG %@", [message.parameters objectAtIndex:0]]];
+	return observerObjects;
 }
 
-- (void) userQuit:(IRCMessage*)message
+- (int) missedMessages
 {
+	return missedMessages;
+}
+
+- (void) ping:(NSString*)messageLine
+{
+	NSString *user = NULL;
+	/* Just ping back to the Server */
+	
+	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternPing],@"${user}",&user,nil];
+	
+	[self send:[self.protocol pongTo:user]];
+}
+
+- (void) userQuit:(NSString*)messageLine
+{
+	NSString *from = NULL, *reason = NULL;
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:message.from forKey:@"FROM"];
-	[dict setObject:[message.parameters objectAtIndex:0] forKey:@"MESSAGE"];
+	
+	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternQuit],@"${from}",&from,@"${reason}",&reason,nil];
+	
+	[dict setObject:[IRCUser userWithString:from onServer:self] forKey:@"FROM"];
+	[dict setObject:reason forKey:@"MESSAGE"];
+	
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserQuit object:self userInfo:dict];
 }
 

@@ -24,6 +24,9 @@
 		9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 926705390DCF31C800E5D085 /* IRCUser.m */; };
 		92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92911F280DD71DBA009C2C16 /* IRCMeUser.m */; };
 		9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9294743D0DCC63EC0022A391 /* WebKit.framework */; };
+		9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9298CC550DD841D700023EBE /* DebugWindow.xib */; };
+		9298CC5B0DD8459600023EBE /* DebugWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9298CC5A0DD8459600023EBE /* DebugWindow.m */; };
+		9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9298CC980DD85BD500023EBE /* IRCProtocol.m */; };
 		92FD87520DCC78610024661C /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD87510DCC78610024661C /* MessageViewController.m */; };
 		92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 92FD87620DCC7CAF0024661C /* MessageTemplate.html */; };
 		AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E0B40DB785660018FBCC /* IRCServer.m */; };
@@ -75,6 +78,11 @@
 		92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMeUser.h; sourceTree = "<group>"; };
 		92911F280DD71DBA009C2C16 /* IRCMeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMeUser.m; sourceTree = "<group>"; };
 		9294743D0DCC63EC0022A391 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		9298CC550DD841D700023EBE /* DebugWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DebugWindow.xib; sourceTree = "<group>"; };
+		9298CC590DD8459600023EBE /* DebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWindow.h; sourceTree = "<group>"; };
+		9298CC5A0DD8459600023EBE /* DebugWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugWindow.m; sourceTree = "<group>"; };
+		9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCProtocol.h; sourceTree = "<group>"; };
+		9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCProtocol.m; sourceTree = "<group>"; };
 		92FD87500DCC78610024661C /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		92FD87510DCC78610024661C /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MessageTemplate.html; sourceTree = "<group>"; };
@@ -153,6 +161,8 @@
 				AA3CC49D0DCB1465002D70DC /* ChannelView.m */,
 				92FD87500DCC78610024661C /* MessageViewController.h */,
 				92FD87510DCC78610024661C /* MessageViewController.m */,
+				9298CC590DD8459600023EBE /* DebugWindow.h */,
+				9298CC5A0DD8459600023EBE /* DebugWindow.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -179,6 +189,7 @@
 				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
 				AA3CC4980DCB117B002D70DC /* ChannelView.xib */,
 				92FD87620DCC7CAF0024661C /* MessageTemplate.html */,
+				9298CC550DD841D700023EBE /* DebugWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -213,6 +224,8 @@
 				921442370DD61C6800A19EAF /* IRCChannelMessage.m */,
 				92911F270DD71DBA009C2C16 /* IRCMeUser.h */,
 				92911F280DD71DBA009C2C16 /* IRCMeUser.m */,
+				9298CC970DD85BD500023EBE /* IRCProtocol.h */,
+				9298CC980DD85BD500023EBE /* IRCProtocol.m */,
 			);
 			name = irc;
 			sourceTree = "<group>";
@@ -273,6 +286,7 @@
 				922430D00DD1F732005FF883 /* green.tiff in Resources */,
 				922430D10DD1F732005FF883 /* red.tiff in Resources */,
 				922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */,
+				9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +309,8 @@
 				922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */,
 				921442380DD61C6800A19EAF /* IRCChannelMessage.m in Sources */,
 				92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */,
+				9298CC5B0DD8459600023EBE /* DebugWindow.m in Sources */,
+				9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

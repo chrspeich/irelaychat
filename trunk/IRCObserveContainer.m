@@ -11,6 +11,18 @@
 
 @implementation IRCObserveContainer
 
-@synthesize selector,observer,message;
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		observer = nil;
+		message = nil;
+		pattern = nil;
+	}
+	return self;
+}
+
+
+@synthesize selector,observer,message, pattern;
 
 @end

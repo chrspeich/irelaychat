@@ -21,6 +21,7 @@ extern NSString *IRCUserQuit;
 @class IRCChannel;
 @class IRCMessage;
 @class IRCUser;
+@class IRCProtocol;
 
 @interface IRCServer : NSObject {
 	NSString		*host;
@@ -31,8 +32,11 @@ extern NSString *IRCUserQuit;
 	NSMutableArray	*channels;
 	NSMutableArray	*observerObjects;
 	NSMutableArray	*knownUsers;
+	NSMutableArray	*messages;
 	int				sock;
 	IRCUser			*me;
+	int				missedMessages;
+	IRCProtocol		*protocol;
 }
 
 - (id) initWithHost:(NSString*)host andPort:(NSString*)port;
@@ -41,6 +45,7 @@ extern NSString *IRCUserQuit;
 - (void) disconnect;
 - (void) send:(NSString*)cmd;
 - (void) addObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
+- (void) addObserver:(id)observer selector:(SEL)selector pattern:(id)pattern;
 - (void) removeObserver:(id)observer;
 - (void) removeObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
 
@@ -55,7 +60,13 @@ extern NSString *IRCUserQuit;
 @property(readonly)			bool		isConnected;
 @property(readonly)	NSMutableArray*channels;
 @property(readonly) IRCUser *me;
+@property(readonly) IRCProtocol *protocol;
+@property(readonly) NSArray	*messages;
 
 - (char *)readLine;
+
+/* For Debug */
+- (NSArray*) registerdObservers;
+- (int) missedMessages;
 
 @end

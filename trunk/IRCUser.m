@@ -22,7 +22,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 
 @implementation IRCUser
 
-@synthesize nickname, user, host;
+@synthesize nickname, user, host, server;
 
 - (id) initWithString:(NSString*)string onServer:(IRCServer*)_server;
 {
@@ -95,7 +95,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 - (void) setupObservers
 {
 	[server removeObserver:self];
-	[server addObserver:self selector:@selector(nickNameChanged:) message:[[IRCMessage alloc] initWithCommand:@"NICK" from:self andPrarameters:nil]];
+//	[server addObserver:self selector:@selector(nickNameChanged:) message:[[IRCMessage alloc] initWithCommand:@"NICK" from:self andPrarameters:nil]];
 }
 
 - (bool) isMe
@@ -128,6 +128,8 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 			break;
 		}
 	}
+	user.host = searchForUser.host;
+	user.user = searchForUser.user;
 	[searchForUser release];
 	
 	if (!user) {
@@ -149,7 +151,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 		return nil;
 		
 	for (IRCUser *tmp in [server knownUsers]) {
-		if ([tmp.nickname isEqualToString:name]) {
+		if ([tmp isEqualToUser:searchForUser]) {
 			user = [tmp retain];
 			break;
 		}
