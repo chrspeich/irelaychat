@@ -47,9 +47,19 @@
 	return [NSString stringWithFormat:@"^(?i):(?<from>.*)\\sPART\\s%@\\s:(?<reason>.*)$", channel];
 }
 
+- (id) patternModeForChannel:(NSString*)channel
+{
+	return [NSString stringWithFormat:@"^(?i):(?<from>.*)\\sMODE\\s%@\\s(?<change>[+-])(?<mode>.*)\\s(?<to>.*)$", channel];
+}
+
 - (id) patternQuit
 {
 	return @"^(?i):(?<from>.*)\\sQUIT\\s:(?<reason>.*)$";
+}
+
+- (id) patternNick
+{
+	return @"^(?i):(?<from>.*)\\sNICK\\s:(?<to>.*)$";
 }
 
 - (id) patternPing

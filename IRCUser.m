@@ -6,6 +6,7 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
+#import <ScreenSaver/ScreenSaver.h>
 #import "IRCUser.h"
 #import "IRCServer.h"
 #import "IRCUserMode.h"
@@ -55,6 +56,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 			userModes = [[NSMutableDictionary alloc] init];
 		}
 		
+		color = nil;
 		server = _server;
 		
 		if (server) {
@@ -82,6 +84,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 			[tmp release];
 		}
 		
+		color = nil;
 		server = _server;
 		
 		if (server) {
@@ -186,6 +189,15 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 	nickname = [[message.parameters objectAtIndex:0] copy];
 	[self setupObservers];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserChanged object:self];
+}
+
+- (NSColor*) color
+{
+	if (!color) {
+		color = [NSColor colorWithDeviceRed:SSRandomFloatBetween(0.f,1.f) green:SSRandomFloatBetween(0.f,1.f) blue:SSRandomFloatBetween(0.f,1.f) alpha:1.f];
+		[color retain];
+	}
+	return color;
 }
 
 @end
