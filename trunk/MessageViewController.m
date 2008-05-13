@@ -45,7 +45,7 @@
 	else
 		mode = @"message";
 		
-	NSString *script = [NSString stringWithFormat:@"appendMessage('%@','%@', '%@');", message.from.nickname, [self escapeString:[message htmlUseableMessage]], mode];
+	NSString *script = [NSString stringWithFormat:@"appendMessage('%@','%@', '%@', '%i,%i,%i');", message.from.nickname, [self escapeString:[message htmlUseableMessage]], mode, (int)([message.from.color redComponent]*255.f), (int)([message.from.color greenComponent]*255.f), (int)([message.from.color blueComponent]*255.f)];
 	[messageView stringByEvaluatingJavaScriptFromString:script];
 }
 

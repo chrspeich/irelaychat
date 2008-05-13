@@ -20,6 +20,7 @@ extern NSString *IRCUserChanged;
 	NSString			*host;
 	IRCServer			*server;
 	NSMutableDictionary	*userModes;
+	NSColor				*color;
 }
 
 + (id) userWithNickname:(NSString*)name onServer:(IRCServer*)server;
@@ -35,5 +36,6 @@ extern NSString *IRCUserChanged;
 @property(retain)	NSString	*user;
 @property(retain)	NSString	*host;
 @property(readonly)	IRCServer	*server;
+@property(readonly) NSColor		*color;
 
 @end

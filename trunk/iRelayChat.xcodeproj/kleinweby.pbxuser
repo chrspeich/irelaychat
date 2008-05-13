@@ -10,6 +10,8 @@
 		);
 		breakpoints = (
 			922430B30DD1F255005FF883 /* -[NSException raise] */,
+			926AAC0C0DD9E1B200E1794E /* IRCChannel.m:213 */,
+			926AAC310DD9EA4D00E1794E /* MessageViewController.m:49 */,
 		);
 		codeSenseManager = 92238EE70DCBB9EF00933D94 /* Code sense */;
 		executables = (
@@ -140,8 +142,15 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 232300685;
-			PBXWorkspaceStateSaveDate = 232300685;
+			PBXPerProjectTemplateStateSaveDate = 232380233;
+			PBXWorkspaceStateSaveDate = 232380233;
+		};
+		perUserProjectItems = {
+			926AAC200DD9E64100E1794E /* PBXTextBookmark */ = 926AAC200DD9E64100E1794E /* PBXTextBookmark */;
+			926AAC210DD9E64100E1794E /* PBXTextBookmark */ = 926AAC210DD9E64100E1794E /* PBXTextBookmark */;
+			926AAC410DD9EC9800E1794E /* PBXTextBookmark */ = 926AAC410DD9EC9800E1794E /* PBXTextBookmark */;
+			926AAC420DD9EC9900E1794E /* PBXTextBookmark */ = 926AAC420DD9EC9900E1794E /* PBXTextBookmark */;
+			926AAC430DD9EC9C00E1794E /* PBXTextBookmark */ = 926AAC430DD9EC9C00E1794E /* PBXTextBookmark */;
 		};
 		sourceControlManager = 92238EE60DCBB9EF00933D94 /* Source Control */;
 		userBuildSettings = {
@@ -149,9 +158,9 @@
 	};
 	2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 1638}}";
-			sepNavSelRange = "{765, 0}";
-			sepNavVisRange = "{851, 1113}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 2212}}";
+			sepNavSelRange = "{592, 0}";
+			sepNavVisRange = "{20, 899}";
 		};
 	};
 	2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {
@@ -183,9 +192,9 @@
 	};
 	921442370DD61C6800A19EAF /* IRCChannelMessage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {828, 1260}}";
-			sepNavSelRange = "{1265, 0}";
-			sepNavVisRange = "{1345, 986}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 1806}}";
+			sepNavSelRange = "{4608, 0}";
+			sepNavVisRange = "{2961, 1653}";
 		};
 	};
 	92238EDB0DCBB9ED00933D94 /* iRelayChat */ = {
@@ -253,23 +262,105 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = CoreFoundation;
-		modificationTime = 232285210.861708;
+		modificationTime = 232385371.782149;
 		state = 1;
 		symbolName = "-[NSException raise]";
 	};
 	926705380DCF31C800E5D085 /* IRCUser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {957, 560}}";
-			sepNavSelRange = "{940, 0}";
-			sepNavVisRange = "{0, 947}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 588}}";
+			sepNavSelRange = "{997, 0}";
+			sepNavVisRange = "{3, 1001}";
 		};
 	};
 	926705390DCF31C800E5D085 /* IRCUser.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 2702}}";
-			sepNavSelRange = "{3181, 0}";
-			sepNavVisRange = "{2753, 916}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 2184}}";
+			sepNavSelRange = "{2266, 0}";
+			sepNavVisRange = "{2201, 755}";
 		};
+	};
+	926AAC0C0DD9E1B200E1794E /* IRCChannel.m:213 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */;
+		functionName = "-modeChanged:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 213;
+		location = iRelayChat;
+		modificationTime = 232385371.781718;
+		state = 1;
+	};
+	926AAC200DD9E64100E1794E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: invalid initializer";
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		rLen = 1;
+		rLoc = 291;
+		rType = 1;
+	};
+	926AAC210DD9E64100E1794E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		name = "IRCServer.m: 292";
+		rLen = 0;
+		rLoc = 7624;
+		rType = 0;
+		vrLen = 218;
+		vrLoc = 7527;
+	};
+	926AAC310DD9EA4D00E1794E /* MessageViewController.m:49 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 92FD87510DCC78610024661C /* MessageViewController.m */;
+		functionName = "-addMessage:";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 49;
+		location = iRelayChat;
+		modificationTime = 232385375.506156;
+		state = 1;
+	};
+	926AAC410DD9EC9800E1794E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		name = "IRCServer.m: 292";
+		rLen = 0;
+		rLoc = 7624;
+		rType = 0;
+		vrLen = 218;
+		vrLoc = 7527;
+	};
+	926AAC420DD9EC9900E1794E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		name = "IRCServer.m: 292";
+		rLen = 0;
+		rLoc = 7624;
+		rType = 0;
+		vrLen = 218;
+		vrLoc = 7527;
+	};
+	926AAC430DD9EC9C00E1794E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		name = "IRCServer.m: 292";
+		rLen = 0;
+		rLoc = 7624;
+		rType = 0;
+		vrLen = 218;
+		vrLoc = 7527;
 	};
 	92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {
 		uiCtxt = {
@@ -287,30 +378,30 @@
 	};
 	9298CC590DD8459600023EBE /* DebugWindow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 574}}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 574}}";
 			sepNavSelRange = "{888, 0}";
-			sepNavVisRange = "{0, 940}";
+			sepNavVisRange = "{0, 935}";
 		};
 	};
 	9298CC5A0DD8459600023EBE /* DebugWindow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 1302}}";
-			sepNavSelRange = "{583, 0}";
-			sepNavVisRange = "{392, 1745}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 1764}}";
+			sepNavSelRange = "{2532, 0}";
+			sepNavVisRange = "{1970, 356}";
 		};
 	};
 	9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 571}}";
-			sepNavSelRange = "{455, 49}";
-			sepNavVisRange = "{0, 510}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 543}}";
+			sepNavSelRange = "{601, 0}";
+			sepNavVisRange = "{0, 813}";
 		};
 	};
 	9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 714}}";
-			sepNavSelRange = "{1015, 48}";
-			sepNavVisRange = "{193, 973}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 1260}}";
+			sepNavSelRange = "{1228, 0}";
+			sepNavVisRange = "{425, 1006}";
 		};
 	};
 	92FD87500DCC78610024661C /* MessageViewController.h */ = {
@@ -322,30 +413,30 @@
 	};
 	92FD87510DCC78610024661C /* MessageViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 1078}}";
-			sepNavSelRange = "{1119, 0}";
-			sepNavVisRange = "{951, 400}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 1120}}";
+			sepNavSelRange = "{1159, 0}";
+			sepNavVisRange = "{1060, 514}";
 		};
 	};
 	92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 2618}}";
-			sepNavSelRange = "{3466, 0}";
-			sepNavVisRange = "{3949, 754}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 2030}}";
+			sepNavSelRange = "{1308, 0}";
+			sepNavVisRange = "{373, 1544}";
 		};
 	};
 	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 994}}";
-			sepNavSelRange = "{1769, 0}";
-			sepNavVisRange = "{1204, 1209}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 1022}}";
+			sepNavSelRange = "{2437, 0}";
+			sepNavVisRange = "{1398, 1091}";
 		};
 	};
 	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {859, 3262}}";
-			sepNavSelRange = "{1118, 0}";
-			sepNavVisRange = "{695, 1145}";
+			sepNavIntBoundsRect = "{{0, 0}, {439, 2758}}";
+			sepNavSelRange = "{7620, 0}";
+			sepNavVisRange = "{7527, 218}";
 		};
 	};
 	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
@@ -357,9 +448,9 @@
 	};
 	AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 2660}}";
-			sepNavSelRange = "{4995, 0}";
-			sepNavVisRange = "{4740, 322}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 2702}}";
+			sepNavSelRange = "{7592, 0}";
+			sepNavVisRange = "{7683, 468}";
 		};
 	};
 	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
@@ -371,9 +462,9 @@
 	};
 	AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {758, 2114}}";
-			sepNavSelRange = "{2257, 51}";
-			sepNavVisRange = "{1960, 1122}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 2100}}";
+			sepNavSelRange = "{2970, 0}";
+			sepNavVisRange = "{2882, 243}";
 		};
 	};
 	AAC033780DB85BAE002D6711 /* IRCMessage.h */ = {

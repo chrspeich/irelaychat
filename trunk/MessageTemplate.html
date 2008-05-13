@@ -19,21 +19,21 @@
 		return dateStr;
 	  }
 	
-	  function appendMessage(user,message,mode) {
+	  function appendMessage(user,message,mode,color) {
 		if (mode == 'highlighted_message') {
-			html = "<tr><td class=\"user\"><b>"+user+":</b></td><td class=\"message_high\">"+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user\" style=\"background-color:rgba("+color+",0.3);\"><b>"+user+":</b></td><td class=\"message_high\">"+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
 		}
 		else if (mode == 'self_message') {
 			html = "<tr><td class=\"user_self\"><b>"+user+":</b></td><td class=\"message_self\">"+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
 		}
 		else if (mode == 'action_message') {
-			html = "<tr><td class=\"user_action\" colspan=\"2\">"+user+" "+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user_action\" colspan=\"2\" style=\"background-color:rgb("+color+",0.3)\">"+user+" "+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
 		}
 		else if (mode == 'self_action_message') {
 			html = "<tr><td class=\"my_action\" colspan=\"2\">"+user+" "+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
 		}
 		else {
-			html = "<tr><td class=\"user\"><b>"+user+":</b></td><td class=\"message\">"+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
+			html = "<tr><td class=\"user\" style=\"background-color:rgba("+color+",0.3);\"><b>"+user+":</b></td><td class=\"message\">"+message+"</td>"+timeStr()+"</tr><tr height=\"4px\"></tr>";
 		}
 		
 		appendHTML(html);
@@ -89,7 +89,6 @@
 			-webkit-border-top-left-radius:5px;
 			-webkit-border-bottom-left-radius:5px;
 			vertical-align:text-top;
-			background-color:rgb(247,247,247);
 			padding-top:2px;
 			padding-bottom:2px;
 			padding-left:8px;

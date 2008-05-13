@@ -22,6 +22,7 @@
 		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
 		922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430FC0DD1FD8A005FF883 /* yellow.tiff */; };
 		9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 926705390DCF31C800E5D085 /* IRCUser.m */; };
+		926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AAC270DD9E83B00E1794E /* ScreenSaver.framework */; };
 		92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92911F280DD71DBA009C2C16 /* IRCMeUser.m */; };
 		9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9294743D0DCC63EC0022A391 /* WebKit.framework */; };
 		9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9298CC550DD841D700023EBE /* DebugWindow.xib */; };
@@ -75,6 +76,7 @@
 		922430FC0DD1FD8A005FF883 /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = yellow.tiff; sourceTree = "<group>"; };
 		926705380DCF31C800E5D085 /* IRCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUser.h; sourceTree = "<group>"; };
 		926705390DCF31C800E5D085 /* IRCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUser.m; sourceTree = "<group>"; };
+		926AAC270DD9E83B00E1794E /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
 		92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMeUser.h; sourceTree = "<group>"; };
 		92911F280DD71DBA009C2C16 /* IRCMeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMeUser.m; sourceTree = "<group>"; };
 		9294743D0DCC63EC0022A391 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
@@ -107,6 +109,7 @@
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 				9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */,
 				9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */,
+				926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +200,7 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				926AAC270DD9E83B00E1794E /* ScreenSaver.framework */,
 				9214424D0DD6274C00A19EAF /* RegexKit.framework */,
 				9294743D0DCC63EC0022A391 /* WebKit.framework */,
 				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,

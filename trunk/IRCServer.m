@@ -32,7 +32,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		port = [_port retain];
 		isConnected = NO;
 		channels = [[NSMutableArray alloc] init];
-		nick = @"kleinweby";
+		nick = @"kleinw2by";
 		serverName = @"FreeNode";
 		observerObjects = [[NSMutableArray alloc] init];
 		knownUsers = [[NSMutableArray alloc] init];
@@ -42,6 +42,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		missedMessages = 0;
 		[self addObserver:self selector:@selector(ping:) pattern:[self.protocol patternPing]];
 		[self addObserver:self selector:@selector(userQuit:) pattern:[self.protocol patternQuit]];
+		[self addObserver:self selector:@selector(changeUserName:) pattern:[self.protocol patternNick]];
 	}
 	return self;
 }
@@ -283,6 +284,18 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 {
 	[user retain];
 	[knownUsers addObject:user];
+}
+
+- (void) changeUserName:(NSString*)messageLine
+{
+	IRCUser *user;
+	NSString *from = NULL, *to = NULL;
+	
+	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternNick],@"${from}",&from,@"${to}",&to,nil];
+
+	user = [IRCUser userWithString:from onServer:self];
+	NSLog(@"TO: %@", to);
+	user.nickname = to;
 }
 
 - (void) removeUser:(IRCUser*)user
