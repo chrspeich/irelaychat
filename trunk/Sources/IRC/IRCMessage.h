@@ -19,17 +19,17 @@
 	IRCServer			*server;
 }
 
-- (id)initWithCommand:(NSString*)command from:(IRCUser*)from andPrarameters:(NSArray*)parameters;
-- (id)initWithOrginalMessage:(char*)message withEncoding:(NSStringEncoding)enc andServer:(IRCServer*)_server;
+- (id)initWithCommand:(NSString*)command from:(IRCUser*)from andPrarameters:(NSArray*)parameters  DEPRECATED_ATTRIBUTE;
+- (id)initWithOrginalMessage:(char*)message withEncoding:(NSStringEncoding)enc andServer:(IRCServer*)_server DEPRECATED_ATTRIBUTE;
 
-@property(readonly)		IRCUser				*from;
-@property(readonly)		NSString			*command;
-@property(readonly)		NSArray				*parameters;
-@property(readonly)		char				*orgMessage;
-@property(readonly)		IRCServer			*server;
-@property(readwrite)	NSStringEncoding	encoding;
+@property(readonly)		IRCUser				*from  DEPRECATED_ATTRIBUTE;
+@property(readonly)		NSString			*command  DEPRECATED_ATTRIBUTE;
+@property(readonly)		NSArray				*parameters  DEPRECATED_ATTRIBUTE;
+@property(readonly)		char				*orgMessage  DEPRECATED_ATTRIBUTE;
+@property(readonly)		IRCServer			*server  DEPRECATED_ATTRIBUTE;
+@property(readwrite)	NSStringEncoding	encoding  DEPRECATED_ATTRIBUTE;
 
-- (bool)isEqualToMessage:(IRCMessage*)message;
-- (void)parseMessage;
+- (bool)isEqualToMessage:(IRCMessage*)message  DEPRECATED_ATTRIBUTE;
+- (void)parseMessage  DEPRECATED_ATTRIBUTE;
 
 @end
