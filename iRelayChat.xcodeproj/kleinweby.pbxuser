@@ -11,7 +11,6 @@
 		breakpoints = (
 			922430B30DD1F255005FF883 /* -[NSException raise] */,
 			926AAC0C0DD9E1B200E1794E /* IRCChannel.m:213 */,
-			926AAC310DD9EA4D00E1794E /* MessageViewController.m:49 */,
 		);
 		codeSenseManager = 92238EE70DCBB9EF00933D94 /* Code sense */;
 		executables = (
@@ -142,15 +141,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 232380233;
-			PBXWorkspaceStateSaveDate = 232380233;
-		};
-		perUserProjectItems = {
-			926AAC200DD9E64100E1794E /* PBXTextBookmark */ = 926AAC200DD9E64100E1794E /* PBXTextBookmark */;
-			926AAC210DD9E64100E1794E /* PBXTextBookmark */ = 926AAC210DD9E64100E1794E /* PBXTextBookmark */;
-			926AAC410DD9EC9800E1794E /* PBXTextBookmark */ = 926AAC410DD9EC9800E1794E /* PBXTextBookmark */;
-			926AAC420DD9EC9900E1794E /* PBXTextBookmark */ = 926AAC420DD9EC9900E1794E /* PBXTextBookmark */;
-			926AAC430DD9EC9C00E1794E /* PBXTextBookmark */ = 926AAC430DD9EC9C00E1794E /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 232449622;
+			PBXWorkspaceStateSaveDate = 232449622;
 		};
 		sourceControlManager = 92238EE60DCBB9EF00933D94 /* Source Control */;
 		userBuildSettings = {
@@ -158,9 +150,9 @@
 	};
 	2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 2212}}";
-			sepNavSelRange = "{592, 0}";
-			sepNavVisRange = "{20, 899}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 1386}}";
+			sepNavSelRange = "{298, 0}";
+			sepNavVisRange = "{0, 847}";
 		};
 	};
 	2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {
@@ -192,9 +184,9 @@
 	};
 	921442370DD61C6800A19EAF /* IRCChannelMessage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 1806}}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 1792}}";
 			sepNavSelRange = "{4608, 0}";
-			sepNavVisRange = "{2961, 1653}";
+			sepNavVisRange = "{2958, 1656}";
 		};
 	};
 	92238EDB0DCBB9ED00933D94 /* iRelayChat */ = {
@@ -262,7 +254,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = CoreFoundation;
-		modificationTime = 232385371.782149;
+		modificationTime = 232389662.010504;
 		state = 1;
 		symbolName = "-[NSException raise]";
 	};
@@ -294,73 +286,8 @@
 		ignoreCount = 0;
 		lineNumber = 213;
 		location = iRelayChat;
-		modificationTime = 232385371.781718;
+		modificationTime = 232389662.010209;
 		state = 1;
-	};
-	926AAC200DD9E64100E1794E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: invalid initializer";
-		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
-		rLen = 1;
-		rLoc = 291;
-		rType = 1;
-	};
-	926AAC210DD9E64100E1794E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
-		name = "IRCServer.m: 292";
-		rLen = 0;
-		rLoc = 7624;
-		rType = 0;
-		vrLen = 218;
-		vrLoc = 7527;
-	};
-	926AAC310DD9EA4D00E1794E /* MessageViewController.m:49 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 92FD87510DCC78610024661C /* MessageViewController.m */;
-		functionName = "-addMessage:";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 49;
-		location = iRelayChat;
-		modificationTime = 232385375.506156;
-		state = 1;
-	};
-	926AAC410DD9EC9800E1794E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
-		name = "IRCServer.m: 292";
-		rLen = 0;
-		rLoc = 7624;
-		rType = 0;
-		vrLen = 218;
-		vrLoc = 7527;
-	};
-	926AAC420DD9EC9900E1794E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
-		name = "IRCServer.m: 292";
-		rLen = 0;
-		rLoc = 7624;
-		rType = 0;
-		vrLen = 218;
-		vrLoc = 7527;
-	};
-	926AAC430DD9EC9C00E1794E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
-		name = "IRCServer.m: 292";
-		rLen = 0;
-		rLoc = 7624;
-		rType = 0;
-		vrLen = 218;
-		vrLoc = 7527;
 	};
 	92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {
 		uiCtxt = {
@@ -399,9 +326,9 @@
 	};
 	9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {488, 1260}}";
-			sepNavSelRange = "{1228, 0}";
-			sepNavVisRange = "{425, 1006}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 1218}}";
+			sepNavSelRange = "{1344, 0}";
+			sepNavVisRange = "{732, 881}";
 		};
 	};
 	92FD87500DCC78610024661C /* MessageViewController.h */ = {
@@ -413,30 +340,30 @@
 	};
 	92FD87510DCC78610024661C /* MessageViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 1120}}";
-			sepNavSelRange = "{1159, 0}";
-			sepNavVisRange = "{1060, 514}";
+			sepNavIntBoundsRect = "{{0, 0}, {656, 1148}}";
+			sepNavSelRange = "{1445, 0}";
+			sepNavVisRange = "{775, 285}";
 		};
 	};
 	92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {785, 2030}}";
-			sepNavSelRange = "{1308, 0}";
-			sepNavVisRange = "{373, 1544}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 2632}}";
+			sepNavSelRange = "{4726, 0}";
+			sepNavVisRange = "{4143, 704}";
 		};
 	};
 	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 1022}}";
+			sepNavIntBoundsRect = "{{0, 0}, {844, 1022}}";
 			sepNavSelRange = "{2437, 0}";
-			sepNavVisRange = "{1398, 1091}";
+			sepNavVisRange = "{0, 1414}";
 		};
 	};
 	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {439, 2758}}";
-			sepNavSelRange = "{7620, 0}";
-			sepNavVisRange = "{7527, 218}";
+			sepNavIntBoundsRect = "{{0, 0}, {844, 3080}}";
+			sepNavSelRange = "{291, 24}";
+			sepNavVisRange = "{0, 1029}";
 		};
 	};
 	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
@@ -448,9 +375,9 @@
 	};
 	AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 2702}}";
-			sepNavSelRange = "{7592, 0}";
-			sepNavVisRange = "{7683, 468}";
+			sepNavIntBoundsRect = "{{0, 0}, {785, 2898}}";
+			sepNavSelRange = "{2428, 0}";
+			sepNavVisRange = "{1475, 1700}";
 		};
 	};
 	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
