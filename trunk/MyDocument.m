@@ -22,8 +22,8 @@
 		channelViews = [[NSMutableArray alloc] init];
 		IRCServer *server = [[IRCServer alloc] initWithHost:@"localhost" andPort:@"6667"];
 		[server connect];
-	//	[server joinChannel:@"#Apachefriends"];
-	//	[server joinChannel:@"#Linuxpaten"];
+		[server joinChannel:@"#Apachefriends"];
+		[server joinChannel:@"#Linuxpaten"];
 		[server joinChannel:@"#ubuntu"];
 		[servers addObject:server];
 		[server release];
