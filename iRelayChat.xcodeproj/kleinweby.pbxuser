@@ -10,7 +10,7 @@
 		);
 		breakpoints = (
 			922430B30DD1F255005FF883 /* -[NSException raise] */,
-			926AAC0C0DD9E1B200E1794E /* IRCChannel.m:213 */,
+			926AAC0C0DD9E1B200E1794E /* IRCChannel.m:217 */,
 		);
 		codeSenseManager = 92238EE70DCBB9EF00933D94 /* Code sense */;
 		executables = (
@@ -144,6 +144,10 @@
 			PBXPerProjectTemplateStateSaveDate = 232802219;
 			PBXWorkspaceStateSaveDate = 232802219;
 		};
+		perUserProjectItems = {
+			9234C01A0DE05548006D57AD /* PBXTextBookmark */ = 9234C01A0DE05548006D57AD /* PBXTextBookmark */;
+			9234C01B0DE05548006D57AD /* PBXTextBookmark */ = 9234C01B0DE05548006D57AD /* PBXTextBookmark */;
+		};
 		sourceControlManager = 92238EE60DCBB9EF00933D94 /* Source Control */;
 		userBuildSettings = {
 		};
@@ -258,11 +262,29 @@
 		state = 1;
 		symbolName = "-[NSException raise]";
 	};
+	9234C01A0DE05548006D57AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: 'isEqualToMessage:' is deprecated (declared at /Users/kleinweby/Documents/Development/iRelayChat/Sources/IRC/IRCMessage.h:32)";
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		rLen = 1;
+		rLoc = 228;
+		rType = 1;
+	};
+	9234C01B0DE05548006D57AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA05E0B40DB785660018FBCC /* IRCServer.m */;
+		name = "IRCServer.m: 229";
+		rLen = 0;
+		rLoc = 6826;
+		rType = 0;
+		vrLen = 340;
+		vrLoc = 6564;
+	};
 	926705380DCF31C800E5D085 /* IRCUser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {488, 588}}";
-			sepNavSelRange = "{997, 0}";
-			sepNavVisRange = "{3, 1001}";
+			sepNavIntBoundsRect = "{{0, 0}, {603, 644}}";
+			sepNavSelRange = "{869, 0}";
+			sepNavVisRange = "{0, 1650}";
 		};
 	};
 	926705390DCF31C800E5D085 /* IRCUser.m */ = {
@@ -272,7 +294,7 @@
 			sepNavVisRange = "{2201, 755}";
 		};
 	};
-	926AAC0C0DD9E1B200E1794E /* IRCChannel.m:213 */ = {
+	926AAC0C0DD9E1B200E1794E /* IRCChannel.m:217 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -284,7 +306,7 @@
 		functionName = "-modeChanged:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 213;
+		lineNumber = 217;
 		location = iRelayChat;
 		modificationTime = 232389662.010209;
 		state = 1;
@@ -354,30 +376,30 @@
 	};
 	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {844, 1022}}";
-			sepNavSelRange = "{2437, 0}";
-			sepNavVisRange = "{0, 1414}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 1008}}";
+			sepNavSelRange = "{0, 869}";
+			sepNavVisRange = "{0, 1465}";
 		};
 	};
 	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {844, 3080}}";
-			sepNavSelRange = "{291, 24}";
-			sepNavVisRange = "{0, 1029}";
+			sepNavIntBoundsRect = "{{0, 0}, {797, 2436}}";
+			sepNavSelRange = "{6826, 0}";
+			sepNavVisRange = "{6564, 340}";
 		};
 	};
 	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {804, 569}}";
-			sepNavSelRange = "{370, 0}";
-			sepNavVisRange = "{0, 798}";
+			sepNavIntBoundsRect = "{{0, 0}, {603, 566}}";
+			sepNavSelRange = "{869, 0}";
+			sepNavVisRange = "{0, 1523}";
 		};
 	};
 	AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {785, 2898}}";
-			sepNavSelRange = "{2428, 0}";
-			sepNavVisRange = "{1475, 1700}";
+			sepNavIntBoundsRect = "{{0, 0}, {603, 2940}}";
+			sepNavSelRange = "{869, 0}";
+			sepNavVisRange = "{0, 1950}";
 		};
 	};
 	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
@@ -396,9 +418,9 @@
 	};
 	AAC033780DB85BAE002D6711 /* IRCMessage.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {662, 570}}";
-			sepNavSelRange = "{169, 0}";
-			sepNavVisRange = "{0, 928}";
+			sepNavIntBoundsRect = "{{0, 0}, {603, 566}}";
+			sepNavSelRange = "{978, 16}";
+			sepNavVisRange = "{0, 1147}";
 		};
 	};
 	AAC033790DB85BAE002D6711 /* IRCMessage.m */ = {

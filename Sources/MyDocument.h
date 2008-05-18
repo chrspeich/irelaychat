@@ -1,10 +1,14 @@
-//
-//  MyDocument.h
-//  iRelayChat
-//
-//  Created by Christian Speich on 17.04.08.
-//  Copyright __MyCompanyName__ 2008 . All rights reserved.
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
+ * - Frontend Class -                                                        *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 #import <Cocoa/Cocoa.h>

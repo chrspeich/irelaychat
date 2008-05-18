@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * iRelayChat- A better IRC Client for Mac OS X                              *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
  * - Backend Class -                                                         *
  *                                                                           *
  * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
@@ -44,10 +44,9 @@ extern NSString *IRCUserQuit;
 - (IRCChannel*) joinChannel:(NSString*)name;
 - (void) disconnect;
 - (void) send:(NSString*)cmd;
-- (void) addObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
 - (void) addObserver:(id)observer selector:(SEL)selector pattern:(id)pattern;
 - (void) removeObserver:(id)observer;
-- (void) removeObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
+- (void) removeObserver:(id)observer selector:(SEL)selector pattern:(NSString*)pattern;
 
 - (NSArray*) knownUsers;
 - (void) addUser:(IRCUser*)user;

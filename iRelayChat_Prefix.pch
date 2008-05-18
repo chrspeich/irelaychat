@@ -1,6 +1,15 @@
-//
-// Prefix header for all source files of the 'iRelayChat' target in the 'iRelayChat' project
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
+ * - Frontend Class -                                                        *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>

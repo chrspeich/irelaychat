@@ -1,10 +1,14 @@
-//
-//  IRCServer.m
-//  iRelayChat
-//
-//  Created by Christian Speich on 17.04.08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
+ * - Backend Class -                                                         *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import "IRCServer.h"
 #import "IRCMessage.h"
@@ -118,45 +122,44 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		
 		if (FD_ISSET(sock, &read_fd)) {
 			char *line;
+			NSDictionary *message;
+			NSDate *date = [NSDate date];
+			NSString *messageLine;
+			int matched = 0;
 			
 			line = [self readLine];
 			
 			printf("> %s\n", line);
 			fflush(0);
-			
-			IRCMessage *message = [[IRCMessage alloc] initWithOrginalMessage:line withEncoding:NSUTF8StringEncoding andServer:self];
-			
-			NSString *messageLine = [NSString stringWithCString:message.orgMessage encoding:message.encoding];
 						
-			int matched = 0;
+			messageLine = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
+			
+			if (!messageLine)
+				messageLine = [NSString stringWithCString:line encoding:NSASCIIStringEncoding];
+			
+			message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",nil];
 			
 			@synchronized(observerObjects)
 			{
-				for (IRCObserveContainer *container in observerObjects) {
-					if (container.message && [container.message isEqualToMessage:message]) {
-						[container.observer performSelectorOnMainThread:container.selector withObject:message waitUntilDone:NO];
-						matched++;
-					}
-					else if (container.pattern && [messageLine isMatchedByRegex:container.pattern]) {
-						[container.observer performSelectorOnMainThread:container.selector withObject:messageLine waitUntilDone:NO];
+				for (NSDictionary *dict in observerObjects) {
+					if ([messageLine isMatchedByRegex:[dict objectForKey:@"PATTERN"]]) {
+						[[dict objectForKey:@"OBSERVER"] performSelectorOnMainThread:NSSelectorFromString([dict objectForKey:@"SELECTOR"]) withObject:message waitUntilDone:NO];
 						matched++;
 					}
 				}
 			}
 			
-			NSDictionary *dict;
-			NSDate *date = [NSDate date];
+
 
 			if (matched < 2) {
 				missedMessages++;
-				dict = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"YES",@"MISSED",nil];
+				message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"YES",@"MISSED",nil];
 			}
 			else
-				dict = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"NO",@"MISSED",nil];
+				message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"NO",@"MISSED",nil];
 			
-			[messages addObject:dict];
+			[messages addObject:message];
 			
-			[message release];
 			free(line);
 		}
 		[pool release];
@@ -191,52 +194,40 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCDisconnected object:self];
 }
 
-- (void) addObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message
-{
-	IRCObserveContainer *container = [[IRCObserveContainer alloc] init];
-	container.selector = selector;
-	container.observer = observer;
-	container.message = message;
-	@synchronized(observerObjects)
-	{
-		[observerObjects addObject:container];
-	}
-	[container release];
-}
-
 - (void) addObserver:(id)observer selector:(SEL)selector pattern:(id)pattern
 {
-	IRCObserveContainer *container = [[IRCObserveContainer alloc] init];
-	container.selector = selector;
-	container.observer = observer;
-	container.pattern = pattern;
+	NSDictionary *dict = [[NSDictionary alloc] 
+						  initWithObjectsAndKeys:	observer,@"OBSERVER",
+													pattern,@"PATTERN",
+													NSStringFromSelector(selector),@"SELECTOR",
+													Nil];
 	@synchronized(observerObjects)
 	{
-		[observerObjects addObject:container];
+		[observerObjects addObject:dict];
 	}
-	[container release];
+	[dict release];
 }
 
 - (void) removeObserver:(id)observer
 {
 	@synchronized(observerObjects) 
 	{
-		for (IRCObserveContainer* container in observerObjects) {
-			if (container.observer == observer)
-				[observerObjects removeObject:container];
+		for (NSDictionary* dict in observerObjects) {
+			if ([dict objectForKey:@"OBSERVER"] == observer)
+				[observerObjects removeObject:dict];
 		}
 	}
 }
 
-- (void) removeObserver:(id)observer selector:(SEL)selector message:(IRCMessage*)message;
+- (void) removeObserver:(id)observer selector:(SEL)selector pattern:(NSString*)pattern;
 {
 	@synchronized(observerObjects)
 	{
-		for (IRCObserveContainer* container in observerObjects) {
-			if (container.observer == observer &&
-				container.selector == selector &&
-				[message isEqualToMessage:container.message])
-				[observerObjects removeObject:container];
+		for (NSDictionary* dict in observerObjects) {
+			if ([dict objectForKey:@"OBSERVER"] == observer &&
+				[[dict objectForKey:@"SELECTOR"] isEqualToString:NSStringFromSelector(selector)] &&
+				[[dict objectForKey:@"PATTERN"] isEqualToString:pattern])
+				[observerObjects removeObject:dict];
 		}
 	}
 }
