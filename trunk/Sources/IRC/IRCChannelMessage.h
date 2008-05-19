@@ -28,7 +28,6 @@
 	NSString	*message;
 }
 
-- (id) initWithIRCMessage:(IRCMessage*)message;
 - (id) initWithUser:(IRCUser*)user andMessage:(NSString*)message;
 
 @property(readonly) IRCUser *from;

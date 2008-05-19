@@ -43,7 +43,7 @@ extern NSString *IRCUserQuit;
 - (bool) connect;
 - (IRCChannel*) joinChannel:(NSString*)name;
 - (void) disconnect;
-- (void) send:(NSString*)cmd;
+- (void) send:(id)cmd;
 - (void) addObserver:(id)observer selector:(SEL)selector pattern:(id)pattern;
 - (void) removeObserver:(id)observer;
 - (void) removeObserver:(id)observer selector:(SEL)selector pattern:(NSString*)pattern;

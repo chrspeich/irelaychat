@@ -15,7 +15,6 @@
 #import "IRCServer.h"
 #import "IRCUserMode.h"
 #import "IRCChannel.h"
-#import "IRCMessage.h"
 
 NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 
@@ -183,16 +182,6 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 - (void) setUserMode:(IRCUserMode*)userMode forChannel:(IRCChannel*)channel
 {
 	[userModes setObject:userMode forKey:channel.name];
-}
-
-- (void) nickNameChanged:(IRCMessage*)message
-{
-	[nickname release];
-	[server removeUser:message.from];
-	NSLog(@"test");
-	nickname = [[message.parameters objectAtIndex:0] copy];
-	[self setupObservers];
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserChanged object:self];
 }
 
 - (NSColor*) color

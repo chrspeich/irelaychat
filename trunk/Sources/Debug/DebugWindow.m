@@ -9,8 +9,6 @@
 #import "DebugWindow.h"
 #import <RegexKit/RegexKit.h>
 #import "IRCUser.h"
-#import "IRCMessage.h"
-#import "IRCObserveContainer.h"
 
 @implementation DebugWindow
 
@@ -19,17 +17,22 @@
 	self = [super init];
 	if (self != nil) {
 		server = [inServer retain];
+		regexKitDebug = [[RegexKitDebug alloc] init];
+		serverDebug = [[IRCServerDebug alloc] init];
+		userDebug = [[IRCUserDebug alloc] init];
 		
-		if (![NSBundle loadNibNamed:@"DebugWindow" owner:self]) {
-			[self release];
-			return nil;
-		}
+		controller = [[SS_PrefsController alloc] init];
+		[controller setDebug:YES];
 		
-		messages = [[NSMutableArray alloc] init];
-		
+		[controller addPreferencePane:regexKitDebug];
+		[controller addPreferencePane:serverDebug];
+		[controller addPreferencePane:userDebug];
+
+		[controller showPreferencesWindow];
+				
 		[regexVersion setStringValue:[RKRegex PCREVersionString]];
-		[server addObserver:self selector:@selector(addMessage:) message:[[IRCMessage alloc] initWithCommand:@"*" from:nil andPrarameters:nil]];
 		
+		[server addObserver:self selector:@selector(newMessage) pattern:nil];
 		[NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(update) userInfo:nil repeats:YES];
 	}
 	return self;
@@ -38,6 +41,10 @@
 - (void) update
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	[regexKitDebug update];
+	[serverDebug update];
+	[userDebug update];
 	
 	NSString *cacheStatusString = [[RKRegex regexCache] status];
 	
@@ -62,9 +69,8 @@
 	[pool release];
 }
 
-- (void) addMessage:(IRCMessage*)message
+- (void) newMessage
 {
-
 	[messagesCount setIntValue:[server.messages count]];
 	[messagesTable reloadData];
 }
@@ -100,7 +106,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		NSDictionary *dict = [server.messages objectAtIndex:-(rowIndex-[server.messages count])-1];
 		NSMutableAttributedString *string;
 		if ([[aTableColumn identifier] isEqualToString:@"time"]) {
-			string = [[NSMutableAttributedString alloc] initWithString:[dict objectForKey:@"TIME"]];
+			string = [[NSMutableAttributedString alloc] initWithString:[[dict objectForKey:@"TIME"] descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil]];
 		} else if ([[aTableColumn identifier] isEqualToString:@"message"]) {
 			string = [[NSMutableAttributedString alloc] initWithString:[dict objectForKey:@"MESSAGE"]];
 		}
@@ -114,14 +120,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}
 	else {
 		NSParameterAssert(rowIndex >= 0 && rowIndex < [[server registerdObservers] count]);
-		IRCObserveContainer *container = [[server registerdObservers] objectAtIndex:rowIndex];
-		
+		NSDictionary *dict = [[server registerdObservers] objectAtIndex:rowIndex];
+	
 		if ([[aTableColumn identifier] isEqualToString:@"object"])
-			return [NSString stringWithFormat:@"%@(%p)", NSStringFromClass([container.observer class]), container.observer];
+			return [NSString stringWithFormat:@"%@(%p)", NSStringFromClass([[dict objectForKey:@"OBSERVER"] class]), [dict objectForKey:@"OBSERVER"]];
 		else if ([[aTableColumn identifier] isEqualToString:@"selector"])
-			return NSStringFromSelector(container.selector);
+			return [dict objectForKey:@"SELECTOR"];
 		else
-			return container.pattern;
+			return [dict objectForKey:@"PATTERN"];
 			
 	}
 

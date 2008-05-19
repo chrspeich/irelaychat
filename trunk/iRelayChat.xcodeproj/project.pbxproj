@@ -16,6 +16,12 @@
 		921442380DD61C6800A19EAF /* IRCChannelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 921442370DD61C6800A19EAF /* IRCChannelMessage.m */; };
 		9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
 		921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
+		921535F30DE1EBC50051B01A /* RegexKitDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 921535F20DE1EBC50051B01A /* RegexKitDebug.m */; };
+		921536040DE1F0C40051B01A /* RegexKitDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536030DE1F0C40051B01A /* RegexKitDebug.xib */; };
+		9215360B0DE1F5920051B01A /* IRCServerDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215360A0DE1F5920051B01A /* IRCServerDebug.m */; };
+		921536520DE1FCCF0051B01A /* IRCServerDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536510DE1FCCF0051B01A /* IRCServerDebug.xib */; };
+		921536AE0DE213840051B01A /* IRCUserDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 921536AD0DE213840051B01A /* IRCUserDebug.m */; };
+		921536C90DE217DB0051B01A /* IRCUserDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536C80DE217DB0051B01A /* IRCUserDebug.xib */; };
 		922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9224306D0DD1E912005FF883 /* IRCUserMode.m */; };
 		922430D00DD1F732005FF883 /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CE0DD1F732005FF883 /* green.tiff */; };
 		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
@@ -28,14 +34,17 @@
 		9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9298CC550DD841D700023EBE /* DebugWindow.xib */; };
 		9298CC5B0DD8459600023EBE /* DebugWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9298CC5A0DD8459600023EBE /* DebugWindow.m */; };
 		9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9298CC980DD85BD500023EBE /* IRCProtocol.m */; };
+		929F80120DE1BD1100263396 /* InternetRelayChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80110DE1BD1100263396 /* InternetRelayChat.m */; };
+		929F80970DE1C10400263396 /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80960DE1C10400263396 /* SS_PrefsController.m */; };
+		929F809E0DE1C36900263396 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F809D0DE1C36900263396 /* Preferences.m */; };
+		929F80A40DE1C46C00263396 /* PreferenceGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80A30DE1C46C00263396 /* PreferenceGeneral.m */; };
+		929F80AB0DE1C52800263396 /* PreferenceGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */; };
 		92FD87520DCC78610024661C /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD87510DCC78610024661C /* MessageViewController.m */; };
 		92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 92FD87620DCC7CAF0024661C /* MessageTemplate.html */; };
 		AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E0B40DB785660018FBCC /* IRCServer.m */; };
 		AA05E1BB0DB7DED80018FBCC /* IRCChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */; };
 		AA3CC4990DCB117B002D70DC /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3CC4980DCB117B002D70DC /* ChannelView.xib */; };
 		AA3CC49E0DCB1465002D70DC /* ChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3CC49D0DCB1465002D70DC /* ChannelView.m */; };
-		AAC0337A0DB85BAE002D6711 /* IRCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC033790DB85BAE002D6711 /* IRCMessage.m */; };
-		AAC033DB0DB8D053002D6711 /* IRCObserveContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +77,15 @@
 		921442360DD61C6800A19EAF /* IRCChannelMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCChannelMessage.h; sourceTree = "<group>"; };
 		921442370DD61C6800A19EAF /* IRCChannelMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCChannelMessage.m; sourceTree = "<group>"; };
 		9214424D0DD6274C00A19EAF /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
+		921535F10DE1EBC50051B01A /* RegexKitDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitDebug.h; sourceTree = "<group>"; };
+		921535F20DE1EBC50051B01A /* RegexKitDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitDebug.m; sourceTree = "<group>"; };
+		921536030DE1F0C40051B01A /* RegexKitDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegexKitDebug.xib; sourceTree = "<group>"; };
+		921536090DE1F5920051B01A /* IRCServerDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCServerDebug.h; sourceTree = "<group>"; };
+		9215360A0DE1F5920051B01A /* IRCServerDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCServerDebug.m; sourceTree = "<group>"; };
+		921536510DE1FCCF0051B01A /* IRCServerDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRCServerDebug.xib; sourceTree = "<group>"; };
+		921536AC0DE213840051B01A /* IRCUserDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserDebug.h; sourceTree = "<group>"; };
+		921536AD0DE213840051B01A /* IRCUserDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserDebug.m; sourceTree = "<group>"; };
+		921536C80DE217DB0051B01A /* IRCUserDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRCUserDebug.xib; sourceTree = "<group>"; };
 		9224306C0DD1E912005FF883 /* IRCUserMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserMode.h; sourceTree = "<group>"; };
 		9224306D0DD1E912005FF883 /* IRCUserMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserMode.m; sourceTree = "<group>"; };
 		922430CE0DD1F732005FF883 /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
@@ -85,6 +103,16 @@
 		9298CC5A0DD8459600023EBE /* DebugWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugWindow.m; sourceTree = "<group>"; };
 		9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCProtocol.h; sourceTree = "<group>"; };
 		9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCProtocol.m; sourceTree = "<group>"; };
+		929F80100DE1BD1100263396 /* InternetRelayChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetRelayChat.h; sourceTree = "<group>"; };
+		929F80110DE1BD1100263396 /* InternetRelayChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetRelayChat.m; sourceTree = "<group>"; };
+		929F80940DE1C10400263396 /* SS_PreferencePaneProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PreferencePaneProtocol.h; sourceTree = "<group>"; };
+		929F80950DE1C10400263396 /* SS_PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PrefsController.h; sourceTree = "<group>"; };
+		929F80960DE1C10400263396 /* SS_PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_PrefsController.m; sourceTree = "<group>"; };
+		929F809C0DE1C36900263396 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		929F809D0DE1C36900263396 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		929F80A20DE1C46C00263396 /* PreferenceGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceGeneral.h; sourceTree = "<group>"; };
+		929F80A30DE1C46C00263396 /* PreferenceGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceGeneral.m; sourceTree = "<group>"; };
+		929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceGeneral.xib; sourceTree = "<group>"; };
 		92FD87500DCC78610024661C /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		92FD87510DCC78610024661C /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MessageTemplate.html; sourceTree = "<group>"; };
@@ -95,10 +123,6 @@
 		AA3CC4980DCB117B002D70DC /* ChannelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
 		AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelView.h; sourceTree = "<group>"; };
 		AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelView.m; sourceTree = "<group>"; };
-		AAC033780DB85BAE002D6711 /* IRCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMessage.h; sourceTree = "<group>"; };
-		AAC033790DB85BAE002D6711 /* IRCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMessage.m; sourceTree = "<group>"; };
-		AAC033D90DB8D053002D6711 /* IRCObserveContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCObserveContainer.h; sourceTree = "<group>"; };
-		AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCObserveContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +169,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* iRelayChat */ = {
 			isa = PBXGroup;
 			children = (
+				929F80930DE1C0D100263396 /* SS_Preferences */,
 				9296F5E60DE046FD008F323E /* Debug */,
 				AA05E0B00DB784CC0018FBCC /* IRC */,
 				2A37F4ABFDCFA73011CA2CEA /* Sources */,
@@ -165,6 +190,10 @@
 				AA3CC49D0DCB1465002D70DC /* ChannelView.m */,
 				92FD87500DCC78610024661C /* MessageViewController.h */,
 				92FD87510DCC78610024661C /* MessageViewController.m */,
+				929F809C0DE1C36900263396 /* Preferences.h */,
+				929F809D0DE1C36900263396 /* Preferences.m */,
+				929F80A20DE1C46C00263396 /* PreferenceGeneral.h */,
+				929F80A30DE1C46C00263396 /* PreferenceGeneral.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -192,6 +221,10 @@
 				AA3CC4980DCB117B002D70DC /* ChannelView.xib */,
 				92FD87620DCC7CAF0024661C /* MessageTemplate.html */,
 				9298CC550DD841D700023EBE /* DebugWindow.xib */,
+				929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */,
+				921536030DE1F0C40051B01A /* RegexKitDebug.xib */,
+				921536510DE1FCCF0051B01A /* IRCServerDebug.xib */,
+				921536C80DE217DB0051B01A /* IRCUserDebug.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -213,9 +246,25 @@
 			children = (
 				9298CC590DD8459600023EBE /* DebugWindow.h */,
 				9298CC5A0DD8459600023EBE /* DebugWindow.m */,
+				921535F10DE1EBC50051B01A /* RegexKitDebug.h */,
+				921535F20DE1EBC50051B01A /* RegexKitDebug.m */,
+				921536090DE1F5920051B01A /* IRCServerDebug.h */,
+				9215360A0DE1F5920051B01A /* IRCServerDebug.m */,
+				921536AC0DE213840051B01A /* IRCUserDebug.h */,
+				921536AD0DE213840051B01A /* IRCUserDebug.m */,
 			);
 			name = Debug;
 			path = Sources/Debug;
+			sourceTree = "<group>";
+		};
+		929F80930DE1C0D100263396 /* SS_Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				929F80940DE1C10400263396 /* SS_PreferencePaneProtocol.h */,
+				929F80950DE1C10400263396 /* SS_PrefsController.h */,
+				929F80960DE1C10400263396 /* SS_PrefsController.m */,
+			);
+			name = SS_Preferences;
 			sourceTree = "<group>";
 		};
 		AA05E0B00DB784CC0018FBCC /* IRC */ = {
@@ -225,10 +274,6 @@
 				AA05E0B40DB785660018FBCC /* IRCServer.m */,
 				AA05E1B90DB7DED80018FBCC /* IRCChannel.h */,
 				AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */,
-				AAC033780DB85BAE002D6711 /* IRCMessage.h */,
-				AAC033790DB85BAE002D6711 /* IRCMessage.m */,
-				AAC033D90DB8D053002D6711 /* IRCObserveContainer.h */,
-				AAC033DA0DB8D053002D6711 /* IRCObserveContainer.m */,
 				926705380DCF31C800E5D085 /* IRCUser.h */,
 				926705390DCF31C800E5D085 /* IRCUser.m */,
 				9224306C0DD1E912005FF883 /* IRCUserMode.h */,
@@ -239,6 +284,8 @@
 				92911F280DD71DBA009C2C16 /* IRCMeUser.m */,
 				9298CC970DD85BD500023EBE /* IRCProtocol.h */,
 				9298CC980DD85BD500023EBE /* IRCProtocol.m */,
+				929F80100DE1BD1100263396 /* InternetRelayChat.h */,
+				929F80110DE1BD1100263396 /* InternetRelayChat.m */,
 			);
 			name = IRC;
 			path = Sources/IRC;
@@ -301,6 +348,10 @@
 				922430D10DD1F732005FF883 /* red.tiff in Resources */,
 				922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */,
 				9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */,
+				929F80AB0DE1C52800263396 /* PreferenceGeneral.xib in Resources */,
+				921536040DE1F0C40051B01A /* RegexKitDebug.xib in Resources */,
+				921536520DE1FCCF0051B01A /* IRCServerDebug.xib in Resources */,
+				921536C90DE217DB0051B01A /* IRCUserDebug.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +365,6 @@
 				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
 				AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */,
 				AA05E1BB0DB7DED80018FBCC /* IRCChannel.m in Sources */,
-				AAC0337A0DB85BAE002D6711 /* IRCMessage.m in Sources */,
-				AAC033DB0DB8D053002D6711 /* IRCObserveContainer.m in Sources */,
 				AA3CC49E0DCB1465002D70DC /* ChannelView.m in Sources */,
 				92FD87520DCC78610024661C /* MessageViewController.m in Sources */,
 				9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */,
@@ -325,6 +374,13 @@
 				9298CC5B0DD8459600023EBE /* DebugWindow.m in Sources */,
 				9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */,
 				9296F5E50DE046CB008F323E /* main.m in Sources */,
+				929F80120DE1BD1100263396 /* InternetRelayChat.m in Sources */,
+				929F80970DE1C10400263396 /* SS_PrefsController.m in Sources */,
+				929F809E0DE1C36900263396 /* Preferences.m in Sources */,
+				929F80A40DE1C46C00263396 /* PreferenceGeneral.m in Sources */,
+				921535F30DE1EBC50051B01A /* RegexKitDebug.m in Sources */,
+				9215360B0DE1F5920051B01A /* IRCServerDebug.m in Sources */,
+				921536AE0DE213840051B01A /* IRCUserDebug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

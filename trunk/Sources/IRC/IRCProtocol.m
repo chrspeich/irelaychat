@@ -86,4 +86,41 @@
 	return [NSString stringWithFormat:@"USER %@ 0 * :%@\r\n", user, realname];
 }
 
+- (NSString*) namesFor:(NSString*)channel
+{
+	return [NSString stringWithFormat:@"NAMES %@\r\n", channel];
+}
+
+- (id) privMsg:(NSString*)message to:(NSString*)userOrChannel
+{
+	int allowdMessageLengthPerCommand = self.maxLineLength - strlen("PRIVMSG")
+										- [userOrChannel length]
+										- 3 /* 2 SPACES + : */
+										- 2 /* \r\n */;
+	NSMutableArray *commands = [NSMutableArray array];
+	
+	for (int i = 0; i < (float)[message length]/(float)allowdMessageLengthPerCommand; i++) {
+		NSMutableString *command = [NSMutableString string];
+
+		[command appendFormat:@"PRIVMSG %@ :",userOrChannel];
+		NSRange range;
+		range.location = allowdMessageLengthPerCommand*i;
+		range.length = allowdMessageLengthPerCommand;
+
+		if (range.length+range.location > [message length])
+			range.length = [message length] - range.location;
+		
+		[command appendString:[message substringWithRange:range]];
+		[command appendString:@"\r\n"];
+		[commands addObject:command];
+	}
+	
+	return commands;
+}
+
+- (int) maxLineLength
+{
+	return 512;
+}
+
 @end

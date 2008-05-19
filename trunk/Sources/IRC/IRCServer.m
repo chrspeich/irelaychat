@@ -11,11 +11,10 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import "IRCServer.h"
-#import "IRCMessage.h"
-#import "IRCObserveContainer.h"
 #import "IRCChannel.h"
 #import "IRCMeUser.h"
 #import "IRCProtocol.h"
+#import "InternetRelayChat.h"
 #include <sys/socket.h>
 
 NSString *IRCConnected = @"iRelayChat-IRCConnected";
@@ -32,6 +31,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 {
 	self = [super init];
 	if (self != nil) {
+		[[[InternetRelayChat sharedInternetRelayChat] servers] addObject:self];
 		host = [_host retain];
 		port = [_port retain];
 		isConnected = NO;
@@ -97,12 +97,25 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	return YES;
 }
 
-- (void) send:(NSString*)cmd
+- (void) send:(id)cmd
 {
-	NSString *sendCmd = [[NSString alloc] initWithFormat:@"%@\n", cmd];
-	printf("< %s", [sendCmd UTF8String]);
-	send(sock, [sendCmd UTF8String], strlen([sendCmd UTF8String]), 0);
-	[sendCmd release];
+	if ([cmd isKindOfClass:[NSArray class]]) {
+		for (NSString *command in cmd) {
+			printf("< %s", [command UTF8String]);
+			send(sock, [command UTF8String], [command length], 0);
+		}
+	}
+	else if ([cmd isKindOfClass:[NSString class]]) {
+		NSString *command;
+		if ([cmd characterAtIndex:[cmd length]-1] != '\n') {
+			command = [cmd stringByAppendingString:@"\r\n"];
+			NSLog(@"Warning: Message has no \r\n at the end. Append it");
+		} else
+			command = cmd;
+		
+		printf("< %s", [command UTF8String]);
+		send(sock, [command UTF8String], [command length], 0);
+	}
 }
 
 - (void) runLoop
@@ -122,7 +135,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		
 		if (FD_ISSET(sock, &read_fd)) {
 			char *line;
-			NSDictionary *message;
+			NSMutableDictionary *message;
 			NSDate *date = [NSDate date];
 			NSString *messageLine;
 			int matched = 0;
@@ -137,12 +150,15 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			if (!messageLine)
 				messageLine = [NSString stringWithCString:line encoding:NSASCIIStringEncoding];
 			
-			message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",nil];
+			message = [NSMutableDictionary dictionary];
+			
+			[message setObject:messageLine forKey:@"MESSAGE"];
+			[message setObject:date forKey:@"TIME"];
 			
 			@synchronized(observerObjects)
 			{
 				for (NSDictionary *dict in observerObjects) {
-					if ([messageLine isMatchedByRegex:[dict objectForKey:@"PATTERN"]]) {
+					if ([dict objectForKey:@"PATTERN"] && [messageLine isMatchedByRegex:[dict objectForKey:@"PATTERN"]]) {
 						[[dict objectForKey:@"OBSERVER"] performSelectorOnMainThread:NSSelectorFromString([dict objectForKey:@"SELECTOR"]) withObject:message waitUntilDone:NO];
 						matched++;
 					}
@@ -151,14 +167,24 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 
 
-			if (matched < 2) {
+			if (!matched) {
 				missedMessages++;
-				message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"YES",@"MISSED",nil];
+				[message setObject:@"YES" forKey:@"MISSED"];
 			}
 			else
-				message = [NSDictionary dictionaryWithObjectsAndKeys:messageLine,@"MESSAGE",[date descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil],@"TIME",@"NO",@"MISSED",nil];
+				[message setObject:@"NO" forKey:@"MISSED"];
 			
 			[messages addObject:message];
+			
+			@synchronized(observerObjects)
+			{
+				for (NSDictionary *dict in observerObjects) {
+					if (![dict objectForKey:@"PATTERN"]) {
+						[[dict objectForKey:@"OBSERVER"] performSelectorOnMainThread:NSSelectorFromString([dict objectForKey:@"SELECTOR"]) withObject:message waitUntilDone:NO];
+						matched++;
+					}
+				}
+			}
 			
 			free(line);
 		}
@@ -198,8 +224,8 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 {
 	NSDictionary *dict = [[NSDictionary alloc] 
 						  initWithObjectsAndKeys:	observer,@"OBSERVER",
+								NSStringFromSelector(selector),@"SELECTOR",
 													pattern,@"PATTERN",
-													NSStringFromSelector(selector),@"SELECTOR",
 													Nil];
 	@synchronized(observerObjects)
 	{
@@ -242,20 +268,25 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	return missedMessages;
 }
 
-- (void) ping:(NSString*)messageLine
+- (void) ping:(NSDictionary*)message
 {
 	NSString *user = NULL;
-	/* Just ping back to the Server */
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternPing],@"${user}",&user,nil];
 	
 	[self send:[self.protocol pongTo:user]];
 }
 
-- (void) userQuit:(NSString*)messageLine
+- (void) userQuit:(NSDictionary*)message
 {
 	NSString *from = NULL, *reason = NULL;
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternQuit],@"${from}",&from,@"${reason}",&reason,nil];
 	
@@ -277,10 +308,13 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	[knownUsers addObject:user];
 }
 
-- (void) changeUserName:(NSString*)messageLine
+- (void) changeUserName:(NSDictionary*)message
 {
 	IRCUser *user;
 	NSString *from = NULL, *to = NULL;
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[self.protocol patternNick],@"${from}",&from,@"${to}",&to,nil];
 
@@ -294,8 +328,6 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	[knownUsers removeObject:user];
 }
 
-#define IRC_MAX_LINE_LENGTH 512
-
 - (char *) readLine
 {
 	char *line;
@@ -303,15 +335,15 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	bool cr;
 	char c;
 	
-	line = malloc(IRC_MAX_LINE_LENGTH*sizeof(char));
+	line = malloc(protocol.maxLineLength*sizeof(char));
 	
-	for (i = 0; i < IRC_MAX_LINE_LENGTH; i++) {
+	for (i = 0; i < protocol.maxLineLength; i++) {
 		if (recv(sock, &c, 1, 0) == -1) {
 			free(line);
 			return NULL;
 		}
 		
-		if (i >= IRC_MAX_LINE_LENGTH) {
+		if (i >= protocol.maxLineLength) {
 			NSLog(@"The Server '%@' sends Message against RFC 2812! Skip message.", self.host);
 			free(line);
 			return NULL;
