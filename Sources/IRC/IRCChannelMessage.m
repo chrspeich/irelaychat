@@ -17,7 +17,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import "IRCChannelMessage.h"
-#import "IRCMessage.h"
 #import "IRCUser.h"
 #import "IRCServer.h"
 #import <RegexKit/RegexKit.h>
@@ -26,18 +25,33 @@
 
 @synthesize highlight, action, from, message;
 
++ (void)initialize{
+	
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary
+								 dictionaryWithObject:[NSArray array] forKey:@"ExtraWordsToHighlight"];
+	
+    [defaults registerDefaults:appDefaults];
+}
+
 - (id) initWithUser:(IRCUser*)user andMessage:(NSString*)inMessage;
 {
 	self = [super init];
 	if (self != nil) {
 		from = [user retain];
 		message = [inMessage retain];
+		NSMutableString *highlightedWords = [NSMutableString stringWithString:from.server.me.nickname];
+
+		for (NSString *word in [[NSUserDefaults standardUserDefaults] objectForKey:@"ExtraWordsToHighlight"]) {
+			[highlightedWords appendFormat:@"|%@",word];
+		}
 		
-		if ([message isMatchedByRegex:[NSString stringWithFormat:@"(^|\\s|<|>|,)(%@)(:|,|\\s|\\?|!|\\.|<|>|$)", from.server.me.nickname]])
+		
+		if ([message isMatchedByRegex:[NSString stringWithFormat:@"(^|\\s|<|>|,)(%@)(:|,|\\s|\\?|!|\\.|<|>|$)", highlightedWords]])
 			highlight = YES;
 		else
 			highlight = NO;
-		
+				
 		if ([message isMatchedByRegex:@"\001ACTION.*\001"]) {
 			NSMutableString *tmp = [message mutableCopy];
 			[message release];
@@ -52,32 +66,6 @@
 	return self;
 }
 
-
-- (id) initWithIRCMessage:(IRCMessage*)_message
-{
-	self = [super init];
-	if (self != nil) {
-		from = [_message.from retain];
-		message = [[_message.parameters lastObject] retain];
-		
-		if ([message isMatchedByRegex:[NSString stringWithFormat:@"(^|\\s|<|>|,)(%@)(:|,|\\s|\\?|!|\\.|<|>|$)", _message.server.me.nickname]])
-			highlight = YES;
-		else
-			highlight = NO;
-		
-		if ([message isMatchedByRegex:@"\001ACTION.*\001"]) {
-			NSMutableString *tmp = [message mutableCopy];
-			[message release];
-			[tmp deleteCharactersInRange:NSMakeRange(0, 7)];
-			[tmp deleteCharactersInRange:NSMakeRange([tmp length] - 1, 1)];
-			message = [tmp copy];
-			[tmp release];
-			action = YES;
-		} else
-			action = NO;
-	}
-	return self;
-}
 
 - (void) dealloc
 {
@@ -109,8 +97,6 @@
 	[html replaceOccurrencesOfString:@"\"" withString:@"&quot;" options:0 range:NSMakeRange(0, [html length])];
 	
 	[html match:[IRCChannelMessage urlRegex] replace:RKReplaceAll withString:@"<a href=\"${message}\">${message}</a>${end}"];
-
-	NSLog(@"html %@", html);
 	
 	NSString *result = [html copy];
 	[html release];

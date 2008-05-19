@@ -33,5 +33,9 @@
 - (NSString*) pongTo:(NSString*)user;
 - (NSString*) nickTo:(NSString*)nick;
 - (NSString*) user:(NSString*)user andRealName:(NSString*)realname;
+- (NSString*) namesFor:(NSString*)channel;
+- (id) privMsg:(NSString*)message to:(NSString*)userOrChannel;
+
+@property(readonly) int maxLineLength;
 
 @end

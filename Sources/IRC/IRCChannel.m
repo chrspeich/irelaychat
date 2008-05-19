@@ -12,7 +12,6 @@
 
 #import "IRCChannel.h"
 #import "IRCServer.h"
-#import "IRCMessage.h"
 #import "IRCUser.h"
 #import "IRCUserMode.h"
 #import "IRCChannelMessage.h"
@@ -81,7 +80,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 - (void) reloadUserList
 {
-	[server send:[NSString stringWithFormat:@"NAMES %@", name]];
+	[server send:[server.protocol namesFor:name]];
 }
 
 - (void) sendMessage:(NSString*)message
@@ -101,21 +100,25 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 		messageString = message;
 	}
 	
-	[server send:[NSString stringWithFormat:@"PRIVMSG %@ :%@", name, messageString]];
+	id commands = [server.protocol privMsg:messageString to:name];
+	
+	[server send:commands];
 
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	IRCMessage *ircmessage = [[IRCMessage alloc] initWithCommand:@"PRIVMSG" from:server.me andPrarameters:[NSArray arrayWithObjects:name, messageString, nil]];
-	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithIRCMessage:ircmessage];
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithUser:server.me andMessage:messageString];
 	[dict setObject:mess forKey:@"MESSAGE"];
-						   
+		
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[mess release];
-	[ircmessage release];
 }
 
-- (void) userList:(NSString*)messageLine
+- (void) userList:(NSDictionary*)message
 {
 	NSString *nicks = NULL;
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
+	
 	if (!tmpUserList)
 		tmpUserList = [[NSMutableArray alloc] init];
 	
@@ -135,8 +138,12 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	}
 }
 
-- (void) userListEnd:(NSString*)messageLine
+- (void) userListEnd:(NSDictionary*)message
 {
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
+	
 	[tmpUserList sortUsingFunction:sortUsers context:self];
 	if (![userList isEqualToArray:tmpUserList]) {
 		NSLog(@"we've loosed some changes!");
@@ -152,10 +159,13 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 }
 
-- (void) channelMessage:(NSString*)messageLine
+- (void) channelMessage:(NSDictionary*)_message
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	NSString *from = NULL, *message = NULL;
+	NSString *messageLine;
+	
+	messageLine = [_message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPirvmsgFor:name],@"${from}",&from,@"${message}",&message,nil];
 	
@@ -166,11 +176,14 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[mess release];
 }
 
-- (void) userJoin:(NSString*)messageLine
+- (void) userJoin:(NSDictionary*)message
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	NSString *from = NULL;
 	IRCUser *user;
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternJoinForChannel:name],@"${from}",&from,nil];
 	
@@ -183,11 +196,14 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
 
-- (void) userLeave:(NSString*)messageLine
+- (void) userLeave:(NSDictionary*)message
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	NSString *from = NULL, *reason = NULL;
 	IRCUser *user;
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPartForChannel:name],@"${from}",&from,@"${reason}",&reason,nil];
 	
@@ -201,11 +217,14 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 }
 
-- (void) modeChanged:(NSString*)messageLine
+- (void) modeChanged:(NSDictionary*)message
 {
 	NSString *from = NULL, *change = NULL, *mode = NULL, *to = NULL;
 	IRCUser *user;
 	IRCUserMode *currentMode;
+	NSString *messageLine;
+	
+	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternModeForChannel:name],@"${from}",&from,@"${change}",&change,@"${mode}",&mode,@"${to}",&to,nil];
 	

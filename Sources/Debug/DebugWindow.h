@@ -8,9 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IRCServer.h"
+#import "SS_PrefsController.h"
+#import "RegexKitDebug.h"
+#import "IRCServerDebug.h"
+#import "IRCUserDebug.h"
 
 @interface DebugWindow : NSObject {
 	IRCServer *server;
+	SS_PrefsController *controller;
+	
+	RegexKitDebug *regexKitDebug;
+	IRCServerDebug *serverDebug;
+	IRCUserDebug *userDebug;
 	
 	IBOutlet NSTextField *cacheEnabled;
 	IBOutlet NSTextField *cacheCount;
@@ -25,9 +34,7 @@
 	
 	IBOutlet NSTextField *messagesCount;
 	IBOutlet NSTableView *messagesTable;
-	
-	NSMutableArray *messages;
-	
+		
 	IBOutlet NSTextField *serverName;
 	IBOutlet NSTextField *serverNick;
 	IBOutlet NSTextField *serverRegisterdObservers;

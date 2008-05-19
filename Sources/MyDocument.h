@@ -24,4 +24,5 @@
 	NSMutableArray			*channelViews;
 	ChannelView				*currentView;
 }
+
 @end
