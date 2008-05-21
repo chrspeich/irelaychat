@@ -14,17 +14,7 @@
 @interface IRCUserDebug : NSObject <SS_PreferencePaneProtocol> {
 	IBOutlet NSView *prefsView;
 	
-	IRCServer *currentServer;
-	IRCUser *currentUser;
-	
-	IBOutlet NSTableView *usersTable;
-	IBOutlet NSTextField *nickname;
-	IBOutlet NSTextField *username;
-	IBOutlet NSTextField *host;
-	IBOutlet NSTextField *me;
-	IBOutlet NSPopUpButton *servers;
+	NSArray *serversArray;
 }
-
-- (void) update;
 
 @end

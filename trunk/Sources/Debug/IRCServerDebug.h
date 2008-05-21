@@ -12,7 +12,7 @@
 
 @interface IRCServerDebug : NSObject <SS_PreferencePaneProtocol> {
 	IBOutlet NSView *prefsView;
-
+	
 	IBOutlet NSTextField *serverName;
 	IBOutlet NSTextField *serverNick;
 	IBOutlet NSTextField *serverRegisterdObservers;

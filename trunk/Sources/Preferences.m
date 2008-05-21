@@ -8,6 +8,7 @@
 
 #import "Preferences.h"
 #import "PreferenceGeneral.h"
+#import "PreferencePlugins.h"
 
 @implementation Preferences
 
@@ -17,6 +18,7 @@
 	if (self != nil) {
 		controller = [[SS_PrefsController alloc] init];
 		[controller addPreferencePane:[[PreferenceGeneral alloc] init]];
+		[controller addPreferencePane:[[PreferencePlugins alloc] init]];
 	} 
 	return self;
 }

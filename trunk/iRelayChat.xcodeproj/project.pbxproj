@@ -39,6 +39,13 @@
 		929F809E0DE1C36900263396 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F809D0DE1C36900263396 /* Preferences.m */; };
 		929F80A40DE1C46C00263396 /* PreferenceGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80A30DE1C46C00263396 /* PreferenceGeneral.m */; };
 		929F80AB0DE1C52800263396 /* PreferenceGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */; };
+		92AE27E40DE43F7A00AE0C5F /* Plugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 92AE27E30DE43F7A00AE0C5F /* Plugin.icns */; };
+		92AE27E80DE4412000AE0C5F /* PreferencePlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */; };
+		92AE27F00DE4446200AE0C5F /* PreferencePlugins.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */; };
+		92AE280F0DE44EC600AE0C5F /* TestPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AE280E0DE44EC600AE0C5F /* TestPlugin.m */; };
+		92B293230DE46EA300574C88 /* IRCPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B293220DE46EA300574C88 /* IRCPlugin.m */; };
+		92B293610DE4764A00574C88 /* RawLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B293600DE4764A00574C88 /* RawLog.m */; };
+		92B293850DE4779D00574C88 /* RawLog.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92B2935A0DE4761900574C88 /* RawLog.bundle */; };
 		92FD87520DCC78610024661C /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD87510DCC78610024661C /* MessageViewController.m */; };
 		92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 92FD87620DCC7CAF0024661C /* MessageTemplate.html */; };
 		AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E0B40DB785660018FBCC /* IRCServer.m */; };
@@ -46,6 +53,16 @@
 		AA3CC4990DCB117B002D70DC /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3CC4980DCB117B002D70DC /* ChannelView.xib */; };
 		AA3CC49E0DCB1465002D70DC /* ChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3CC49D0DCB1465002D70DC /* ChannelView.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92B2936F0DE4777800574C88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B293590DE4761900574C88;
+			remoteInfo = RawLog.ircplugin;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		921442580DD6277A00A19EAF /* CopyFiles */ = {
@@ -55,6 +72,16 @@
 			dstSubfolderSpec = 10;
 			files = (
 				921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B293880DE477A200574C88 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				92B293850DE4779D00574C88 /* RawLog.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +140,19 @@
 		929F80A20DE1C46C00263396 /* PreferenceGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceGeneral.h; sourceTree = "<group>"; };
 		929F80A30DE1C46C00263396 /* PreferenceGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceGeneral.m; sourceTree = "<group>"; };
 		929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceGeneral.xib; sourceTree = "<group>"; };
+		92AE27E30DE43F7A00AE0C5F /* Plugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Plugin.icns; sourceTree = "<group>"; };
+		92AE27E60DE4412000AE0C5F /* PreferencePlugins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencePlugins.h; sourceTree = "<group>"; };
+		92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencePlugins.m; sourceTree = "<group>"; };
+		92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencePlugins.xib; sourceTree = "<group>"; };
+		92AE280D0DE44EC600AE0C5F /* TestPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPlugin.h; sourceTree = "<group>"; };
+		92AE280E0DE44EC600AE0C5F /* TestPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPlugin.m; sourceTree = "<group>"; };
+		92B2931C0DE46D8F00574C88 /* IRCPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCPlugin.h; sourceTree = "<group>"; };
+		92B293220DE46EA300574C88 /* IRCPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCPlugin.m; sourceTree = "<group>"; };
+		92B293320DE471C500574C88 /* IRCPluginProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCPluginProtocol.h; sourceTree = "<group>"; };
+		92B2935A0DE4761900574C88 /* RawLog.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RawLog.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B2935B0DE4761900574C88 /* RawLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RawLog-Info.plist"; path = "../../RawLog-Info.plist"; sourceTree = "<group>"; };
+		92B2935F0DE4764A00574C88 /* RawLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawLog.h; sourceTree = "<group>"; };
+		92B293600DE4764A00574C88 /* RawLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawLog.m; sourceTree = "<group>"; };
 		92FD87500DCC78610024661C /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		92FD87510DCC78610024661C /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MessageTemplate.html; sourceTree = "<group>"; };
@@ -134,6 +174,13 @@
 				9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */,
 				9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */,
 				926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B293580DE4761900574C88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				8D15AC370486D014006FF6A4 /* iRelayChat.app */,
+				92B2935A0DE4761900574C88 /* RawLog.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +217,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* iRelayChat */ = {
 			isa = PBXGroup;
 			children = (
+				92B293530DE475D100574C88 /* Plugins */,
 				929F80930DE1C0D100263396 /* SS_Preferences */,
 				9296F5E60DE046FD008F323E /* Debug */,
 				AA05E0B00DB784CC0018FBCC /* IRC */,
@@ -194,6 +243,8 @@
 				929F809D0DE1C36900263396 /* Preferences.m */,
 				929F80A20DE1C46C00263396 /* PreferenceGeneral.h */,
 				929F80A30DE1C46C00263396 /* PreferenceGeneral.m */,
+				92AE27E60DE4412000AE0C5F /* PreferencePlugins.h */,
+				92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -210,6 +261,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92AE27E30DE43F7A00AE0C5F /* Plugin.icns */,
 				922430FC0DD1FD8A005FF883 /* yellow.tiff */,
 				922430CE0DD1F732005FF883 /* green.tiff */,
 				922430CF0DD1F732005FF883 /* red.tiff */,
@@ -225,6 +277,7 @@
 				921536030DE1F0C40051B01A /* RegexKitDebug.xib */,
 				921536510DE1FCCF0051B01A /* IRCServerDebug.xib */,
 				921536C80DE217DB0051B01A /* IRCUserDebug.xib */,
+				92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -252,6 +305,8 @@
 				9215360A0DE1F5920051B01A /* IRCServerDebug.m */,
 				921536AC0DE213840051B01A /* IRCUserDebug.h */,
 				921536AD0DE213840051B01A /* IRCUserDebug.m */,
+				92AE280D0DE44EC600AE0C5F /* TestPlugin.h */,
+				92AE280E0DE44EC600AE0C5F /* TestPlugin.m */,
 			);
 			name = Debug;
 			path = Sources/Debug;
@@ -267,9 +322,28 @@
 			name = SS_Preferences;
 			sourceTree = "<group>";
 		};
+		92B293530DE475D100574C88 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				92B293540DE475F100574C88 /* RawLog */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		92B293540DE475F100574C88 /* RawLog */ = {
+			isa = PBXGroup;
+			children = (
+				92B2935B0DE4761900574C88 /* RawLog-Info.plist */,
+				92B2935F0DE4764A00574C88 /* RawLog.h */,
+				92B293600DE4764A00574C88 /* RawLog.m */,
+			);
+			path = RawLog;
+			sourceTree = "<group>";
+		};
 		AA05E0B00DB784CC0018FBCC /* IRC */ = {
 			isa = PBXGroup;
 			children = (
+				92B293220DE46EA300574C88 /* IRCPlugin.m */,
 				AA05E0B30DB785660018FBCC /* IRCServer.h */,
 				AA05E0B40DB785660018FBCC /* IRCServer.m */,
 				AA05E1B90DB7DED80018FBCC /* IRCChannel.h */,
@@ -286,6 +360,8 @@
 				9298CC980DD85BD500023EBE /* IRCProtocol.m */,
 				929F80100DE1BD1100263396 /* InternetRelayChat.h */,
 				929F80110DE1BD1100263396 /* InternetRelayChat.m */,
+				92B2931C0DE46D8F00574C88 /* IRCPlugin.h */,
+				92B293320DE471C500574C88 /* IRCPluginProtocol.h */,
 			);
 			name = IRC;
 			path = Sources/IRC;
@@ -302,16 +378,35 @@
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				921442580DD6277A00A19EAF /* CopyFiles */,
+				92B293880DE477A200574C88 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				92B293700DE4777800574C88 /* PBXTargetDependency */,
 			);
 			name = iRelayChat;
 			productInstallPath = "$(HOME)/Applications";
 			productName = iRelayChat;
 			productReference = 8D15AC370486D014006FF6A4 /* iRelayChat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		92B293590DE4761900574C88 /* RawLog.ircplugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B2935E0DE4761A00574C88 /* Build configuration list for PBXNativeTarget "RawLog.ircplugin" */;
+			buildPhases = (
+				92B293560DE4761900574C88 /* Resources */,
+				92B293570DE4761900574C88 /* Sources */,
+				92B293580DE4761900574C88 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RawLog.ircplugin;
+			productName = RawLog;
+			productReference = 92B2935A0DE4761900574C88 /* RawLog.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -329,6 +424,7 @@
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* iRelayChat */,
+				92B293590DE4761900574C88 /* RawLog.ircplugin */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +448,15 @@
 				921536040DE1F0C40051B01A /* RegexKitDebug.xib in Resources */,
 				921536520DE1FCCF0051B01A /* IRCServerDebug.xib in Resources */,
 				921536C90DE217DB0051B01A /* IRCUserDebug.xib in Resources */,
+				92AE27E40DE43F7A00AE0C5F /* Plugin.icns in Resources */,
+				92AE27F00DE4446200AE0C5F /* PreferencePlugins.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B293560DE4761900574C88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,10 +486,29 @@
 				921535F30DE1EBC50051B01A /* RegexKitDebug.m in Sources */,
 				9215360B0DE1F5920051B01A /* IRCServerDebug.m in Sources */,
 				921536AE0DE213840051B01A /* IRCUserDebug.m in Sources */,
+				92AE27E80DE4412000AE0C5F /* PreferencePlugins.m in Sources */,
+				92AE280F0DE44EC600AE0C5F /* TestPlugin.m in Sources */,
+				92B293230DE46EA300574C88 /* IRCPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B293570DE4761900574C88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B293610DE4764A00574C88 /* RawLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92B293700DE4777800574C88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92B293590DE4761900574C88 /* RawLog.ircplugin */;
+			targetProxy = 92B2936F0DE4777800574C88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
@@ -422,6 +546,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		92B2935C0DE4761A00574C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "RawLog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = RawLog;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		92B2935D0DE4761A00574C88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "RawLog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = RawLog;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -499,6 +673,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		92B2935E0DE4761A00574C88 /* Build configuration list for PBXNativeTarget "RawLog.ircplugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B2935C0DE4761A00574C88 /* Debug */,
+				92B2935D0DE4761A00574C88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iRelayChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

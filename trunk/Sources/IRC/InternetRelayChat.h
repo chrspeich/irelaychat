@@ -11,10 +11,14 @@
 
 @interface InternetRelayChat : NSObject {
 	NSMutableArray	*servers;
+	NSMutableArray	*plugins;
 }
 
 + (id) sharedInternetRelayChat;
 
+- (void) searchForPlugins;
+
 @property(readonly) NSMutableArray *servers;
+@property(readonly) NSMutableArray *plugins;
 
 @end
