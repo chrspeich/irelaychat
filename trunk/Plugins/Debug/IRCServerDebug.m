@@ -98,7 +98,7 @@
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 	if (aTableView == serversTable)
-		return [[[InternetRelayChat sharedInternetRelayChat] servers] count];
+		return [[[NSClassFromString(@"InternetRelayChat") sharedInternetRelayChat] servers] count];
 	else if (aTableView == observersTable)
 		return [[currentServer registerdObservers] count];
 	else
@@ -110,9 +110,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			row:(int)rowIndex
 {
 	if (aTableView == serversTable) {
-		NSParameterAssert(rowIndex >= 0 && rowIndex < [[[InternetRelayChat sharedInternetRelayChat] servers] count]);
+		NSParameterAssert(rowIndex >= 0 && rowIndex < [[[NSClassFromString(@"InternetRelayChat") sharedInternetRelayChat] servers] count]);
 		
-		IRCServer *server = [[[InternetRelayChat sharedInternetRelayChat] servers] objectAtIndex:rowIndex];
+		IRCServer *server = [[[NSClassFromString(@"InternetRelayChat") sharedInternetRelayChat] servers] objectAtIndex:rowIndex];
 		
 		if ([[aTableColumn identifier] isEqualToString:@"status"]) {
 			NSImage *image = nil;
@@ -145,12 +145,12 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
 	if (aTableView == serversTable) {
-		NSParameterAssert(rowIndex < [[[InternetRelayChat sharedInternetRelayChat] servers] count]);
+		NSParameterAssert(rowIndex < [[[NSClassFromString(@"InternetRelayChat") sharedInternetRelayChat] servers] count]);
 		
 		if (rowIndex < 0)
 			currentServer = nil;
 		else
-			currentServer = [[[InternetRelayChat sharedInternetRelayChat] servers] objectAtIndex:rowIndex];
+			currentServer = [[[NSClassFromString(@"InternetRelayChat") sharedInternetRelayChat] servers] objectAtIndex:rowIndex];
 		[self update];
 	}
 	return YES;

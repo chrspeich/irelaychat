@@ -13,8 +13,8 @@
 #import "MyDocument.h"
 #import "IRCServer.h"
 #import "ChannelView.h"
+#import "InternetRelayChat.h"
 #import <RegexKit/RegexKit.h>
-#import "DebugWindow.h"
 
 @implementation MyDocument
 
@@ -31,6 +31,7 @@
 		[server joinChannel:@"#ubuntu"];
 		[servers addObject:server];
 		[server release];
+		[[NSNotificationCenter defaultCenter] addObserver:[InternetRelayChat sharedInternetRelayChat] selector:@selector(searchForPlugins) name:NSApplicationDidFinishLaunchingNotification object:nil];
     }
     return self;
 }
