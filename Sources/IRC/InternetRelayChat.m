@@ -19,7 +19,6 @@
 	if (self != nil) {
 		servers = [[NSMutableArray alloc] init];
 		plugins = [[NSMutableArray alloc] init];
-		[self searchForPlugins];
 	}
 	return self;
 }
@@ -31,6 +30,7 @@
 	NSArray *pluginsDirArray = [[NSFileManager alloc] directoryContentsAtPath:pluginPath];
 	
 	for (NSString *path in pluginsDirArray) {
+		NSLog(@"path %@", path);
 		IRCPlugin *plugin = [[IRCPlugin alloc] initWithPath:path];
 		if (plugin)
 			[plugins addObject:plugin];

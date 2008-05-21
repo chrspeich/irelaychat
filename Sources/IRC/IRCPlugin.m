@@ -47,6 +47,7 @@
 		Class pluginClass = NSClassFromString(pluginClassName);
 		
 		if (pluginClass) {
+			NSLog(@"does not load %@ because the PrincipalClass already exist", path);
 			[self release];
 			return nil;
 		}
@@ -54,6 +55,7 @@
 		pluginClass = [pluginBundle principalClass];
 		
 		if (![pluginClass conformsToProtocol:@protocol(IRCPluginProtocol)]) {
+			NSLog(@"does not load %@ because the PrincipalClass does not conforms to IRCPluginProtocol", path);
 			[self release];
 			return nil;
 		}

@@ -1,27 +1,26 @@
 //
-//  DebugWindow.h
+//  Debug.h
 //  iRelayChat
 //
-//  Created by Christian Speich on 12.05.08.
+//  Created by Christian Speich on 21.05.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
-#import "IRCServer.h"
 #import "SS_PrefsController.h"
 #import "RegexKitDebug.h"
 #import "IRCServerDebug.h"
 #import "IRCUserDebug.h"
+#import "IRCPluginProtocol.h"
 
-@interface DebugWindow : NSObject {
-	IRCServer *server;
+@interface Debug : NSObject <IRCPluginProtocol> {
+	NSMenuItem *menuItem;
+	
 	SS_PrefsController *controller;
 	
 	RegexKitDebug *regexKitDebug;
 	IRCServerDebug *serverDebug;
 	IRCUserDebug *userDebug;
 }
-
-- (IBAction) showWindow:(id)sender;
 
 @end

@@ -1,15 +1,15 @@
 //
-//  IRCUserDebug.m
+//  PreferencesServers.m
 //  iRelayChat
 //
-//  Created by Christian Speich on 19.05.08.
+//  Created by Christian Speich on 21.05.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "IRCUserDebug.h"
+#import "PreferencesServers.h"
 #import "InternetRelayChat.h"
 
-@implementation IRCUserDebug
+@implementation PreferencesServers
 
 - (id) init
 {
@@ -32,7 +32,7 @@
     BOOL loaded = YES;
     
     if (!prefsView) {
-        loaded = [NSBundle loadNibNamed:@"IRCUserDebug" owner:self];
+        loaded = [NSBundle loadNibNamed:@"PreferenceServers" owner:self];
     }
     
     if (loaded) {
@@ -45,19 +45,19 @@
 
 - (NSString *)paneName
 {
-    return @"Users";
+    return @"Servers";
 }
 
 
 - (NSImage *)paneIcon
 {
-    return [NSImage imageNamed:@"NSEveryone"];
+    return [NSImage imageNamed:@"NSNetwork"];
 }
 
 
 - (NSString *)paneToolTip
 {
-    return @"Users";
+    return @"Servers Preferences";
 }
 
 
