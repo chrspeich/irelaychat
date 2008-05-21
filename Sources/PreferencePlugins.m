@@ -1,22 +1,22 @@
 //
-//  IRCUserDebug.m
+//  PreferencePlugins.m
 //  iRelayChat
 //
-//  Created by Christian Speich on 19.05.08.
+//  Created by Christian Speich on 21.05.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "IRCUserDebug.h"
+#import "PreferencePlugins.h"
 #import "InternetRelayChat.h"
 
-@implementation IRCUserDebug
+@implementation PreferencePlugins
 
 - (id) init
 {
 	self = [super init];
 	if (self != nil) {
 		prefsView = nil;
-		serversArray = [[InternetRelayChat sharedInternetRelayChat] servers];
+		plugins = [[InternetRelayChat sharedInternetRelayChat] plugins];
 	}
 	return self;
 }
@@ -32,7 +32,7 @@
     BOOL loaded = YES;
     
     if (!prefsView) {
-        loaded = [NSBundle loadNibNamed:@"IRCUserDebug" owner:self];
+        loaded = [NSBundle loadNibNamed:@"PreferencePlugins" owner:self];
     }
     
     if (loaded) {
@@ -45,19 +45,21 @@
 
 - (NSString *)paneName
 {
-    return @"Users";
+    return @"Plugins";
 }
 
 
 - (NSImage *)paneIcon
 {
-    return [NSImage imageNamed:@"NSEveryone"];
+    return [[[NSImage alloc] initWithContentsOfFile:
+			 [[NSBundle bundleForClass:[self class]] pathForImageResource:@"Plugin"]
+			 ] autorelease];
 }
 
 
 - (NSString *)paneToolTip
 {
-    return @"Users";
+    return @"Plugins Preferences";
 }
 
 

@@ -20,28 +20,8 @@
 	RegexKitDebug *regexKitDebug;
 	IRCServerDebug *serverDebug;
 	IRCUserDebug *userDebug;
-	
-	IBOutlet NSTextField *cacheEnabled;
-	IBOutlet NSTextField *cacheCount;
-	IBOutlet NSTextField *cacheHitRate;
-	IBOutlet NSTextField *cacheHits;
-	IBOutlet NSTextField *cacheMisses;
-	IBOutlet NSTextField *cacheTotal;
-	IBOutlet NSTextField *regexVersion;
-	
-	IBOutlet NSTextField *ircUserCount;
-	IBOutlet NSTableView *ircUsers;
-	
-	IBOutlet NSTextField *messagesCount;
-	IBOutlet NSTableView *messagesTable;
-		
-	IBOutlet NSTextField *serverName;
-	IBOutlet NSTextField *serverNick;
-	IBOutlet NSTextField *serverRegisterdObservers;
-	IBOutlet NSTextField *serverMissedMessage;
-	IBOutlet NSTextField *serverIsConnected;
 }
 
-- (id) initWithServer:(IRCServer*)server;
+- (IBAction) showWindow:(id)sender;
 
 @end

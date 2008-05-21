@@ -6,12 +6,13 @@
 		activeExecutable = 92238EDB0DCBB9ED00933D94 /* iRelayChat */;
 		activeTarget = 8D15AC270486D014006FF6A4 /* iRelayChat */;
 		addToTargets = (
-			8D15AC270486D014006FF6A4 /* iRelayChat */,
+			92B293590DE4761900574C88 /* RawLog.ircplugin */,
 		);
 		breakpoints = (
 			922430B30DD1F255005FF883 /* -[NSException raise] */,
 			926AAC0C0DD9E1B200E1794E /* IRCChannel.m:236 */,
-			921536D00DE218410051B01A /* DebugWindow.m:27 */,
+			921536D00DE218410051B01A /* DebugWindow.m:26 */,
+			926231AE0DE47C4E0071B565 /* InternetRelayChat.m:48 */,
 		);
 		codeSenseManager = 92238EE70DCBB9EF00933D94 /* Code sense */;
 		executables = (
@@ -142,8 +143,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 232923445;
-			PBXWorkspaceStateSaveDate = 232923445;
+			PBXPerProjectTemplateStateSaveDate = 233084239;
+			PBXWorkspaceStateSaveDate = 233084239;
 		};
 		sourceControlManager = 92238EE60DCBB9EF00933D94 /* Source Control */;
 		userBuildSettings = {
@@ -151,9 +152,9 @@
 	};
 	2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 2268}}";
-			sepNavSelRange = "{1275, 0}";
-			sepNavVisRange = "{79, 1494}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 1736}}";
+			sepNavSelRange = "{1441, 0}";
+			sepNavVisRange = "{632, 1084}";
 		};
 	};
 	2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {
@@ -178,16 +179,16 @@
 	};
 	921442360DD61C6800A19EAF /* IRCChannelMessage.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {797, 588}}";
-			sepNavSelRange = "{1521, 0}";
-			sepNavVisRange = "{1483, 299}";
+			sepNavIntBoundsRect = "{{0, 0}, {540, 588}}";
+			sepNavSelRange = "{1406, 42}";
+			sepNavVisRange = "{1027, 755}";
 		};
 	};
 	921442370DD61C6800A19EAF /* IRCChannelMessage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1005, 1554}}";
-			sepNavSelRange = "{4393, 0}";
-			sepNavVisRange = "{2757, 1743}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 1764}}";
+			sepNavSelRange = "{2090, 77}";
+			sepNavVisRange = "{1798, 1016}";
 		};
 	};
 	921535F10DE1EBC50051B01A /* RegexKitDebug.h */ = {
@@ -207,32 +208,32 @@
 	921536090DE1F5920051B01A /* IRCServerDebug.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
-			sepNavSelRange = "{304, 27}";
-			sepNavVisRange = "{0, 671}";
+			sepNavSelRange = "{649, 0}";
+			sepNavVisRange = "{0, 672}";
 		};
 	};
 	9215360A0DE1F5920051B01A /* IRCServerDebug.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {656, 1428}}";
-			sepNavSelRange = "{2078, 0}";
-			sepNavVisRange = "{2191, 471}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 1876}}";
+			sepNavSelRange = "{335, 0}";
+			sepNavVisRange = "{0, 629}";
 		};
 	};
 	921536AC0DE213840051B01A /* IRCUserDebug.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 553}}";
-			sepNavSelRange = "{251, 0}";
-			sepNavVisRange = "{0, 618}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
+			sepNavSelRange = "{375, 0}";
+			sepNavVisRange = "{0, 381}";
 		};
 	};
 	921536AD0DE213840051B01A /* IRCUserDebug.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 1708}}";
-			sepNavSelRange = "{2045, 0}";
-			sepNavVisRange = "{1100, 1049}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 1064}}";
+			sepNavSelRange = "{854, 0}";
+			sepNavVisRange = "{500, 460}";
 		};
 	};
-	921536D00DE218410051B01A /* DebugWindow.m:27 */ = {
+	921536D00DE218410051B01A /* DebugWindow.m:26 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -242,11 +243,11 @@
 		delayBeforeContinue = 0;
 		fileReference = 9298CC5A0DD8459600023EBE /* DebugWindow.m */;
 		functionName = "-initWithServer:";
-		hitCount = 0;
+		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 27;
+		lineNumber = 26;
 		location = iRelayChat;
-		modificationTime = 232921205.086934;
+		modificationTime = 233077851.766371;
 		state = 1;
 	};
 	92238EDB0DCBB9ED00933D94 /* iRelayChat */ = {
@@ -314,15 +315,32 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = CoreFoundation;
-		modificationTime = 232921205.087266;
+		modificationTime = 233077839.916594;
 		state = 1;
 		symbolName = "-[NSException raise]";
 	};
+	926231AE0DE47C4E0071B565 /* InternetRelayChat.m:48 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 929F80110DE1BD1100263396 /* InternetRelayChat.m */;
+		functionName = "+sharedInternetRelayChat";
+		hitCount = 3;
+		ignoreCount = 0;
+		lineNumber = 48;
+		location = iRelayChat;
+		modificationTime = 233077851.037643;
+		state = 1;
+	};
 	926705380DCF31C800E5D085 /* IRCUser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 644}}";
-			sepNavSelRange = "{1080, 0}";
-			sepNavVisRange = "{316, 1416}";
+			sepNavIntBoundsRect = "{{0, 0}, {540, 644}}";
+			sepNavSelRange = "{988, 32}";
+			sepNavVisRange = "{316, 843}";
 		};
 	};
 	926705390DCF31C800E5D085 /* IRCUser.m */ = {
@@ -346,7 +364,7 @@
 		ignoreCount = 0;
 		lineNumber = 236;
 		location = iRelayChat;
-		modificationTime = 232921205.086914;
+		modificationTime = 233077839.9159819;
 		state = 1;
 	};
 	92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {
@@ -372,16 +390,16 @@
 	};
 	9298CC590DD8459600023EBE /* DebugWindow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {515, 672}}";
-			sepNavSelRange = "{480, 0}";
-			sepNavVisRange = "{143, 1000}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{495, 0}";
+			sepNavVisRange = "{0, 526}";
 		};
 	};
 	9298CC5A0DD8459600023EBE /* DebugWindow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {515, 1694}}";
-			sepNavSelRange = "{1191, 0}";
-			sepNavVisRange = "{640, 1430}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 728}}";
+			sepNavSelRange = "{1029, 0}";
+			sepNavVisRange = "{222, 817}";
 		};
 	};
 	9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {
@@ -400,58 +418,131 @@
 	};
 	929F80100DE1BD1100263396 /* InternetRelayChat.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
-			sepNavSelRange = "{251, 0}";
-			sepNavVisRange = "{0, 334}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{335, 0}";
+			sepNavVisRange = "{0, 433}";
 		};
 	};
 	929F80110DE1BD1100263396 /* InternetRelayChat.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
-			sepNavSelRange = "{421, 0}";
-			sepNavVisRange = "{0, 494}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 756}}";
+			sepNavSelRange = "{809, 0}";
+			sepNavVisRange = "{271, 724}";
+		};
+	};
+	929F80940DE1C10400263396 /* SS_PreferencePaneProtocol.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 714}}";
+			sepNavSelRange = "{25, 36}";
+			sepNavVisRange = "{0, 1523}";
 		};
 	};
 	929F80950DE1C10400263396 /* SS_PrefsController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1005, 1106}}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 1106}}";
 			sepNavSelRange = "{1081, 0}";
 			sepNavVisRange = "{332, 1323}";
 		};
 	};
 	929F80960DE1C10400263396 /* SS_PrefsController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 6664}}";
-			sepNavSelRange = "{8382, 36}";
-			sepNavVisRange = "{7473, 1345}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 5264}}";
+			sepNavSelRange = "{7209, 42}";
+			sepNavVisRange = "{9426, 1633}";
 		};
 	};
 	929F809C0DE1C36900263396 /* Preferences.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1005, 590}}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
 			sepNavSelRange = "{275, 47}";
 			sepNavVisRange = "{0, 328}";
 		};
 	};
 	929F809D0DE1C36900263396 /* Preferences.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1005, 590}}";
-			sepNavSelRange = "{407, 0}";
-			sepNavVisRange = "{0, 519}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 553}}";
+			sepNavSelRange = "{230, 0}";
+			sepNavVisRange = "{0, 616}";
 		};
 	};
 	929F80A20DE1C46C00263396 /* PreferenceGeneral.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1005, 567}}";
-			sepNavSelRange = "{257, 25}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
+			sepNavSelRange = "{286, 29}";
 			sepNavVisRange = "{0, 323}";
 		};
 	};
 	929F80A30DE1C46C00263396 /* PreferenceGeneral.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {515, 1050}}";
+			sepNavIntBoundsRect = "{{0, 0}, {702, 1050}}";
 			sepNavSelRange = "{219, 686}";
-			sepNavVisRange = "{510, 400}";
+			sepNavVisRange = "{436, 474}";
+		};
+	};
+	92AE27E60DE4412000AE0C5F /* PreferencePlugins.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{315, 0}";
+			sepNavVisRange = "{0, 342}";
+		};
+	};
+	92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 1106}}";
+			sepNavSelRange = "{337, 0}";
+			sepNavVisRange = "{152, 565}";
+		};
+	};
+	92AE280D0DE44EC600AE0C5F /* TestPlugin.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 576}}";
+			sepNavSelRange = "{347, 100}";
+			sepNavVisRange = "{0, 454}";
+		};
+	};
+	92AE280E0DE44EC600AE0C5F /* TestPlugin.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 924}}";
+			sepNavSelRange = "{572, 18}";
+			sepNavVisRange = "{0, 542}";
+		};
+	};
+	92B2931C0DE46D8F00574C88 /* IRCPlugin.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{406, 0}";
+			sepNavVisRange = "{0, 655}";
+		};
+	};
+	92B293220DE46EA300574C88 /* IRCPlugin.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 1974}}";
+			sepNavSelRange = "{2631, 0}";
+			sepNavVisRange = "{1892, 748}";
+		};
+	};
+	92B293320DE471C500574C88 /* IRCPluginProtocol.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{328, 0}";
+			sepNavVisRange = "{0, 334}";
+		};
+	};
+	92B293590DE4761900574C88 /* RawLog.ircplugin */ = {
+		activeExec = 0;
+	};
+	92B2935F0DE4764A00574C88 /* RawLog.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 552}}";
+			sepNavSelRange = "{248, 0}";
+			sepNavVisRange = "{0, 256}";
+		};
+	};
+	92B293600DE4764A00574C88 /* RawLog.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {481, 952}}";
+			sepNavSelRange = "{882, 0}";
+			sepNavVisRange = "{305, 759}";
 		};
 	};
 	92FD87500DCC78610024661C /* MessageViewController.h */ = {
@@ -477,16 +568,16 @@
 	};
 	AA05E0B30DB785660018FBCC /* IRCServer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 1008}}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 1036}}";
 			sepNavSelRange = "{1328, 0}";
-			sepNavVisRange = "{1246, 1147}";
+			sepNavVisRange = "{1246, 1141}";
 		};
 	};
 	AA05E0B40DB785660018FBCC /* IRCServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {702, 3920}}";
-			sepNavSelRange = "{1294, 0}";
-			sepNavVisRange = "{5753, 861}";
+			sepNavIntBoundsRect = "{{0, 0}, {481, 2940}}";
+			sepNavSelRange = "{2481, 0}";
+			sepNavVisRange = "{2401, 906}";
 		};
 	};
 	AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {
@@ -505,9 +596,9 @@
 	};
 	AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {603, 566}}";
-			sepNavSelRange = "{869, 0}";
-			sepNavVisRange = "{0, 1418}";
+			sepNavIntBoundsRect = "{{0, 0}, {540, 490}}";
+			sepNavSelRange = "{979, 36}";
+			sepNavVisRange = "{0, 1218}";
 		};
 	};
 	AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {

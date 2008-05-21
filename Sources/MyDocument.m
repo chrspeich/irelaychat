@@ -31,7 +31,6 @@
 		[server joinChannel:@"#ubuntu"];
 		[servers addObject:server];
 		[server release];
-		[[DebugWindow alloc] initWithServer:server];
     }
     return self;
 }
