@@ -51,7 +51,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 @implementation IRCChannel
 
-@synthesize name, server, userList;
+@synthesize name, server, userList, messages;
 
 - (id) initWithServer:(IRCServer*)_server andName:(NSString*)_name;
 {
@@ -60,7 +60,9 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 		name = _name;
 		server = _server;
 		tmpUserList = nil;
-		userList = nil;
+		userList = [[NSMutableArray alloc] init];
+		messages = [[NSMutableArray alloc] init];
+		userModes = nil;
 				
 		[server addObserver:self selector:@selector(userList:) pattern:[server.protocol patternNameReplyForChannel:name]];
 		[server addObserver:self selector:@selector(userListEnd:) pattern:[server.protocol patternNameReplyEndForChannel:name]];
@@ -106,8 +108,11 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithUser:server.me andMessage:messageString];
+	mess.channel = self;
+	mess.date = [NSDate date];
 	[dict setObject:mess forKey:@"MESSAGE"];
-		
+	
+	[messages addObject:mess];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[mess release];
 }
@@ -147,8 +152,9 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[tmpUserList sortUsingFunction:sortUsers context:self];
 	if (![userList isEqualToArray:tmpUserList]) {
 		NSLog(@"we've loosed some changes!");
-		[userList release];
-		userList = tmpUserList;
+		[userList removeAllObjects];
+		[userList addObjectsFromArray:tmpUserList];
+		[tmpUserList release];
 		tmpUserList = nil;
 		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 	}
@@ -170,8 +176,13 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPirvmsgFor:name],@"${from}",&from,@"${message}",&message,nil];
 	
 	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithUser:[IRCUser userWithString:from onServer:self.server] andMessage:message];
+	
+	mess.channel = self;
+	mess.date = [_message objectForKey:@"TIME"];
+	
 	[dict setObject:mess forKey:@"MESSAGE"];
 	
+	[messages addObject:mess];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[mess release];
 }
@@ -186,14 +197,23 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	messageLine = [message objectForKey:@"MESSAGE"];
 	
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternJoinForChannel:name],@"${from}",&from,nil];
-	
+		
 	user = [IRCUser userWithString:from onServer:self.server];
 	
-	[dict setObject:user forKey:@"FROM"];
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initJoinWithUser:user];
+	
+	mess.channel = self;
+	mess.date = [message objectForKey:@"TIME"];
+	
+	[dict setObject:mess forKey:@"MESSAGE"];
+	
+	[messages addObject:mess];
+	
 	[userList addObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserJoinsChannel object:self userInfo:dict];
+	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+	[mess release];
 }
 
 - (void) userLeave:(NSDictionary*)message
@@ -209,12 +229,20 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	
 	user = [IRCUser userWithString:from onServer:self.server];
 	
-	[dict setObject:user forKey:@"FROM"];
-	[dict setObject:reason forKey:@"REASON"];
+	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initPartWithUser:user andReason:reason];
+	
+	mess.channel = self;
+	mess.date = [message objectForKey:@"TIME"];
+	
+	[dict setObject:mess forKey:@"MESSAGE"];
+	
+	[messages addObject:mess];
+	
 	[userList removeObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserLeavesChannel object:self userInfo:dict];
+	[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+	[mess release];
 }
 
 - (void) modeChanged:(NSDictionary*)message
@@ -281,6 +309,23 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 {
 	[userList sortUsingFunction:sortUsers context:self];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+}
+
+- (bool) isLeaf
+{
+	return YES;
+}
+
+- (NSMutableArray*) userModes
+{
+	if (!userModes) {
+		userModes = [[NSMutableArray alloc] init];
+		for (IRCUser *user in userList) {
+			[userModes addObject:[user userModeForChannel:self]];
+		}
+	}
+	
+	return userModes;
 }
 
 @end

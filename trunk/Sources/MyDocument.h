@@ -14,12 +14,18 @@
 #import <Cocoa/Cocoa.h>
 
 @class ChannelView;
+@class test;
 
 @interface MyDocument : NSDocument
 {
 	IBOutlet NSOutlineView	*channelList;
 	IBOutlet NSView			*contentView;
 	IBOutlet NSTextField	*inputField;
+	IBOutlet NSTableView	*userListTable;
+	IBOutlet NSSplitView	*outlineSplitView;
+	IBOutlet NSSplitView	*userListSplitView;
+	IBOutlet NSTreeController *outlineController;
+	IBOutlet NSArrayController *userListController;
 	NSMutableArray			*servers;
 	NSMutableArray			*channelViews;
 	ChannelView				*currentView;

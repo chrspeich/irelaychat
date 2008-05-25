@@ -25,7 +25,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 
 @implementation IRCServer
 
-@synthesize serverName, host, port, isConnected, channels, me, protocol, messages;
+@synthesize serverName, name=serverName, host, port, isConnected, channels, me, protocol, messages;
 
 - (id) initWithHost:(NSString*)_host andPort:(NSString*)_port;
 {
@@ -36,7 +36,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 		port = [_port retain];
 		isConnected = NO;
 		channels = [[NSMutableArray alloc] init];
-		nick = @"kleinw2by";
+		nick = @"blablebl";
 		serverName = @"FreeNode";
 		observerObjects = [[NSMutableArray alloc] init];
 		knownUsers = [[NSMutableArray alloc] init];
@@ -144,7 +144,12 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 			printf("> %s\n", line);
 			fflush(0);
-						
+			
+			if ((int)line == EOF) {
+				isConnected = NO;
+				[NSThread exit];
+			}
+			
 			messageLine = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
 			
 			if (!messageLine)
@@ -343,6 +348,11 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			return NULL;
 		}
 		
+		if (c == EOF) {
+			free(line);
+			return (char*)EOF;
+		}
+		
 		if (i >= protocol.maxLineLength) {
 			NSLog(@"The Server '%@' sends Message against RFC 2812! Skip message.", self.host);
 			free(line);
@@ -365,6 +375,21 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	}
 	
 	return line;
+}
+
+- (bool) isLeaf
+{
+	return NO;
+}
+
+- (NSArray*) userList
+{
+	return [NSArray array];
+}
+
+- (NSArray*) userModes
+{
+	return [NSArray array];
 }
 
 @end

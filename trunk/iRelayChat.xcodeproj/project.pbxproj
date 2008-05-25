@@ -16,6 +16,10 @@
 		921442380DD61C6800A19EAF /* IRCChannelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 921442370DD61C6800A19EAF /* IRCChannelMessage.m */; };
 		9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
 		921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
+		921EA2420DE5C6A3009A9FDB /* NSObject+Unproxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */; };
+		921EA2600DE5CBFD009A9FDB /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921EA25F0DE5CBFD009A9FDB /* MessageView.m */; };
+		921ECCC10DE9706B006C9A52 /* HTMLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 921ECCC00DE9706B006C9A52 /* HTMLCache.m */; };
+		921ECCC50DE9770A006C9A52 /* MessageStyleDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */; };
 		922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9224306D0DD1E912005FF883 /* IRCUserMode.m */; };
 		922430D00DD1F732005FF883 /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CE0DD1F732005FF883 /* green.tiff */; };
 		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
@@ -63,7 +67,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 927717F60DE4BC9500BA551A /* Debug.ircplugin */;
+			remoteGlobalIDString = 927717F60DE4BC9500BA551A;
 			remoteInfo = Debug.ircplugin;
 		};
 		92B2936F0DE4777800574C88 /* PBXContainerItemProxy */ = {
@@ -125,6 +129,14 @@
 		921536AC0DE213840051B01A /* IRCUserDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserDebug.h; sourceTree = "<group>"; };
 		921536AD0DE213840051B01A /* IRCUserDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserDebug.m; sourceTree = "<group>"; };
 		921536C80DE217DB0051B01A /* IRCUserDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IRCUserDebug.xib; path = ../../Resources/IRCUserDebug.xib; sourceTree = "<group>"; };
+		921EA2400DE5C6A3009A9FDB /* NSObject+Unproxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Unproxy.h"; sourceTree = "<group>"; };
+		921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Unproxy.m"; sourceTree = "<group>"; };
+		921EA25E0DE5CBFD009A9FDB /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		921EA25F0DE5CBFD009A9FDB /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		921ECCBF0DE9706B006C9A52 /* HTMLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLCache.h; sourceTree = "<group>"; };
+		921ECCC00DE9706B006C9A52 /* HTMLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLCache.m; sourceTree = "<group>"; };
+		921ECCC30DE9770A006C9A52 /* MessageStyleDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageStyleDefault.h; sourceTree = "<group>"; };
+		921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageStyleDefault.m; sourceTree = "<group>"; };
 		9224306C0DD1E912005FF883 /* IRCUserMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserMode.h; sourceTree = "<group>"; };
 		9224306D0DD1E912005FF883 /* IRCUserMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserMode.m; sourceTree = "<group>"; };
 		922430CE0DD1F732005FF883 /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
@@ -263,6 +275,14 @@
 				AA3CC49D0DCB1465002D70DC /* ChannelView.m */,
 				92FD87500DCC78610024661C /* MessageViewController.h */,
 				92FD87510DCC78610024661C /* MessageViewController.m */,
+				921EA2400DE5C6A3009A9FDB /* NSObject+Unproxy.h */,
+				921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */,
+				921EA25E0DE5CBFD009A9FDB /* MessageView.h */,
+				921EA25F0DE5CBFD009A9FDB /* MessageView.m */,
+				921ECCBF0DE9706B006C9A52 /* HTMLCache.h */,
+				921ECCC00DE9706B006C9A52 /* HTMLCache.m */,
+				921ECCC30DE9770A006C9A52 /* MessageStyleDefault.h */,
+				921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -553,6 +573,10 @@
 				92AE27E80DE4412000AE0C5F /* PreferencePlugins.m in Sources */,
 				92B293230DE46EA300574C88 /* IRCPlugin.m in Sources */,
 				927717910DE4B10D00BA551A /* PreferencesServers.m in Sources */,
+				921EA2420DE5C6A3009A9FDB /* NSObject+Unproxy.m in Sources */,
+				921EA2600DE5CBFD009A9FDB /* MessageView.m in Sources */,
+				921ECCC10DE9706B006C9A52 /* HTMLCache.m in Sources */,
+				921ECCC50DE9770A006C9A52 /* MessageStyleDefault.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
