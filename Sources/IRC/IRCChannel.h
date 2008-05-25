@@ -26,6 +26,8 @@ extern NSString *IRCUserHasLoseMode;
 	IRCServer	*server;
 	NSMutableArray *tmpUserList;
 	NSMutableArray *userList;
+	NSMutableArray *userModes;
+	NSMutableArray *messages;
 }
 
 - (id) initWithServer:(IRCServer*)server andName:(NSString*)name;
@@ -33,6 +35,8 @@ extern NSString *IRCUserHasLoseMode;
 
 @property(readonly,copy) NSString	*name;
 @property(readonly,retain) IRCServer*server;
-@property(readonly,retain) NSArray *userList;
+@property(readonly,retain) NSMutableArray *userList;
+@property(readonly) NSMutableArray *userModes;
+@property(readonly) NSArray *messages;
 
 @end

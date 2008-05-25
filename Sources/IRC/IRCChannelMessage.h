@@ -20,21 +20,39 @@
 
 @class IRCUser;
 @class IRCMessage;
+@class IRCChannel;
+
+enum IRCChannelMessageTypes {
+	IRCChannelMessageText = 1,
+	IRCChannelMessageJoin = 2,
+	IRCChannelMessagePart = 4,
+	IRCChannelMessageQuit = 8
+};
 
 @interface IRCChannelMessage : NSObject {
 	IRCUser		*from;
+	IRCChannel	*channel;
 	bool		highlight;
 	bool		action;
 	NSString	*message;
+	NSString	*htmlUseableMessage;
+	NSDate		*date;
+	enum IRCChannelMessageTypes	type;
 }
 
 - (id) initWithUser:(IRCUser*)user andMessage:(NSString*)message;
+- (id) initJoinWithUser:(IRCUser*)user;
+- (id) initPartWithUser:(IRCUser*)user andReason:(NSString*)reason;
+- (id) initQuitWithUser:(IRCUser*)user andReason:(NSString*)reason;
 
 @property(readonly) IRCUser *from;
 @property(readonly) bool highlight;
 @property(readonly) bool action;
 @property(readonly) NSString *message;
 @property(readonly) NSString *htmlUseableMessage;
+@property(retain)	NSDate *date;
+@property(assign)	IRCChannel *channel;
+@property(readonly) enum IRCChannelMessageTypes	type;
 
 + (NSString*) urlRegex;
 

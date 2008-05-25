@@ -53,6 +53,7 @@ extern NSString *IRCUserQuit;
 - (void) removeUser:(IRCUser*)user;
 
 @property(readonly)	NSString	*serverName;
+@property(readonly)	NSString	*name;
 @property(readonly)	NSString	*host;
 @property(readonly)	NSString	*port;
 @property(readwrite, copy)	NSString	*nick;

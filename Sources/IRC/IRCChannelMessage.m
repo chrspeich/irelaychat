@@ -23,7 +23,7 @@
 
 @implementation IRCChannelMessage
 
-@synthesize highlight, action, from, message;
+@synthesize highlight, action, from, message, type, date, channel;
 
 + (void)initialize{
 	
@@ -40,6 +40,9 @@
 	if (self != nil) {
 		from = [user retain];
 		message = [inMessage retain];
+		htmlUseableMessage = nil;
+		type = IRCChannelMessageText;
+		
 		NSMutableString *highlightedWords = [NSMutableString stringWithString:from.server.me.nickname];
 
 		for (NSString *word in [[NSUserDefaults standardUserDefaults] objectForKey:@"ExtraWordsToHighlight"]) {
@@ -66,6 +69,47 @@
 	return self;
 }
 
+- (id) initJoinWithUser:(IRCUser*)user;
+{
+	self = [super init];
+	if (self != nil) {
+		from = [user retain];
+		message = nil;
+		htmlUseableMessage = nil;
+		type = IRCChannelMessageJoin;
+		action = NO;
+		highlight = NO;
+	}
+	return self;
+}
+
+- (id) initPartWithUser:(IRCUser*)user andReason:(NSString*)reason;
+{
+	self = [super init];
+	if (self != nil) {
+		from = [user retain];
+		message = [reason retain];
+		htmlUseableMessage = nil;
+		type = IRCChannelMessagePart;
+		action = NO;
+		highlight = NO;
+	}
+	return self;
+}
+
+- (id) initQuitWithUser:(IRCUser*)user andReason:(NSString*)reason;
+{
+	self = [super init];
+	if (self != nil) {
+		from = [user retain];
+		message = [reason retain];
+		htmlUseableMessage = nil;
+		type = IRCChannelMessageQuit;
+		action = NO;
+		highlight = NO;
+	}
+	return self;
+}
 
 - (void) dealloc
 {
@@ -84,24 +128,27 @@
 
 - (NSString*) htmlUseableMessage
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSMutableString *html = [[NSMutableString alloc] init];
+	if (!htmlUseableMessage) {
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		NSMutableString *html = [[NSMutableString alloc] init];
 	
-	[html appendString:message];
+		[html appendString:message];
 	
-	/* Escape some chararcters to use it in html */
-	[html replaceOccurrencesOfString:@"&" withString:@"&amp;" options:0 range:NSMakeRange(0, [html length])];
-	[html replaceOccurrencesOfString:@"'" withString:@"&#39;" options:0 range:NSMakeRange(0, [html length])];
-	[html replaceOccurrencesOfString:@"<" withString:@"&lt;" options:0 range:NSMakeRange(0, [html length])];
-	[html replaceOccurrencesOfString:@">" withString:@"&gt;" options:0 range:NSMakeRange(0, [html length])];
-	[html replaceOccurrencesOfString:@"\"" withString:@"&quot;" options:0 range:NSMakeRange(0, [html length])];
+		/* Escape some chararcters to use it in html */
+		[html replaceOccurrencesOfString:@"&" withString:@"&amp;" options:0 range:NSMakeRange(0, [html length])];
+		[html replaceOccurrencesOfString:@"'" withString:@"&#39;" options:0 range:NSMakeRange(0, [html length])];
+		[html replaceOccurrencesOfString:@"<" withString:@"&lt;" options:0 range:NSMakeRange(0, [html length])];
+		[html replaceOccurrencesOfString:@">" withString:@"&gt;" options:0 range:NSMakeRange(0, [html length])];
+		[html replaceOccurrencesOfString:@"\"" withString:@"&quot;" options:0 range:NSMakeRange(0, [html length])];
 	
-	[html match:[IRCChannelMessage urlRegex] replace:RKReplaceAll withString:@"<a href=\"${message}\">${message}</a>${end}"];
+		if (type == IRCChannelMessageText)
+			[html match:[IRCChannelMessage urlRegex] replace:RKReplaceAll withString:@"<a href=\"${message}\">${message}</a>${end}"];
 	
-	NSString *result = [html copy];
-	[html release];
-	[pool release];
-	return [result autorelease];
+		htmlUseableMessage = [html copy];
+		[html release];
+		[pool release];
+	}
+	return htmlUseableMessage;
 }
 
 @end
