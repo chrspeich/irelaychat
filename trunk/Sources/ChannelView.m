@@ -34,7 +34,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCNewChannelMessage object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userJoins:) name:IRCUserJoinsChannel object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLeaves:) name:IRCUserLeavesChannel object:channel];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:IRCUserQuit object:channel];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuit:) name:@"test" object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLooesMode:) name:IRCUserHasLoseMode object:channel];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userGotMode:) name:IRCUserHasGotMode object:channel];
 		[messageView setMaintainsBackForwardList:NO];
@@ -107,7 +107,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void) userQuit:(NSNotification*)noti
 {
 	NSDictionary *dict = [noti userInfo];
-
+	NSLog(@"quittttt %@", noti);
 	[messageViewController userQuit:[[dict objectForKey:@"FROM"] nickname] withMessage:[dict objectForKey:@"MESSAGE"]];
 }
 

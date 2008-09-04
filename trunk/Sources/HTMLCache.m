@@ -1,14 +1,25 @@
-//
-//  HTMLCache.m
-//  iRelayChat
-//
-//  Created by Christian Speich on 25.05.08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
+ * - Frontend Class -                                                        *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import "HTMLCache.h"
 #import "IRCChannel.h"
 #import "MessageStyleDefault.h"
+
+@interface HTMLCache (Private)
+
+- (NSString*) buildContentFor:(id)object;
+
+@end
+
 
 @implementation HTMLCache
 
@@ -53,28 +64,22 @@
 - (void) newMessage:(NSNotification*)noti
 {
 	@synchronized(cache) {
-		if ([cache objectForKey:[[noti object] name]] != nil) {
-			NSString *html = [cache objectForKey:[[noti object] name]];
+		NSString *html = [cache objectForKey:[[noti object] name]];
 		
-			html = [html stringByReplacingOccurrencesOfString:@"<!-- Insert Place Holder -->" withString:[NSString stringWithFormat:@"%@\n<!-- Insert Place Holder -->",[MessageStyleDefault htmlForChannelMessage:[[noti userInfo] objectForKey:@"MESSAGE"]]]];
-
-			[cache setObject:html forKey:[[noti object] name]];
-		}
-		else {
-			NSString *html = [MessageStyleDefault template];
+		if (!html)
+			html = [MessageStyleDefault template];
 		
-			html = [html stringByReplacingOccurrencesOfString:@"<!-- Insert Place Holder -->" withString:[NSString stringWithFormat:@"%@\n<!-- Insert Place Holder -->",[MessageStyleDefault htmlForChannelMessage:[[noti userInfo] objectForKey:@"MESSAGE"]]]];
+		html = [html stringByReplacingOccurrencesOfString:@"<!-- Insert Place Holder -->" withString:[NSString stringWithFormat:@"%@\n<!-- Insert Place Holder -->",[MessageStyleDefault htmlForChannelMessage:[[noti userInfo] objectForKey:@"MESSAGE"]]]];
 
-			[cache setObject:html forKey:[[noti object] name]];
-		}
+		[cache setObject:html forKey:[[noti object] name]];
 	}
 }
 
 - (NSString*) buildContentFor:(id)object
 {
+	NSString *html = [MessageStyleDefault template];
+
 	@synchronized(cache) {
-		NSString *html = [MessageStyleDefault template];
-		
 		if ([object isKindOfClass:[IRCChannel class]]) {
 			for (IRCChannelMessage *message in [object messages]) {
 				html = [html stringByReplacingOccurrencesOfString:@"<!-- Insert Place Holder -->" withString:[NSString stringWithFormat:@"%@\n<!-- Insert Place Holder -->",[MessageStyleDefault htmlForChannelMessage:message]]];
@@ -82,8 +87,10 @@
 		}
 		
 		[cache setObject:html forKey:[[object unproxy] name]];
-		return html;
 	}
+	
+	return html;
+
 }
 
 @end

@@ -27,14 +27,15 @@
     if (self) {
 		servers = [[NSMutableArray alloc] init];
 		channelViews = [[NSMutableArray alloc] init];
+		inputMessagesCache = [[NSMutableDictionary alloc] init];
 		
 		[HTMLCache sharedCache];
 		
 		IRCServer *server = [[IRCServer alloc] initWithHost:@"localhost" andPort:@"6667"];
 		[server connect];
-		[server joinChannel:@"#ubuntu-de"];
-//[server joinChannel:@"#Linuxpaten"];
 		[server joinChannel:@"#ubuntu"];
+//		[server joinChannel:@"#Linuxpaten"];
+//		[server joinChannel:@"#test"];
 		[servers addObject:server];
 		[server release];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:) name:NSApplicationDidFinishLaunchingNotification object:nil];
@@ -45,6 +46,7 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification*)noti
 {
+	NSLog(@"test");
 	[[InternetRelayChat sharedInternetRelayChat] searchForPlugins];
 }
 
@@ -64,60 +66,10 @@
 	[contentView bind:@"content" toObject:outlineController withKeyPath:@"selection" options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES]
 																														 forKey:@"NSContinuouslyUpdatesValue"]];
 	[outlineController addObserver:contentView forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
+	[outlineController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
 	[self performSelector:@selector(splitViewDidResizeSubviews:) withObject:nil];
 }
 
-/*- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
-{
-	if (item == nil) {
-		return [servers count];
-	}
-	else if ([item isKindOfClass:[IRCServer class]]) {
-		return [channelViews count];
-	}
-	
-    return 0;
-}
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
-{
-	if ([item isKindOfClass:[IRCServer class]]) {
-		return YES;
-	}
-	return NO;
-}
-
-- (id)outlineView:(NSOutlineView *)outlineView
-			child:(int)index
-		   ofItem:(id)item
-{
-    if (item == nil) {
-		return [servers objectAtIndex:index];
-	}
-	else {
-		return [channelViews objectAtIndex:index];
-	}
-
-	return nil;
-}
-
-- (id)outlineView:(NSOutlineView *)outlineView
-objectValueForTableColumn:(NSTableColumn *)tableColumn
-		   byItem:(id)item
-{
-	if ([[tableColumn identifier] isEqualToString:@"TitleColumn"]) {
-		if ([item isKindOfClass:[IRCServer class]]) {
-			return [item serverName];
-		}
-		else {
-			return [[item channel] name];
-		}
-	}
-	else {
-		return @"";
-	}
-}
-*/
 -(BOOL)outlineView:(NSOutlineView*)outlineView isGroupItem:(id)item
 {
 	if ([[[item self] representedObject] isKindOfClass:[IRCServer class]]) {
@@ -125,25 +77,6 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	}
 	return NO;
 }
-
-/*- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item;
-{
-	if ([[[item self] representedObject] isKindOfClass:[IRCServer class]]) {
-		return NO;
-	}
-	
-/*	if (currentView != item) {
-		currentView.inputField = nil;
-		[currentView.view removeFromSuperview];
-		[contentView addSubview:[item view]];
-		currentView = item;
-		currentView.inputField = inputField;
-		[currentView.view setFrame:[contentView bounds]];
-		[inputField setTarget:currentView];
-		[inputField setAction:@selector(sendMessage)];
-	}*
-	return YES;
-}*/
 
 - (void) refreshUserListTable:(NSNotification*)noti
 {
@@ -184,11 +117,6 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	[inputField setFrame:oldInputFrame];
 }
 
-/*- (int)numberOfRowsInTableView:(NSTableView *)aTableView
-{
-	return [[userListController arrangedObjects] count];
-}*/
-
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			row:(int)rowIndex
@@ -215,5 +143,38 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	if ([keyPath isEqualToString:@"selection"]) {
+		if ([[outlineController.selection unproxy] supportInputField]) {
+			[inputField setHidden:NO];
+		}
+		else {
+			[inputField setHidden:YES];
+		}
+
+		if (![[inputField stringValue] isEqualToString:@""] && lastSelection != nil) {
+			[inputMessagesCache setObject:[inputField stringValue] forKey:[lastSelection name]];
+		}
+		
+		if ([inputMessagesCache objectForKey:[[outlineController.selection unproxy] name]] != nil) {
+			[inputField setStringValue:[inputMessagesCache objectForKey:[[outlineController.selection unproxy] name]]];
+		}
+		else {
+			[inputField setStringValue:@""];
+		}
+		
+		lastSelection = [outlineController.selection unproxy];
+	}
+}
+
+- (IBAction) send:(id)sender
+{
+	if (![[inputField stringValue] isEqualToString:@""]) {
+		[[outlineController.selection unproxy] sendMessage:[inputField stringValue]];
+		[inputMessagesCache removeObjectForKey:[[outlineController.selection unproxy] name]];
+		[inputField setStringValue:@""];
+	}
+}
 
 @end

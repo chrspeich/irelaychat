@@ -11,6 +11,7 @@
 #import "RegexKitDebug.h"
 #import "IRCServerDebug.h"
 #import "IRCUserDebug.h"
+#import "IRCMessagesDebug.h"
 #import "IRCPluginProtocol.h"
 
 @interface Debug : NSObject <IRCPluginProtocol> {
@@ -21,6 +22,7 @@
 	RegexKitDebug *regexKitDebug;
 	IRCServerDebug *serverDebug;
 	IRCUserDebug *userDebug;
+	IRCMessagesDebug *messagesDebug;
 }
 
 @end

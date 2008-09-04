@@ -11,4 +11,6 @@
 
 @interface NSObject (Unproxy)
 
+- (id) unproxy;
+
 @end

@@ -21,6 +21,7 @@
 		regexKitDebug = [[RegexKitDebug alloc] init];
 		serverDebug = [[IRCServerDebug alloc] init];
 		userDebug = [[IRCUserDebug alloc] init];
+		messagesDebug = [[IRCMessagesDebug alloc] init];
 		
 		controller = [[SS_PrefsController alloc] init];
 		[controller setDebug:YES];
@@ -28,6 +29,7 @@
 		[controller addPreferencePane:regexKitDebug];
 		[controller addPreferencePane:serverDebug];
 		[controller addPreferencePane:userDebug];
+		//[controller addPreferencePane:messagesDebug];
 		
 		[NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(update) userInfo:nil repeats:YES];
 	}

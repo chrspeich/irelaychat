@@ -1,10 +1,14 @@
-//
-//  MessageView.m
-//  iRelayChat
-//
-//  Created by Christian Speich on 22.05.08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * iRelayChat - A better IRC Client for Mac OS X                             *
+ * - Frontend Class -                                                        *
+ *                                                                           *
+ * Copyright 2008 by Christian Speich <kontakt@kleinweby.de>                 *
+ *                                                                           *
+ * Licenced under GPL v3 or later. See 'Copying' for details.                *
+ *                                                                           *
+ * - Description - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import "MessageView.h"
 #import "IRCChannel.h"
@@ -18,10 +22,10 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-		webView = [[WebView alloc] initWithFrame:frame frameName:@"MessageView" groupName:@"MessageView"];
+		webViews = [[NSMutableDictionary alloc] init];
         content = nil;
+		currentWebView = nil;
 
-		[self addSubview:webView];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCNewChannelMessage object:nil];
     }
     return self;
@@ -34,22 +38,33 @@
 - (void) setFrame:(NSRect)frame
 {
 	[super setFrame:frame];
-	[webView setFrame:frame];
+	[currentWebView setFrame:[self bounds]];
 }
 
 - (void) newMessage:(NSNotification*)noti
 {
-	if ([content unproxy] == [noti object]) {
-		[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"appendHTML('%@');",[MessageStyleDefault htmlForChannelMessage:[[noti userInfo] objectForKey:@"MESSAGE"]]]];
+	if ([webViews objectForKey:[[noti object] valueForKey:@"name"]]) {
+		[[webViews objectForKey:[[noti object] valueForKey:@"name"]] stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"appendHTML('%@');",[MessageStyleDefault htmlForChannelMessage:[[noti userInfo] objectForKey:@"MESSAGE"]]]];
 	}
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	WebFrame *mainFrame = [webView mainFrame];
-	NSString *html = [[HTMLCache sharedCache] htmlForObject:[content unproxy]];
+	[currentWebView removeFromSuperview];
+	
+	if ([webViews objectForKey:[content valueForKey:@"name"]]) {
+		[self addSubview:[webViews objectForKey:[content valueForKey:@"name"]]];
+		currentWebView = [webViews objectForKey:[content valueForKey:@"name"]];
+	} else {
+		currentWebView = [[WebView alloc] initWithFrame:[self bounds]];
+		WebFrame *mainFrame = [currentWebView mainFrame];
+		NSString *html = [[HTMLCache sharedCache] htmlForObject:[content unproxy]];
 
-	[mainFrame loadHTMLString:html baseURL:[NSURL URLWithString:[[NSBundle mainBundle] resourcePath]]];
+		[mainFrame loadHTMLString:html baseURL:[NSURL URLWithString:[[NSBundle mainBundle] resourcePath]]];
+		[webViews setObject:currentWebView forKey:[content valueForKey:@"name"]];
+		[self addSubview:currentWebView];
+	}
+	[currentWebView setFrame:[self bounds]];
 }
 
 @end
