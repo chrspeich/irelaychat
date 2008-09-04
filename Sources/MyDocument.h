@@ -29,6 +29,12 @@
 	NSMutableArray			*servers;
 	NSMutableArray			*channelViews;
 	ChannelView				*currentView;
+	
+	NSMutableDictionary		*inputMessagesCache;
+	
+	id lastSelection;
 }
+
+- (IBAction) send:(id)sender;
 
 @end

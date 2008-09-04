@@ -53,7 +53,18 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 
 - (bool) connect
 {
-	struct sockaddr_in address;
+/*	socketPort = [[NSSocketPort alloc] initRemoteWithTCPPort: 6667 host: @"140.211.166.3"];
+	
+	if (![socketPort isValid])
+		NSLog(@"is not valid");
+	
+	NSFileHandle* sHandle = [[NSFileHandle alloc] initWithFileDescriptor: [socketPort socket] closeOnDealloc: YES];
+
+	[sHandle writeData:[[NSString stringWithString:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+	
+	sock = [sHandle fileDescriptor];
+	
+*/	struct sockaddr_in address;
 	struct in_addr inaddr;
 	struct hostent *_host;
 	int status;
@@ -101,8 +112,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 {
 	if ([cmd isKindOfClass:[NSArray class]]) {
 		for (NSString *command in cmd) {
-			printf("< %s", [command UTF8String]);
-			send(sock, [command UTF8String], [command length], 0);
+			[self send:command];
 		}
 	}
 	else if ([cmd isKindOfClass:[NSString class]]) {
@@ -142,9 +152,6 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 			line = [self readLine];
 			
-			printf("> %s\n", line);
-			fflush(0);
-			
 			if ((int)line == EOF) {
 				isConnected = NO;
 				[NSThread exit];
@@ -154,6 +161,9 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			
 			if (!messageLine)
 				messageLine = [NSString stringWithCString:line encoding:NSASCIIStringEncoding];
+			
+			printf("> %s\n", [messageLine UTF8String]);
+			fflush(0);
 			
 			message = [NSMutableDictionary dictionary];
 			
@@ -169,8 +179,6 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 					}
 				}
 			}
-			
-
 
 			if (!matched) {
 				missedMessages++;
@@ -297,8 +305,11 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	
 	[dict setObject:[IRCUser userWithString:from onServer:self] forKey:@"FROM"];
 	[dict setObject:reason forKey:@"MESSAGE"];
-	
+	[dict setObject:[message objectForKey:@"TIME"] forKey:@"TIME"];
+		
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserQuit object:self userInfo:dict];
+	
+	[dict release];
 }
 
 - (NSArray*) knownUsers
@@ -348,7 +359,8 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 			return NULL;
 		}
 		
-		if (c == EOF) {
+		if (c == 0) {
+			NSLog(@"The Server '%@' has close the socket.", self.host);
 			free(line);
 			return (char*)EOF;
 		}
@@ -378,6 +390,16 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 }
 
 - (bool) isLeaf
+{
+	return NO;
+}
+
+- (bool) supportInputField
+{
+	return NO;
+}
+
+- (bool) hasUserList
 {
 	return NO;
 }

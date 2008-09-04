@@ -98,6 +98,22 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 	return self;
 }
 
+- (void) dealloc
+{
+	if (color)
+		[color release];
+	if (user)
+		[user release];
+	if (host)
+		[host release];
+	
+	[nickname release];
+	[userModes release];
+	
+	[super dealloc];
+}
+
+
 - (void) setupObservers
 {
 	[server removeObserver:self];

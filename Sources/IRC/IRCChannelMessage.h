@@ -19,7 +19,6 @@
 #import <Cocoa/Cocoa.h>
 
 @class IRCUser;
-@class IRCMessage;
 @class IRCChannel;
 
 enum IRCChannelMessageTypes {

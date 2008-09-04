@@ -19,7 +19,6 @@ extern NSString *IRCLeaveChannel;
 extern NSString *IRCUserQuit;
 
 @class IRCChannel;
-@class IRCMessage;
 @class IRCUser;
 @class IRCProtocol;
 
@@ -37,6 +36,7 @@ extern NSString *IRCUserQuit;
 	IRCUser			*me;
 	int				missedMessages;
 	IRCProtocol		*protocol;
+	NSSocketPort	*socketPort;
 }
 
 - (id) initWithHost:(NSString*)host andPort:(NSString*)port;
@@ -64,6 +64,9 @@ extern NSString *IRCUserQuit;
 @property(readonly) NSArray	*messages;
 
 - (char *)readLine;
+
+- (bool) supportInputField;
+- (bool) hasUserList;
 
 /* For Debug */
 - (NSArray*) registerdObservers;

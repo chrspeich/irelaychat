@@ -133,16 +133,16 @@
 		NSMutableString *html = [[NSMutableString alloc] init];
 	
 		[html appendString:message];
-	
+			
 		/* Escape some chararcters to use it in html */
-		[html replaceOccurrencesOfString:@"&" withString:@"&amp;" options:0 range:NSMakeRange(0, [html length])];
 		[html replaceOccurrencesOfString:@"'" withString:@"&#39;" options:0 range:NSMakeRange(0, [html length])];
 		[html replaceOccurrencesOfString:@"<" withString:@"&lt;" options:0 range:NSMakeRange(0, [html length])];
 		[html replaceOccurrencesOfString:@">" withString:@"&gt;" options:0 range:NSMakeRange(0, [html length])];
 		[html replaceOccurrencesOfString:@"\"" withString:@"&quot;" options:0 range:NSMakeRange(0, [html length])];
 	
-		if (type == IRCChannelMessageText)
+		if (type == IRCChannelMessageText) {
 			[html match:[IRCChannelMessage urlRegex] replace:RKReplaceAll withString:@"<a href=\"${message}\">${message}</a>${end}"];
+		}
 	
 		htmlUseableMessage = [html copy];
 		[html release];

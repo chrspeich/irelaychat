@@ -51,18 +51,19 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 @implementation IRCChannel
 
-@synthesize name, server, userList, messages;
+@synthesize name, server, userList, messages, unreadedMessages, unreadedHighlightedMessages;
 
 - (id) initWithServer:(IRCServer*)_server andName:(NSString*)_name;
 {
 	self = [super init];
 	if (self != nil) {
-		name = _name;
+		name = [_name retain];
 		server = _server;
 		tmpUserList = nil;
 		userList = [[NSMutableArray alloc] init];
 		messages = [[NSMutableArray alloc] init];
-		userModes = nil;
+		unreadedMessages = 0;
+		unreadedHighlightedMessages = 0;
 				
 		[server addObserver:self selector:@selector(userList:) pattern:[server.protocol patternNameReplyForChannel:name]];
 		[server addObserver:self selector:@selector(userListEnd:) pattern:[server.protocol patternNameReplyEndForChannel:name]];
@@ -75,10 +76,25 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:IRCJoinChannel object:self];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userQuits:) name:IRCUserQuit object:self.server];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userChanged:) name:IRCUserChanged object:nil];
-		[NSTimer scheduledTimerWithTimeInterval:120.f target:self selector:@selector(reloadUserList) userInfo:nil repeats:YES];
+		[NSTimer scheduledTimerWithTimeInterval:600.f target:self selector:@selector(reloadUserList) userInfo:nil repeats:YES];
 	}
 	return self;
 }
+
+- (void) dealloc
+{
+	[server removeObserver:self];
+	
+	[name release];
+	if (tmpUserList)
+		[tmpUserList release];
+	
+	[userList release];
+	[messages release];
+	
+	[super dealloc];
+}
+
 
 - (void) reloadUserList
 {
@@ -176,6 +192,10 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[messageLine getCapturesWithRegexAndReferences:[server.protocol patternPirvmsgFor:name],@"${from}",&from,@"${message}",&message,nil];
 	
 	IRCChannelMessage *mess = [[IRCChannelMessage alloc] initWithUser:[IRCUser userWithString:from onServer:self.server] andMessage:message];
+	
+	unreadedMessages++;
+	if (mess.highlight)
+		unreadedHighlightedMessages++;
 	
 	mess.channel = self;
 	mess.date = [_message objectForKey:@"TIME"];
@@ -297,12 +317,26 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 
 - (void) userQuits:(NSNotification*)noti
 {
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	
 	if ([userList containsObject:[[noti userInfo] objectForKey:@"FROM"]]) {
+		IRCChannelMessage *mess = [[IRCChannelMessage alloc] initQuitWithUser:[[noti userInfo] objectForKey:@"FROM"] andReason:[[noti userInfo] objectForKey:@"MESSAGE"]];
+		
+		mess.channel = self;
+		mess.date = [[noti userInfo] objectForKey:@"TIME"];
+		
+		[dict setObject:mess forKey:@"MESSAGE"];
+		
+		[messages addObject:mess];
+		
 		[userList removeObject:[[noti userInfo] objectForKey:@"FROM"]];
 		[userList sortUsingFunction:sortUsers context:self];
-		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserQuit object:self userInfo:[noti userInfo]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:IRCNewChannelMessage object:self userInfo:dict];
 		[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
+		[mess release];
 	}
+
+	[dict release];
 }
 
 - (void) userChanged:(NSNotification*)noti
@@ -316,16 +350,20 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	return YES;
 }
 
-- (NSMutableArray*) userModes
+- (bool) supportInputField
 {
-	if (!userModes) {
-		userModes = [[NSMutableArray alloc] init];
-		for (IRCUser *user in userList) {
-			[userModes addObject:[user userModeForChannel:self]];
-		}
-	}
-	
-	return userModes;
+	return YES;
+}
+
+- (bool) hasUserList
+{
+	return YES;
+}
+
+- (void) resetUnreadedMessages
+{
+	unreadedHighlightedMessages = 0;
+	unreadedMessages = 0;
 }
 
 @end

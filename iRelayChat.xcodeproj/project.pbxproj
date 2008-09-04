@@ -38,6 +38,8 @@
 		9277195C0DE4C8B600BA551A /* IRCServerDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536510DE1FCCF0051B01A /* IRCServerDebug.xib */; };
 		9277195D0DE4C8B700BA551A /* IRCUserDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536C80DE217DB0051B01A /* IRCUserDebug.xib */; };
 		9277195E0DE4C8B800BA551A /* RegexKitDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536030DE1F0C40051B01A /* RegexKitDebug.xib */; };
+		927FF8E40E6AA7D6007DF62F /* IRCMessagesDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */; };
+		927FF8E50E6AA7DB007DF62F /* IRCMessagesDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */; };
 		92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92911F280DD71DBA009C2C16 /* IRCMeUser.m */; };
 		9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9294743D0DCC63EC0022A391 /* WebKit.framework */; };
 		9296F5E50DE046CB008F323E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9296F5E40DE046CB008F323E /* main.m */; };
@@ -152,6 +154,9 @@
 		927717CE0DE4BA4600BA551A /* Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
 		927717F70DE4BC9500BA551A /* Debug.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Debug.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		927717F80DE4BC9500BA551A /* Debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Debug-Info.plist"; path = "../../Debug-Info.plist"; sourceTree = "<group>"; };
+		927FF8DF0E6AA780007DF62F /* IRCMessagesDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMessagesDebug.h; sourceTree = "<group>"; };
+		927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMessagesDebug.m; sourceTree = "<group>"; };
+		927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRCMessagesDebug.xib; sourceTree = "<group>"; };
 		92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMeUser.h; sourceTree = "<group>"; };
 		92911F280DD71DBA009C2C16 /* IRCMeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMeUser.m; sourceTree = "<group>"; };
 		9294743D0DCC63EC0022A391 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
@@ -368,6 +373,9 @@
 				9215360A0DE1F5920051B01A /* IRCServerDebug.m */,
 				921536AC0DE213840051B01A /* IRCUserDebug.h */,
 				921536AD0DE213840051B01A /* IRCUserDebug.m */,
+				927FF8DF0E6AA780007DF62F /* IRCMessagesDebug.h */,
+				927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */,
+				927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -404,7 +412,6 @@
 		AA05E0B00DB784CC0018FBCC /* IRC */ = {
 			isa = PBXGroup;
 			children = (
-				92B293220DE46EA300574C88 /* IRCPlugin.m */,
 				AA05E0B30DB785660018FBCC /* IRCServer.h */,
 				AA05E0B40DB785660018FBCC /* IRCServer.m */,
 				AA05E1B90DB7DED80018FBCC /* IRCChannel.h */,
@@ -422,6 +429,7 @@
 				929F80100DE1BD1100263396 /* InternetRelayChat.h */,
 				929F80110DE1BD1100263396 /* InternetRelayChat.m */,
 				92B2931C0DE46D8F00574C88 /* IRCPlugin.h */,
+				92B293220DE46EA300574C88 /* IRCPlugin.m */,
 				92B293320DE471C500574C88 /* IRCPluginProtocol.h */,
 			);
 			name = IRC;
@@ -538,6 +546,7 @@
 				9277195C0DE4C8B600BA551A /* IRCServerDebug.xib in Resources */,
 				9277195D0DE4C8B700BA551A /* IRCUserDebug.xib in Resources */,
 				9277195E0DE4C8B800BA551A /* RegexKitDebug.xib in Resources */,
+				927FF8E40E6AA7D6007DF62F /* IRCMessagesDebug.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +598,7 @@
 				927718690DE4C0ED00BA551A /* IRCUserDebug.m in Sources */,
 				9277186A0DE4C0EE00BA551A /* RegexKitDebug.m in Sources */,
 				927718A50DE4C1D300BA551A /* SS_PrefsController.m in Sources */,
+				927FF8E50E6AA7DB007DF62F /* IRCMessagesDebug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

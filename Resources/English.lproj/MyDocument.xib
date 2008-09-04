@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9C7010</string>
-		<string key="IBDocument.InterfaceBuilderVersion">658</string>
-		<string key="IBDocument.AppKitVersion">949.26</string>
+		<string key="IBDocument.SystemVersion">9D34</string>
+		<string key="IBDocument.InterfaceBuilderVersion">667</string>
+		<string key="IBDocument.AppKitVersion">949.33</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100097"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -769,18 +769,18 @@
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<integer value="1" id="5"/>
-									<integer value="0" id="6"/>
-									<reference ref="5"/>
-									<reference ref="6"/>
-									<reference ref="5"/>
-									<reference ref="5"/>
+									<reference ref="9"/>
+									<reference ref="8"/>
+									<reference ref="9"/>
+									<reference ref="8"/>
+									<reference ref="9"/>
+									<reference ref="9"/>
 									<string/>
 									<string/>
 									<string/>
 									<string/>
-									<reference ref="5"/>
-									<reference ref="6"/>
+									<reference ref="9"/>
+									<reference ref="8"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -846,6 +846,14 @@
 						</object>
 					</object>
 					<int key="connectionID">100158</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">send:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="764179465"/>
+					</object>
+					<int key="connectionID">100159</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1181,7 +1189,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100158</int>
+			<int key="maxID">100159</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1201,6 +1209,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MyDocument</string>
 					<string key="superclassName">NSDocument</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">send:</string>
+						<string key="NS.object.0">id</string>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
@@ -1208,6 +1220,7 @@
 							<string>channelList</string>
 							<string>contentView</string>
 							<string>inputField</string>
+							<string>lastSelection</string>
 							<string>outlineController</string>
 							<string>outlineSplitView</string>
 							<string>userListController</string>
@@ -1219,6 +1232,7 @@
 							<string>NSOutlineView</string>
 							<string>NSView</string>
 							<string>NSTextField</string>
+							<string>id</string>
 							<string>NSTreeController</string>
 							<string>NSSplitView</string>
 							<string>NSArrayController</string>
