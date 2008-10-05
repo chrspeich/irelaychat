@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* MyDocument.xib */; };
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
-		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		92026D2A0E98DFBA00C86141 /* AutoHyperlinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
 		92026D360E98DFCD00C86141 /* AutoHyperlinks.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
+		92026D6F0E98EAC700C86141 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92026D6E0E98EAC700C86141 /* AboutWindow.xib */; };
+		92026D740E98EFDA00C86141 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92026D730E98EFDA00C86141 /* AboutController.m */; };
+		92026DFE0E990B0800C86141 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 92026DFD0E990B0800C86141 /* Credits.html */; };
 		9213F3380E96765900CA2CAE /* IRCConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F3370E96765900CA2CAE /* IRCConversation.m */; };
 		9213F37B0E96823300CA2CAE /* IRCConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F37A0E96823300CA2CAE /* IRCConversationMessage.m */; };
 		9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
@@ -118,13 +120,16 @@
 		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
-		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRelayChat_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iRelayChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRelayChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoHyperlinks.framework; path = Frameworks/AutoHyperlinks.framework; sourceTree = "<group>"; };
+		92026D6E0E98EAC700C86141 /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		92026D720E98EFDA00C86141 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		92026D730E98EFDA00C86141 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		92026DFD0E990B0800C86141 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		9213F3360E96765900CA2CAE /* IRCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversation.h; sourceTree = "<group>"; };
 		9213F3370E96765900CA2CAE /* IRCConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCConversation.m; sourceTree = "<group>"; };
 		9213F3790E96823300CA2CAE /* IRCConversationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversationMessage.h; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 		2A37F4ABFDCFA73011CA2CEA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				92026D710E98EFAB00C86141 /* AboutWindow */,
 				9277175E0DE4AFC000BA551A /* Preferences */,
 				2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */,
@@ -317,7 +323,6 @@
 				922430FC0DD1FD8A005FF883 /* yellow.tiff */,
 				922430CE0DD1F732005FF883 /* green.tiff */,
 				922430CF0DD1F732005FF883 /* red.tiff */,
-				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
@@ -325,6 +330,8 @@
 				AA3CC4980DCB117B002D70DC /* ChannelView.xib */,
 				92FD87620DCC7CAF0024661C /* MessageTemplate.html */,
 				9298CC550DD841D700023EBE /* DebugWindow.xib */,
+				92026D6E0E98EAC700C86141 /* AboutWindow.xib */,
+				92026DFD0E990B0800C86141 /* Credits.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -336,6 +343,15 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92026D710E98EFAB00C86141 /* AboutWindow */ = {
+			isa = PBXGroup;
+			children = (
+				92026D720E98EFDA00C86141 /* AboutController.h */,
+				92026D730E98EFDA00C86141 /* AboutController.m */,
+			);
+			name = AboutWindow;
 			sourceTree = "<group>";
 		};
 		9277175D0DE4AF9F00BA551A /* Preferences */ = {
@@ -456,6 +472,7 @@
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				921442580DD6277A00A19EAF /* CopyFiles */,
 				92B293880DE477A200574C88 /* CopyFiles */,
+				92026DA40E98FD9E00C86141 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -530,7 +547,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */,
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
@@ -544,6 +560,8 @@
 				92AE27E40DE43F7A00AE0C5F /* Plugin.icns in Resources */,
 				92AE27F00DE4446200AE0C5F /* PreferencePlugins.xib in Resources */,
 				927717A60DE4B1E800BA551A /* PreferenceServers.xib in Resources */,
+				92026D6F0E98EAC700C86141 /* AboutWindow.xib in Resources */,
+				92026DFE0E990B0800C86141 /* Credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +584,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92026DA40E98FD9E00C86141 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n\tbuildnummer -d $CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH\nelse\n\tbuildnummer $CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D15AC300486D014006FF6A4 /* Sources */ = {
@@ -593,6 +627,7 @@
 				921ECCC50DE9770A006C9A52 /* MessageStyleDefault.m in Sources */,
 				9213F3380E96765900CA2CAE /* IRCConversation.m in Sources */,
 				9213F37B0E96823300CA2CAE /* IRCConversationMessage.m in Sources */,
+				92026D740E98EFDA00C86141 /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,14 +690,6 @@
 				1DDD582B0DA1D0D100B32029 /* English */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A37F4BAFDCFA73011CA2CEA /* English */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
