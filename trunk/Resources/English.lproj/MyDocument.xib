@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100162"/>
+			<integer value="100160"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -68,6 +68,7 @@
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
+				<string key="NSWindowContentMinSize">{400, 0}</string>
 				<object class="NSView" key="NSWindowView" id="95728202">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -96,7 +97,7 @@
 														<object class="NSOutlineView" id="634411892">
 															<reference key="NSNextResponder" ref="552888434"/>
 															<int key="NSvFlags">4352</int>
-															<string key="NSFrameSize">{158, 336}</string>
+															<string key="NSFrameSize">{150, 336}</string>
 															<reference key="NSSuperview" ref="552888434"/>
 															<bool key="NSEnabled">YES</bool>
 															<object class="_NSCornerView" key="NSCornerView">
@@ -108,7 +109,7 @@
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSTableColumn" id="812031386">
 																	<string key="NSIdentifier">TitleColumn</string>
-																	<double key="NSWidth">1.550000e+02</double>
+																	<double key="NSWidth">1.470000e+02</double>
 																	<double key="NSMinWidth">1.600000e+01</double>
 																	<double key="NSMaxWidth">1.000000e+03</double>
 																	<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -223,7 +224,7 @@
 															<float key="NSOutlineViewIndentationPerLevelKey">1.400000e+01</float>
 														</object>
 													</object>
-													<string key="NSFrameSize">{158, 336}</string>
+													<string key="NSFrameSize">{150, 336}</string>
 													<reference key="NSSuperview" ref="277557619"/>
 													<reference key="NSNextKeyView" ref="634411892"/>
 													<reference key="NSDocView" ref="634411892"/>
@@ -249,7 +250,7 @@
 													<string key="NSAction">_doScroller:</string>
 												</object>
 											</object>
-											<string key="NSFrameSize">{158, 336}</string>
+											<string key="NSFrameSize">{150, 336}</string>
 											<reference key="NSSuperview" ref="652509664"/>
 											<reference key="NSNextKeyView" ref="552888434"/>
 											<int key="NSsFlags">560</int>
@@ -259,13 +260,13 @@
 											<bytes key="NSScrollAmts">QSAAAEEgAABBoAAAQaAAAA</bytes>
 										</object>
 									</object>
-									<string key="NSFrameSize">{158, 336}</string>
+									<string key="NSFrameSize">{150, 336}</string>
 									<reference key="NSSuperview" ref="977848460"/>
 									<string key="identifier">outlineView</string>
 									<int key="tag">0</int>
-									<float key="minDimension">1.000000e+00</float>
+									<float key="minDimension">1.000000e+02</float>
 									<float key="maxDimension">1.000000e+06</float>
-									<double key="fraction">0.000000e+00</double>
+									<double key="fraction">-5.523682e-03</double>
 									<bool key="canCollapse">NO</bool>
 								</object>
 								<object class="RBSplitSubview" id="29600828">
@@ -276,18 +277,18 @@
 										<object class="NSCustomView" id="74018915">
 											<reference key="NSNextResponder" ref="29600828"/>
 											<int key="NSvFlags">274</int>
-											<string key="NSFrameSize">{337, 336}</string>
+											<string key="NSFrameSize">{311, 336}</string>
 											<reference key="NSSuperview" ref="29600828"/>
 											<string key="NSClassName">MessageView</string>
 										</object>
 									</object>
-									<string key="NSFrame">{{159, 0}, {337, 336}}</string>
+									<string key="NSFrame">{{159, 0}, {311, 336}}</string>
 									<reference key="NSSuperview" ref="977848460"/>
 									<string key="identifier">messageView</string>
 									<int key="tag">0</int>
 									<float key="minDimension">1.000000e+00</float>
 									<float key="maxDimension">1.000000e+06</float>
-									<double key="fraction">0.000000e+00</double>
+									<double key="fraction">3.350830e-02</double>
 									<bool key="canCollapse">NO</bool>
 								</object>
 								<object class="RBSplitSubview" id="800585173">
@@ -308,7 +309,7 @@
 														<object class="NSTableView" id="449221073">
 															<reference key="NSNextResponder" ref="798489816"/>
 															<int key="NSvFlags">256</int>
-															<string key="NSFrameSize">{130, 336}</string>
+															<string key="NSFrameSize">{148, 336}</string>
 															<reference key="NSSuperview" ref="798489816"/>
 															<bool key="NSEnabled">YES</bool>
 															<object class="_NSCornerView" key="NSCornerView">
@@ -349,7 +350,7 @@
 																</object>
 																<object class="NSTableColumn" id="219171482">
 																	<string key="NSIdentifier">Name</string>
-																	<double key="NSWidth">1.090000e+02</double>
+																	<double key="NSWidth">1.270000e+02</double>
 																	<double key="NSMinWidth">4.000000e+01</double>
 																	<double key="NSMaxWidth">1.000000e+03</double>
 																	<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -386,7 +387,7 @@
 															<bool key="NSAllowsTypeSelect">YES</bool>
 														</object>
 													</object>
-													<string key="NSFrame">{{1, 1}, {130, 336}}</string>
+													<string key="NSFrame">{{1, 1}, {148, 336}}</string>
 													<reference key="NSSuperview" ref="862002485"/>
 													<reference key="NSNextKeyView" ref="449221073"/>
 													<reference key="NSDocView" ref="449221073"/>
@@ -413,7 +414,7 @@
 													<double key="NSPercent">9.936709e-01</double>
 												</object>
 											</object>
-											<string key="NSFrame">{{-1, -1}, {132, 338}}</string>
+											<string key="NSFrame">{{-1, -1}, {150, 338}}</string>
 											<reference key="NSSuperview" ref="800585173"/>
 											<reference key="NSNextKeyView" ref="798489816"/>
 											<int key="NSsFlags">562</int>
@@ -423,13 +424,13 @@
 											<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 										</object>
 									</object>
-									<string key="NSFrame">{{497, 0}, {132, 336}}</string>
+									<string key="NSFrame">{{479, 0}, {150, 336}}</string>
 									<reference key="NSSuperview" ref="977848460"/>
 									<string key="identifier">userListView</string>
 									<int key="tag">0</int>
-									<float key="minDimension">1.000000e+00</float>
+									<float key="minDimension">1.000000e+02</float>
 									<float key="maxDimension">1.000000e+06</float>
-									<double key="fraction">0.000000e+00</double>
+									<double key="fraction">-2.799988e-02</double>
 									<bool key="canCollapse">NO</bool>
 								</object>
 							</object>
@@ -444,83 +445,27 @@
 							<nil key="delegate"/>
 							<string key="autosaveName"/>
 							<object class="NSData" key="divider">
-								<bytes key="NS.bytes">TU0AKgAAAAwAAAAAAA4BAAADAAAAAQABAAABAQADAAAAAQABAAABAgADAAAABAAAALoBAwADAAAAAQAB
-AAABBgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAABFQADAAAAAQAEAAABFgADAAAAASAA
-AAABFwAEAAAAAQAAAAQBHAADAAAAAQABAAABUgADAAAAAQABAAABUwADAAAABAAAAMKHcwAHAAARHAAA
-AMoAAAAAAAgACAAIAAgAAQABAAEAAQAAERxhcHBsAgAAAG1udHJSR0IgWFlaIAfYAAUAAgAVABoAEmFj
-c3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbLgwLfuSH8JnYGY0aVdG
-tm8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnJYWVoAAAEsAAAAFGdYWVoAAAFAAAAAFGJY
-WVoAAAFUAAAAFHd0cHQAAAFoAAAAFGNoYWQAAAF8AAAALHJUUkMAAAGoAAAADmdUUkMAAAG4AAAADmJU
-UkMAAAHIAAAADnZjZ3QAAAHYAAAGEm5kaW4AAAfsAAAGPmRlc2MAAA4sAAAAZGRzY20AAA6QAAACPm1t
-b2QAABDQAAAAKGNwcnQAABD4AAAAJFhZWiAAAAAAAABhcgAAN48AAAcDWFlaIAAAAAAAAG2aAACx5wAA
-HKtYWVogAAAAAAAAJ8kAABalAACvd1hZWiAAAAAAAADzUgABAAAAARbPc2YzMgAAAAAAAQxCAAAF3v//
-8yYAAAeSAAD9kf//+6L///2jAAAD3AAAwGxjdXJ2AAAAAAAAAAEBzQAAY3VydgAAAAAAAAABAc0AAGN1
-cnYAAAAAAAAAAQHNAAB2Y2d0AAAAAAAAAAAAAwEAAAIAAABOAQQBPgGJAeUCKwJqArEC/wM8A30DwgQP
-BHME3gVtBhkG+ggXCX4LJQ0PD0gRlBP1FkkYMhoPG9UdjB84INMiZCPtJXEm9yiAKg0rkizlLhIvPTBu
-MaIy2TQYNVY2kzfQOQw6Qzt7PLg9+D85QGtBlkK6Q9hE8EYIRyBIOUlaSoBLnUyQTWlOQU8cT/dQ1VG0
-UpRTclROVSdV/VbRV6xYlFmHWntbdFxtXWtebF9qYGphZmJhY1RkTmWqZxVof2noa0hsoW3sby5wZ3GP
-crFzyXTadeN26HfvePp6BXsQfBx9Jn4vfzOAM4EugiSDIoQ3hVOGbIeBiJGJnoqwi8OM3I39jyeQWpGV
-kq6TrZSrla2Wr5e3mL2ZwprFm8ecxZ29nrSfqqDVofijEaQkpS+mNac2qDapNqo7q0OsUK1YrkOvGq/q
-sL2xkbJlszm0DrTfta22d7c/uAO4w7mBukG7BbvMvJi9Z743vwm/28CqwXjCRcMixCjFS8Ztx4jInMmt
-yrvLyMzazfHPD9A10VvSYdM/1AvU2tWq1nzXUNgi2PLZwdqL21LcFtzZ3c3ex9+94Kvhk+J5413kQeUm
-5g3m/Ofu6OfpyOqN60/sE+za7aPubO828ADwx/GL8k3zDfPL9JP1X/Yw9wf35fjK+bT6pvua/JD9if6E
-/1X//wAAAFcBCgFKAZ4CAwJRAqoDCwNeA7kEGARyBNIFRwXSBoIHXgh5CdQLiQ2QD9ISMhSOFssY6xr0
-HOoezSCcIlskDCWkJzkoxypTK+Itcy7/ME4xdzKbM8I07TYVN0M4ajmOOqw7xjzaPew/BUAwQVdCd0OP
-RKBFrUa3R8FIzEnbSvBMC00nTh9PC0/3UOZR1lLIU7pUrFWZVoRXbVhTWTFaDlrvW9Vcvl2qXplfjmCF
-YXxidGNqZGBlUGZJZ6BpCWpza91tPm6bb+lxMHJwc590yXXpdwN4F3kpekB7XHx4fZd+tn/VgPOCDoMl
-hDeFRYZXh5SIzooCizCMVY1zjo6PppC/kdqS/JQmlU6WXpdWmEuZRJpBm0GcQp1DnkOfQqA/oTmiL6M0
-pFqlhqapp8Ko06nfquar66zxrfqvCLAbsSiyH7MEs+S0yLWttpK3erhhuUe6KbsJu+e8wb2Uvme/PMAT
-wOzBycKnw4LEXsU4xg/G4sezyIrJe8p6y3fMbc1ezkzPN9Ai0RHSA9L90/zVANXy1r3XhNhN2RfZ49qx
-233cSd0R3dfemd9Y4B7g+uHg4sPjnuR05UjmGubr57/oluly6lPrM+wI7MDteO4x7uzvqPBm8SPx4fKb
-81T0CvS99W/2IvbY95L4UPkS+dn6pft0/EX9F/3r/r//aP//AAAARwD4AT8BkgH5AkcCnAL8A04DpgQG
-BG4E3QVsBhUG2ge1CKsJwQr6DGoN9w+rEW8TSBUeFrQYQxm+Gy4cjx3rHzkggCHGIw8kWiWpJvYoFykW
-KhMrFSwXLRcuGi8YMBExBjH4MuQzzjS8NbA2pTeUOHs5XTo7OxI76zzFPaA+fz9kQEpBA0G0QmNDFEPH
-RHxFMkXpRp5HU0gGSLZJZUoRSsFLckwlTNlNjk5FTvxPslBnURhRx1JzUxtTwVRmVRJVwVZyVyRX1ViH
-WTdZ4VqHWyVbvFxQXP9drF5VXvVflWA1YNlhg2I7YwNj3GTJZdRnAWgzaWJqjGuxbNJt9G8XcD9xanKd
-c9V1DHYjdx54GHkbeip7QHxifYl+sn/dgQWCJoNBhFeFfIayh+GJCoori0SMUo1XjlKPQpAqkQyR6pLH
-k6+UsJWtlp6XgJhcmTCZ/5rKm5KcWp0hnemesp+VoHihUaIiou6jtqR5pTql/Ka+p4KoSakdqgCq66vO
-rKWtca46rwOvz7CjsYCybbNstH21nbazt7y4vrnBur+7u7y0va2+p7+fwJbBjcKMw6LEzcXxxxbIOMlZ
-ynvLoszKzf3PNdB00bXS2tPR1NLV39b32B/ZVNqU2+HdPd6f4Abhb+LY5EPlt+dg6SvrFO0v73nyAfTX
-9+X7GP41//8AAG5kaW4AAAAAAAAGNgAAmF8AAFgWAABTLAAAj6oAAChsAAAVYAAAUA0AAFQ5AAIPXAAC
-LhQAAXCjAAMBAAACAAAACgA9AKEBMAGhAfACLgJhAo0CtALZAvoDHAM6A1gDdgOUA7IDzwPuBA0ELARS
-BHsEpATPBPwFKgVaBYwFvwX0BiwGZQagBtwHGgdZB5gH2AgYCFkImgjkCTcJlAnxCk4KqwsKC2gLxgwm
-DIcM6g1ODbQOHQ6HDvEPWw/GEDIQpBEaEZQSEhKUExoToRQpFLMVOhXBFkYW5RehGGIZIhnkGqYbaRwx
-HP0dzh6mH4EgTyEUIdkinSNiJCUk6CWvJnYnQigRKOgpuypRKuUreSwPLKUtPy3dLn0vJC/RMIIxOTH7
-MsAzjjRiNT42IjcHN+k4zTmxOpc7fzxpPVc+TD9GQEdBT0JJQyxEFUUBRfJG6EfjSNtJ1ErJS7tMp02O
-TnBPT1BIUV9SeVORVKpVvlbWV/BZDlovW1RchF23XvBf72D2YgZjHmQ/ZWhmmWfPaQdqP2tybKJtz28J
-cHpyCnOVdR92rXg7ec97cH0afs+AloJkhCyF7IehiVOLBIy0jm2QKpHuk2WUqJXnly6YfZnVmzKclJ33
-n1agsqIGo1OkmqXtp4CpZatFrSWu/7DbssG0rLanuK+6wLxnvge/r8FpwzHE/8bRyKLKc8w1zfLPpdGI
-077V7tgY2j3cZN6L4L7i/eVK557p0uv77hPwGvIU9AD13/e9+Zf7bf1E//8AAAAJADcAfgDcAUsBoQHj
-AhcCRAJsAo8CrwLNAusDBwMjAz8DWwN4A5UDswPTA/QEFgQ6BF8EhQStBNUFAAUrBVkFiAW5BewGIAZY
-BpEGywcHB0QHggfBCAAIQAiBCMQJFQlwCc8KLwqPCvALVAu3DB4Mhwz0DWQN1w5PDsgPPw+wECUQnhEc
-EZ8SJRKwEz0TyxRaFOgVdRYAFo4XNRflGJUZRRn2GqkbXRwXHNUdlx5fHzAgBCDVIaQiciNAJAsk1SWi
-Jm8nQCgTKO4pwSpYKuwrgSwXLK0tRy3kLoMvKC/TMIExNDHxMrEzeDRGNRk18TbLN6E4djlMOiI6+TvR
-PKs9iD5pP09AOkEqQhVC3kOuRINFXEY7RyJID0j/SfNK6EvdTM5Nu06lT5VQoFHGUulUClUpVkVXY1iD
-WaZay1v1XSdeXF90YG1hcWJ8Y5Fkr2XTZwBoMGliapNrv2zobg9vSXCsch9zjXT6dml31nlFerx8O32/
-f06A64KMhCmFw4dYiO2KiIwkjcuPe5E0kuKUVZXBlzeYuZpFm9mdcJ8FoJWiG6OZpQ6ml6h+qm6sXK5G
-sC+yHLQTtha4JrpFvCC947+vwZDDf8V0x3DJZ8tYzTvPF9EI01bVqtf32kDcit7W4S/jl+YQ6I/rAu1o
-77vyAvQ59mj4lvrB/O3//wAAAAsAOQCDAOQBRAGMAcwCCAI/AnICogLNAvcDIANHA24DlQO8A+IECgQy
-BGEEkgTEBPoFMQVrBagF5wYoBm0GtAb9B0cHkgfeCCoIdwjHCSYJkgoACm4K3gtRC8UMPQy6DTsNwA5M
-DtoPZg/xEIERGRG4El0TCRO3FGcVFxXEFnAXTBg6GScaFBsDG/Qc7B3qHvIgASEOIhsjKiQ5JUsmZCeG
-KLMp7iszLG4tpi7eMBoxXTKyNCM1sjcCOGk55ztpPOA+OD9vQIlBikJpQzxEFUTvRc5GskeaSIRJb0pZ
-S0FMKE0KTexOyU+xULxR4FL8VA9VGFYdVxhYElkMWgVbAFwBXQleGF8rYC5hJmIkYyhkM2VFZmFniWi9
-af9rUmy0biBvl3D/ckFziHTjdld32HlvexN8wX5zgCeB4INlhOuGi4g9if+Lz42nj4CRV5MllMqWVJfu
-maebep1WnzCg+aKupEGluacbqG2p06tJrMuuTa/ZsWiy/7SXti+3zLlsuw68or4Qv2vA0cI2w6HFDsZ9
-x+vJUsq9zBrNdc7L0B3Rb9Lk1J7WSNfi2W/a6NxV3bbfDuBd4aDi4eQe5VjmkufN6QnqQ+t97K3tu+6+
-77jwqPGV8nDzR/QT9Nv1mPZL9v73ofhC+OL5ePoO+qT7NPvE/FT84/1x/f/+5v//AABkZXNjAAAAAAAA
-AApDb2xvciBMQ0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAAAAASAAAADG5iTk8AAAASAAAA6HB0
-UFQAAAAWAAAA+nN2U0UAAAAQAAABEGZpRkkAAAAQAAABIGRhREsAAAAcAAABMHpoQ04AAAAMAAABTGZy
-RlIAAAASAAABWGphSlAAAAAOAAABamVuVVMAAAASAAABeHBsUEwAAAASAAABinB0QlIAAAAYAAABnGVz
-RVMAAAASAAABtHpoVFcAAAAOAAABxnJ1UlUAAAAkAAAB1GtvS1IAAAAMAAAB+GRlREUAAAAQAAACBG5s
-TkwAAAAWAAACFGl0SVQAAAAUAAACKgBGAGEAcgBnAGUALQBMAEMARABMAEMARAAgAGEAIABDAG8AcgBl
-AHMARgDkAHIAZwAtAEwAQwBEAFYA5AByAGkALQBMAEMARABMAEMARAAtAGYAYQByAHYAZQBzAGsA5gBy
-AG1faYJyACAATABDAEQAyQBjAHIAYQBuACAATABDAEQwqzDpMPwAIABMAEMARABDAG8AbABvAHIAIABM
-AEMARABLAG8AbABvAHIAIABMAEMARABMAEMARAAgAEMAbwBsAG8AcgBpAGQAbwBMAEMARAAgAGMAbwBs
-AG8Acl9pgnJtsmZ2mG95OlZoBCYEMgQ1BEIEPQQ+BDkAIAQWBBoALQQ0BDgEQQQ/BDsENQQ5zuy37AAg
-AEwAQwBEAEYAYQByAGIALQBMAEMARABLAGwAZQB1AHIAZQBuAC0ATABDAEQATABDAEQAIABjAG8AbABv
-AHIAaQAAbW1vZAAAAAAAAAYQAACcXgAAAADAS4oAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJp
-Z2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</bytes>
+								<bytes key="NS.bytes">TU0AKgAAAUz///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A
+////AP///wD///8A////AP///wD///8A////AAoKChkUFBSAFBQU6xQUFIALCwsX////AP///wD///8A
+////ABwcHIA4ODj/PT49/zg4OP8cHByA////AP///wD///8A////AFlZWeuenp7/vL68/56env9ZWVnr
+////AP///wD///8A////AKenp4D5+fn///////n5+f+np6eA////AP///wD///8A////AP///xj///+A
+////6////4H///8Z////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A
+////AP///wD///8A////AP///wD///8A////AP///wAADgEAAAMAAAABAAkAAAEBAAMAAAABAAkAAAEC
+AAMAAAAEAAAB+gEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEV
+AAMAAAABAAQAAAEWAAMAAAABCqoAAAEXAAQAAAABAAABRAEcAAMAAAABAAEAAAFSAAMAAAABAAIAAAFT
+AAMAAAAEAAACAodzAAcAAALAAAACCgAAAAAACAAIAAgACAABAAEAAQABAAACwGFwcGwCAAAAbW50clJH
+QiBYWVogB9gACgAFAAAAAAAAYWNzcEFQUEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA
+0y1hcHBsggKhNJl5PKtfeKVi8N+9qgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMclhZWgAA
+ARQAAAAUZ1hZWgAAASgAAAAUYlhZWgAAATwAAAAUd3RwdAAAAVAAAAAUY2hhZAAAAWQAAAAsclRSQwAA
+AZAAAAAOZ1RSQwAAAaAAAAAOYlRSQwAAAbAAAAAOdmNndAAAAcAAAAAwbmRpbgAAAfAAAAA4ZGVzYwAA
+AigAAAB0Y3BydAAAApwAAAAkWFlaIAAAAAAAAHRLAAA+HQAAA8xYWVogAAAAAAAAWnMAAKymAAAXJlhZ
+WiAAAAAAAAAoGAAAFVcAALgzWFlaIAAAAAAAAPNRAAEAAAABFsxzZjMyAAAAAAABDEIAAAXe///zJgAA
+B5MAAP2Q///7ov///aMAAAPcAADAbmN1cnYAAAAAAAAAAQHRAABjdXJ2AAAAAAAAAAEB0QAAY3VydgAA
+AAAAAAABAdEAAHZjZ3QAAAAAAAAAAQABAAAAAAAAAAEAAAABAAAAAAAAAAEAAAABAAAAAAAAAAEAAG5k
+aW4AAAAAAAAAMAAAoUgAAFcKAABLhQAAmuEAACeuAAATtgAAUA0AAFQ5AAHRdAAB0XQAAdF0ZGVzYwAA
+AAAAAAAaQ2FsaWJyYXRlZCBSR0IgQ29sb3JzcGFjZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAENv
+cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 							</object>
 							<nil key="background"/>
 							<float key="dividerThickness">0.000000e+00</float>
@@ -559,6 +504,7 @@ Z2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</bytes>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSMinSize">{400, 22}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSFrameAutosaveName">iRelayChatWindow</string>
 			</object>
@@ -1066,6 +1012,8 @@ Z2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</bytes>
 					<string>100160.IBPluginDependency</string>
 					<string>100160.IBWindowTemplateEditedContentRect</string>
 					<string>100160.NSWindowTemplate.visibleAtLaunch</string>
+					<string>100160.windowTemplate.hasMinSize</string>
+					<string>100160.windowTemplate.minSize</string>
 					<string>100161.IBPluginDependency</string>
 					<string>100162.IBPluginDependency</string>
 					<string>100163.IBPluginDependency</string>
@@ -1098,6 +1046,8 @@ Z2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{376, 385}, {629, 371}}</string>
 					<reference ref="8"/>
+					<integer value="1"/>
+					<string>{400, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>net.brockerhoff.RBsplitView.IBPlugin</string>
 					<string>net.brockerhoff.RBsplitView.IBPlugin</string>
