@@ -20,5 +20,6 @@
     #import <Cocoa/Cocoa.h>
 	#import <WebKit/WebKit.h>
 	#import <RegexKit/RegexKit.h>
-#import "NSObject+Unproxy.h"
+	#import <RBSplitView/RBSplitView.h>
+	#import "NSObject+Unproxy.h"
 #endif

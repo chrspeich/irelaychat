@@ -36,9 +36,14 @@
 	return [NSString stringWithFormat:@"^(?i):(?<from>.+)\\s366\\s%@\\s%@\\s:(?<nicks>.*)$", server.me.nickname, channel];
 }
 
-- (id) patternPirvmsgFor:(NSString*)userOrChannel
+- (id) patternPirvmsgTo:(NSString*)channel
 {
-	return [NSString stringWithFormat:@"^(?i):(?<from>.+)\\sPRIVMSG\\s%@\\s:(?<message>.*)$", userOrChannel];
+	return [NSString stringWithFormat:@"^(?i):(?<from>.+)\\sPRIVMSG\\s%@\\s:(?<message>.*)$", channel];
+}
+
+- (id) patternPirvmsgFrom:(NSString*)user to:(NSString*)name
+{
+	return [NSString stringWithFormat:@"^(?i):(?<from>%@!.*)\\sPRIVMSG\\s%@\\s:(?<message>.*)$", user, name];
 }
 
 - (id) patternJoinForChannel:(NSString*)channel
@@ -116,6 +121,11 @@
 	}
 	
 	return commands;
+}
+
+- (NSString*) joinChannel:(NSString*)name
+{
+	return [NSString stringWithFormat:@"JOIN %@\r\n", name];
 }
 
 - (int) maxLineLength
