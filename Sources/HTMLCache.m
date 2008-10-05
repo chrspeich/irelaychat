@@ -12,6 +12,7 @@
 
 #import "HTMLCache.h"
 #import "IRCChannel.h"
+#import "IRCConversationMessage.h"
 #import "MessageStyleDefault.h"
 
 @interface HTMLCache (Private)
@@ -28,7 +29,7 @@
 	self = [super init];
 	if (self != nil) {
 		cache = [[NSMutableDictionary alloc] init];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCNewChannelMessage object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCConversationNewMessage object:nil];
 	}
 	return self;
 }
@@ -81,7 +82,7 @@
 
 	@synchronized(cache) {
 		if ([object isKindOfClass:[IRCChannel class]]) {
-			for (IRCChannelMessage *message in [object messages]) {
+			for (IRCConversationMessage *message in [object messages]) {
 				html = [html stringByReplacingOccurrencesOfString:@"<!-- Insert Place Holder -->" withString:[NSString stringWithFormat:@"%@\n<!-- Insert Place Holder -->",[MessageStyleDefault htmlForChannelMessage:message]]];
 			}
 		}

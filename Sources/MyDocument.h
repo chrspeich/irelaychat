@@ -12,12 +12,17 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import <RBSplitView/RBSplitView.h>
 
 @class ChannelView;
 @class test;
 
 @interface MyDocument : NSDocument
 {
+	IBOutlet RBSplitSubview	*outlineSubView;
+	IBOutlet RBSplitSubview	*messageSubView;
+	IBOutlet RBSplitSubview *userListSubView;
+	
 	IBOutlet NSOutlineView	*channelList;
 	IBOutlet NSView			*contentView;
 	IBOutlet NSTextField	*inputField;
@@ -33,6 +38,8 @@
 	NSMutableDictionary		*inputMessagesCache;
 	
 	id lastSelection;
+	
+	float					userListDividerPosition;
 }
 
 - (IBAction) send:(id)sender;

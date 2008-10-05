@@ -40,6 +40,7 @@
 		[server release];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:) name:NSApplicationDidFinishLaunchingNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUserListTable:) name:IRCUserListHasChanged object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOutlineTable:) name:IRCConversationsListHasChanged object:nil];
     }
     return self;
 }
@@ -81,6 +82,11 @@
 - (void) refreshUserListTable:(NSNotification*)noti
 {
 	[userListController rearrangeObjects];
+}
+
+- (void) refreshOutlineTable:(NSNotification*)noti
+{
+	[channelList reloadData];
 }
 
 - (void)splitView:(NSSplitView*)sender resizeSubviewsWithOldSize:(NSSize)oldSize
@@ -164,6 +170,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			[inputField setStringValue:@""];
 		}
 		
+		if ([[outlineController.selection unproxy] hasUserList]) {
+			[userListSubView setHidden:NO];
+		}
+		else {
+			[userListSubView setHidden:YES];
+		}
+
+		
 		lastSelection = [outlineController.selection unproxy];
 	}
 }
@@ -175,6 +189,10 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		[inputMessagesCache removeObjectForKey:[[outlineController.selection unproxy] name]];
 		[inputField setStringValue:@""];
 	}
+}
+
+- (void)splitView:(RBSplitView*)sender wasResizedFrom:(float)oldDimension to:(float)newDimension {
+	[messageSubView changeDimensionBy:newDimension-oldDimension mayCollapse:NO move:NO];
 }
 
 @end

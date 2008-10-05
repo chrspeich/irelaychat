@@ -26,7 +26,7 @@
         content = nil;
 		currentWebView = nil;
 
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCNewChannelMessage object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessage:) name:IRCConversationNewMessage object:nil];
     }
     return self;
 }
@@ -62,9 +62,26 @@
 
 		[mainFrame loadHTMLString:html baseURL:[NSURL URLWithString:[[NSBundle mainBundle] resourcePath]]];
 		[webViews setObject:currentWebView forKey:[content valueForKey:@"name"]];
+		[currentWebView setPolicyDelegate:self];
 		[self addSubview:currentWebView];
 	}
 	[currentWebView setFrame:[self bounds]];
+}
+
+- (void)webView:(WebView *)sender
+decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+		request:(NSURLRequest *)request
+		  frame:(WebFrame *)frame
+decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+	NSURL *url = [actionInformation objectForKey:WebActionOriginalURLKey];
+		
+	//Ignore file URLs, but open anything else
+	if (![url isFileURL]) {
+		[[NSWorkspace sharedWorkspace] openURL:url];
+	}
+		
+	[listener ignore];
 }
 
 @end

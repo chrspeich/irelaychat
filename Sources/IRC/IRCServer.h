@@ -17,6 +17,7 @@ extern NSString *IRCDisconnected;
 extern NSString *IRCJoinChannel;
 extern NSString *IRCLeaveChannel;
 extern NSString *IRCUserQuit;
+extern NSString *IRCConversationsListHasChanged;
 
 @class IRCChannel;
 @class IRCUser;

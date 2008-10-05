@@ -11,13 +11,13 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import <Cocoa/Cocoa.h>
-#import "IRCChannelMessage.h"
+#import "IRCConversationMessage.h"
 
 @interface MessageStyleDefault : NSObject {
 
 }
 
 + (NSString*) template;
-+ (NSString*) htmlForChannelMessage:(IRCChannelMessage*)message;
++ (NSString*) htmlForChannelMessage:(IRCConversationMessage*)message;
 
 @end

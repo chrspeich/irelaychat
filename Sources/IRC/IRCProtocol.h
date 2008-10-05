@@ -22,7 +22,8 @@
 
 - (id) patternNameReplyForChannel:(NSString*)channel;
 - (id) patternNameReplyEndForChannel:(NSString*)channel;
-- (id) patternPirvmsgFor:(NSString*)userOrChannel;
+- (id) patternPirvmsgTo:(NSString*)channel;
+- (id) patternPirvmsgForm:(NSString*)user to:(NSString*)name;
 - (id) patternJoinForChannel:(NSString*)channel;
 - (id) patternPartForChannel:(NSString*)channel;
 - (id) patternModeForChannel:(NSString*)channel;
@@ -35,6 +36,7 @@
 - (NSString*) user:(NSString*)user andRealName:(NSString*)realname;
 - (NSString*) namesFor:(NSString*)channel;
 - (id) privMsg:(NSString*)message to:(NSString*)userOrChannel;
+- (NSString*) joinChannel:(NSString*)name;
 
 @property(readonly) int maxLineLength;
 

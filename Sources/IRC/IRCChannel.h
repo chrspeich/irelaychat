@@ -11,39 +11,22 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import <Cocoa/Cocoa.h>
+#import "IRCConversation.h"
 
 extern NSString *IRCUserListHasChanged;
-extern NSString *IRCNewChannelMessage;
 extern NSString *IRCUserJoinsChannel;
 extern NSString *IRCUserLeavesChannel;
 extern NSString *IRCUserHasGotMode;
 extern NSString *IRCUserHasLoseMode;
 
-@class IRCServer;
-
-@interface IRCChannel : NSObject {
-	NSString		*name;
-	IRCServer		*server;
+@interface IRCChannel : IRCConversation {
 	NSMutableArray	*tmpUserList;
 	NSMutableArray	*userList;
-	NSMutableArray	*messages;
-	uint			unreadedMessages;
-	uint			unreadedHighlightedMessages;
 }
 
-- (id) initWithServer:(IRCServer*)server andName:(NSString*)name;
-- (void) sendMessage:(NSString*)message;
-
-@property(readonly) NSString		*name;
-@property(readonly) IRCServer		*server;
 @property(readonly) NSMutableArray	*userList;
-@property(readonly) NSArray			*messages;
-@property(readonly) uint			unreadedMessages;
-@property(readonly) uint			unreadedHighlightedMessages;
 
-- (void) resetUnreadedMessages;
-
-- (bool) supportInputField;
-- (bool) hasUserList;
+- (void) join;
+- (void) part;
 
 @end

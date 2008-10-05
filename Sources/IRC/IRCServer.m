@@ -22,6 +22,7 @@ NSString *IRCDisconnected = @"iRelayChat-IRCDisonnected";
 NSString *IRCJoinChannel = @"iRelayChat-IRCJoinChannel";
 NSString *IRCLeaveChannel = @"iRelayChat-IRCLeaveChannel";
 NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
+NSString *IRCConversationsListHasChanged = @"iRelayChat-IRCConversationsListHasChanged";
 
 @implementation IRCServer
 
@@ -69,7 +70,7 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 	struct hostent *_host;
 	int status;
 	//freenode=140.211.166.3
-	if (!inet_aton("140.211.166.3", &inaddr)) {
+	if (!inet_aton("127.0.0.1", &inaddr)) {
 		NSLog(@"inet_aton fails");
 		return NO;
 	}
@@ -199,6 +200,9 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 				}
 			}
 			
+			if ([[message objectForKey:@"MISSED"] isEqual:@"YES"])
+				[self handleMissedMessages:message];
+			
 			free(line);
 		}
 		[pool release];
@@ -219,9 +223,13 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 
 - (IRCChannel*) joinChannel:(NSString*)name
 {
-	IRCChannel* channel = [[IRCChannel alloc] initWithServer:self
-													 andName:name];
+	IRCChannel* channel = [[IRCChannel alloc] initWithName:name
+												  onServer:self];
+	
+	[channel join];
+	
 	[channels addObject:channel];
+		
 	return channel;
 }
 
@@ -412,6 +420,38 @@ NSString *IRCUserQuit = @"iRelayChat-IRCUserQuit";
 - (NSArray*) userModes
 {
 	return [NSArray array];
+}
+
+- (void) handleMissedMessages:(NSDictionary*)dict
+{
+	NSString *message = [dict objectForKey:@"MESSAGE"];
+	
+	if ([message isMatchedByRegex:[protocol patternPirvmsgTo:me.nickname]]) { //New Query
+		NSString *from;
+		IRCUser *user;
+		IRCConversation *con;
+		
+		[message getCapturesWithRegexAndReferences:[protocol patternPirvmsgTo:me.nickname],@"${from}",&from,nil];
+		
+		user = [IRCUser userWithString:from onServer:self];
+		con = [[IRCConversation alloc] initWithName:user.nickname onServer:self];
+		
+		[self willChange:NSKeyValueChangeInsertion 
+		 valuesAtIndexes:[NSIndexSet indexSetWithIndex:[channels count]]  
+				  forKey:@"channels"];
+		
+		[channels addObject:con];
+		
+		[self didChange:NSKeyValueChangeInsertion 
+		valuesAtIndexes:[NSIndexSet indexSetWithIndex:[channels count]]  
+				 forKey:@"channels"];
+		
+		[con newPrivmsg:dict];
+		
+		[con release];
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationsListHasChanged object:self];
+	}
 }
 
 @end

@@ -206,7 +206,7 @@ NSString *IRCUserChanged = @"iRelayChat-IRCUserChanged";
 		color = [NSColor colorWithDeviceRed:SSRandomFloatBetween(0.f,1.f) green:SSRandomFloatBetween(0.f,1.f) blue:SSRandomFloatBetween(0.f,1.f) alpha:1.f];
 		[color retain];
 	}
-	return color;
+	return [[color retain] autorelease];
 }
 
 @end
