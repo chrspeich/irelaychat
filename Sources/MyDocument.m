@@ -12,7 +12,7 @@
 
 #import "MyDocument.h"
 #import "IRCServer.h"
-#import "ChannelView.h"
+#import "IRCChannel.h"
 #import "InternetRelayChat.h"
 #import <RegexKit/RegexKit.h>
 #import "IRCUserMode.h"

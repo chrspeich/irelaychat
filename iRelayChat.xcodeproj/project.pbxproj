@@ -13,6 +13,8 @@
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		92026D2A0E98DFBA00C86141 /* AutoHyperlinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
+		92026D360E98DFCD00C86141 /* AutoHyperlinks.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
 		9213F3380E96765900CA2CAE /* IRCConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F3370E96765900CA2CAE /* IRCConversation.m */; };
 		9213F37B0E96823300CA2CAE /* IRCConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F37A0E96823300CA2CAE /* IRCConversationMessage.m */; };
 		9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
@@ -25,8 +27,6 @@
 		922430D00DD1F732005FF883 /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CE0DD1F732005FF883 /* green.tiff */; };
 		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
 		922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430FC0DD1FD8A005FF883 /* yellow.tiff */; };
-		923750A20E9779E50017D0AD /* AutoHyperlinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923750910E9779BE0017D0AD /* AutoHyperlinks.framework */; };
-		9237541C0E97A7330017D0AD /* AutoHyperlinks.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 923750910E9779BE0017D0AD /* AutoHyperlinks.framework */; };
 		9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 926705390DCF31C800E5D085 /* IRCUser.m */; };
 		926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AAC270DD9E83B00E1794E /* ScreenSaver.framework */; };
 		927717910DE4B10D00BA551A /* PreferencesServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9277176A0DE4B01C00BA551A /* PreferencesServers.m */; };
@@ -68,41 +68,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		923750900E9779BE0017D0AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = AutoHyperlinks.framework;
-		};
-		923750920E9779BE0017D0AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7EA3B0440DD1153F002A18D1;
-			remoteInfo = UnitTests;
-		};
-		923750940E9779BE0017D0AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7EB550100DDC80DB000DC0D6;
-			remoteInfo = LinkDriver;
-		};
-		923750960E9779BE0017D0AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 31C460380DE1D17100C4265B;
-			remoteInfo = StressTester;
-		};
-		923750980E9779BE0017D0AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7ED4FDD00E002653004C5F4B;
-			remoteInfo = ThreadedStressTester;
-		};
 		9277180B0DE4BCFF00BA551A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
@@ -126,7 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9237541C0E97A7330017D0AD /* AutoHyperlinks.framework in CopyFiles */,
+				92026D360E98DFCD00C86141 /* AutoHyperlinks.framework in CopyFiles */,
 				928F1B030E703B5F0024B515 /* RBSplitView.framework in CopyFiles */,
 				921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */,
 			);
@@ -159,6 +124,7 @@
 		32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRelayChat_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iRelayChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRelayChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoHyperlinks.framework; path = Frameworks/AutoHyperlinks.framework; sourceTree = "<group>"; };
 		9213F3360E96765900CA2CAE /* IRCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversation.h; sourceTree = "<group>"; };
 		9213F3370E96765900CA2CAE /* IRCConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCConversation.m; sourceTree = "<group>"; };
 		9213F3790E96823300CA2CAE /* IRCConversationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversationMessage.h; sourceTree = "<group>"; };
@@ -186,7 +152,6 @@
 		922430CE0DD1F732005FF883 /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
 		922430CF0DD1F732005FF883 /* red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = red.tiff; sourceTree = "<group>"; };
 		922430FC0DD1FD8A005FF883 /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = yellow.tiff; sourceTree = "<group>"; };
-		923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AutoHyperlinks.framework.xcodeproj; path = Frameworks/autohyperlinks/AutoHyperlinks.framework.xcodeproj; sourceTree = "<group>"; };
 		926705380DCF31C800E5D085 /* IRCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUser.h; sourceTree = "<group>"; };
 		926705390DCF31C800E5D085 /* IRCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUser.m; sourceTree = "<group>"; };
 		926AAC270DD9E83B00E1794E /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
@@ -229,16 +194,12 @@
 		92B2935B0DE4761900574C88 /* RawLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RawLog-Info.plist"; sourceTree = "<group>"; };
 		92B2935F0DE4764A00574C88 /* RawLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawLog.h; sourceTree = "<group>"; };
 		92B293600DE4764A00574C88 /* RawLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawLog.m; sourceTree = "<group>"; };
-		92FD87500DCC78610024661C /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
-		92FD87510DCC78610024661C /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MessageTemplate.html; sourceTree = "<group>"; };
 		AA05E0B30DB785660018FBCC /* IRCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCServer.h; sourceTree = "<group>"; };
 		AA05E0B40DB785660018FBCC /* IRCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCServer.m; sourceTree = "<group>"; };
 		AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCChannel.h; sourceTree = "<group>"; };
 		AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCChannel.m; sourceTree = "<group>"; };
 		AA3CC4980DCB117B002D70DC /* ChannelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
-		AA3CC49C0DCB1465002D70DC /* ChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelView.h; sourceTree = "<group>"; };
-		AA3CC49D0DCB1465002D70DC /* ChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +212,7 @@
 				9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */,
 				926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */,
 				928F1AF80E703B4C0024B515 /* RBSplitView.framework in Frameworks */,
-				923750A20E9779E50017D0AD /* AutoHyperlinks.framework in Frameworks */,
+				92026D2A0E98DFBA00C86141 /* AutoHyperlinks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +237,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */,
 				926AAC270DD9E83B00E1794E /* ScreenSaver.framework */,
 				9214424D0DD6274C00A19EAF /* RegexKit.framework */,
 				9294743D0DCC63EC0022A391 /* WebKit.framework */,
@@ -308,7 +270,6 @@
 		2A37F4AAFDCFA73011CA2CEA /* iRelayChat */ = {
 			isa = PBXGroup;
 			children = (
-				923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */,
 				92B293530DE475D100574C88 /* Plugins */,
 				929F80930DE1C0D100263396 /* SS_Preferences */,
 				AA05E0B00DB784CC0018FBCC /* IRC */,
@@ -327,10 +288,6 @@
 				9277175E0DE4AFC000BA551A /* Preferences */,
 				2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */,
-				AA3CC49C0DCB1465002D70DC /* ChannelView.h */,
-				AA3CC49D0DCB1465002D70DC /* ChannelView.m */,
-				92FD87500DCC78610024661C /* MessageViewController.h */,
-				92FD87510DCC78610024661C /* MessageViewController.m */,
 				921EA2400DE5C6A3009A9FDB /* NSObject+Unproxy.h */,
 				921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */,
 				921EA25E0DE5CBFD009A9FDB /* MessageView.h */,
@@ -379,18 +336,6 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		923750860E9779BE0017D0AD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				923750910E9779BE0017D0AD /* AutoHyperlinks.framework */,
-				923750930E9779BE0017D0AD /* Test.octest */,
-				923750950E9779BE0017D0AD /* LinkDriver.app */,
-				923750970E9779BE0017D0AD /* AHStressTester */,
-				923750990E9779BE0017D0AD /* AHThreadedStressTester */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9277175D0DE4AF9F00BA551A /* Preferences */ = {
@@ -571,12 +516,6 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* iRelayChat */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 923750860E9779BE0017D0AD /* Products */;
-					ProjectRef = 923750850E9779BE0017D0AD /* AutoHyperlinks.framework.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* iRelayChat */,
@@ -585,44 +524,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		923750910E9779BE0017D0AD /* AutoHyperlinks.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AutoHyperlinks.framework;
-			remoteRef = 923750900E9779BE0017D0AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		923750930E9779BE0017D0AD /* Test.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Test.octest;
-			remoteRef = 923750920E9779BE0017D0AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		923750950E9779BE0017D0AD /* LinkDriver.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = LinkDriver.app;
-			remoteRef = 923750940E9779BE0017D0AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		923750970E9779BE0017D0AD /* AHStressTester */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = AHStressTester;
-			remoteRef = 923750960E9779BE0017D0AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		923750990E9779BE0017D0AD /* AHThreadedStressTester */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = AHThreadedStressTester;
-			remoteRef = 923750980E9779BE0017D0AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
@@ -895,6 +796,7 @@
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/RBSplitView/build/Release\"",
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -918,6 +820,7 @@
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)/../../../Downloads/RBSplitView/build/Release\"",
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
