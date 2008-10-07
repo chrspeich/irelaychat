@@ -22,7 +22,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 
 @implementation IRCConversation
 
-@synthesize name, server, messages;
+@synthesize name, server, messages=_messages;
 
 - (id) initWithName:(NSString*)_name onServer:(IRCServer*)_server
 {
@@ -31,7 +31,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 		name = [_name retain];
 		server = _server;
 		
-		messages = [[NSMutableArray alloc] init];
+		_messages = [[NSMutableArray alloc] init];
 		
 		[self registerObservers];
 	}
@@ -65,7 +65,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
 	[name release];
-	[messages release];
+	[_messages release];
 	
 	[super dealloc];
 }
@@ -103,7 +103,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 	mess.conversation = self;
 	mess.date = [NSDate date];
 	
-	[messages addObject:mess];
+	[self addMessage:mess];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage 
 														object:self 
@@ -127,7 +127,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 	ircMessage.conversation = self;
 	ircMessage.date = [messageDict objectForKey:@"TIME"];
 	
-	[messages addObject:ircMessage];
+	[self addMessage:ircMessage];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage 
 														object:self 
@@ -149,6 +149,32 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 - (id) privMsgPattern
 {
 	return [server.protocol patternPirvmsgFrom:name to:server.me.nickname];
+}
+
+// To be sure that we are KVO complimant we use an method
+// which will send our KVO-notifications and normal
+// Notifications via NSNotificationCenter
+- (void) addMessage:(IRCConversationMessage*)message
+{
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	NSMutableArray *messages;
+	// We do not add nil or so
+	if (!message)
+		return;
+	
+	// Get an mutable KVO complimant Array
+	messages = [self mutableArrayValueForKey:@"messages"];
+	
+	// Add our message, the array (ok, it's a proxy) will send all
+	// KVO notifications
+	[messages addObject:message];
+	
+	// So, now send a Noficication and privide via userInfo the new
+	// message
+	[nc postNotificationName:IRCConversationNewMessage 
+					  object:self 
+					userInfo:[NSDictionary dictionaryWithObject:message 
+														 forKey:@"MESSAGE"]];
 }
 
 @end

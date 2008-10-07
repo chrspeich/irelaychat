@@ -26,9 +26,7 @@
 	NSMutableString *html = [[NSMutableString alloc] init];
 	
 	[html appendString:@"<tr>"];
-	
-	NSLog(@"html begins");
-	
+		
 	switch (message.type) {
 		case IRCConversationMessageText:
 			if (message.action && message.user.isMe) {
