@@ -9,13 +9,14 @@
 #import <Cocoa/Cocoa.h>
 
 @class IRCServer;
+@class IRCConversationMessage;
 
 extern NSString *IRCConversationNewMessage;
 
 @interface IRCConversation : NSObject {
 	NSString		*name;
 	IRCServer		*server;
-	NSMutableArray	*messages;
+	NSMutableArray	*_messages;
 }
 
 @property(readonly)	NSString	*name;
@@ -30,5 +31,10 @@ extern NSString *IRCConversationNewMessage;
 
 - (void) registerObservers;
 - (id) privMsgPattern;
+
+// To be sure that we are KVO complimant we use an method
+// which will send our KVO-notifications and normal
+// Notifications via NSNotificationCenter
+- (void) addMessage:(IRCConversationMessage*)message;
 
 @end

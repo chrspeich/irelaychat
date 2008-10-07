@@ -70,7 +70,7 @@ NSString *IRCConversationsListHasChanged = @"iRelayChat-IRCConversationsListHasC
 	struct hostent *_host;
 	int status;
 	//freenode=140.211.166.3
-	if (!inet_aton("127.0.0.1", &inaddr)) {
+	if (!inet_aton("140.211.166.3", &inaddr)) {
 		NSLog(@"inet_aton fails");
 		return NO;
 	}

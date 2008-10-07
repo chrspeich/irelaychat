@@ -34,6 +34,7 @@
 					<string>userList</string>
 					<string>userModes</string>
 					<string>server.name</string>
+					<string>self</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
@@ -452,7 +453,7 @@
 ////6////4H///8Z////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A
 ////AP///wD///8A////AP///wD///8A////AP///wAADgEAAAMAAAABAAkAAAEBAAMAAAABAAkAAAEC
 AAMAAAAEAAAB+gEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEV
-AAMAAAABAAQAAAEWAAMAAAABCqoAAAEXAAQAAAABAAABRAEcAAMAAAABAAEAAAFSAAMAAAABAAIAAAFT
+AAMAAAABAAQAAAEWAAMAAAABDjgAAAEXAAQAAAABAAABRAEcAAMAAAABAAEAAAFSAAMAAAABAAIAAAFT
 AAMAAAAEAAACAodzAAcAAALAAAACCgAAAAAACAAIAAgACAABAAEAAQABAAACwGFwcGwCAAAAbW50clJH
 QiBYWVogB9gACgAFAAAAAAAAYWNzcEFQUEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA
 0y1hcHBsggKhNJl5PKtfeKVi8N+9qgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMclhZWgAA
@@ -736,35 +737,6 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.name</string>
-						<reference key="source" ref="812031386"/>
-						<reference key="destination" ref="383489457"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="812031386"/>
-							<reference key="NSDestination" ref="383489457"/>
-							<string key="NSLabel">value: arrangedObjects.name</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.name</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMutableArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSConditionallySetsEditable</string>
-									<string>NSContinuouslyUpdatesValue</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<reference ref="9"/>
-									<reference ref="9"/>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">100214</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentArray: self.servers</string>
 						<reference key="source" ref="383489457"/>
 						<reference key="destination" ref="512844837"/>
@@ -778,6 +750,35 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 						</object>
 					</object>
 					<int key="connectionID">100222</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.self</string>
+						<reference key="source" ref="812031386"/>
+						<reference key="destination" ref="383489457"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="812031386"/>
+							<reference key="NSDestination" ref="383489457"/>
+							<string key="NSLabel">value: arrangedObjects.self</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.self</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSMutableArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSConditionallySetsEditable</string>
+									<string>NSContinuouslyUpdatesValue</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<integer value="1" id="5"/>
+									<reference ref="5"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100226</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1025,6 +1026,7 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 					<string>100170.IBPluginDependency</string>
 					<string>100171.IBPluginDependency</string>
 					<string>100172.IBPluginDependency</string>
+					<string>100173.CustomClassName</string>
 					<string>100173.IBPluginDependency</string>
 					<string>100175.IBPluginDependency</string>
 					<string>100176.IBPluginDependency</string>
@@ -1046,7 +1048,7 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{376, 385}, {629, 371}}</string>
 					<reference ref="8"/>
-					<integer value="1"/>
+					<reference ref="9"/>
 					<string>{400, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>net.brockerhoff.RBsplitView.IBPlugin</string>
@@ -1059,6 +1061,7 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>ConversationCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1091,11 +1094,19 @@ cHlyaWdodCBBcHBsZSwgSW5jLiwgMjAwOAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100224</int>
+			<int key="maxID">100226</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">ConversationCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Sources/ConversationCell.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">MessageView</string>
 					<string key="superclassName">NSView</string>

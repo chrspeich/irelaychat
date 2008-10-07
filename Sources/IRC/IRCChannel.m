@@ -173,7 +173,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	ircMessage.conversation = self;
 	ircMessage.date = [message objectForKey:@"TIME"];
 	
-	[messages addObject:ircMessage];
+	[self addMessage:ircMessage];
 	
 	[userList addObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
@@ -200,7 +200,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	ircMessage.conversation = self;
 	ircMessage.date = [message objectForKey:@"TIME"];
 	
-	[messages addObject:ircMessage];
+	[self addMessage:ircMessage];
 	
 	[userList removeObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
@@ -273,7 +273,7 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	message.conversation = self;
 	message.date = [[noti userInfo] objectForKey:@"TIME"];
 	
-	[messages addObject:message];
+	[self addMessage:message];
 	
 	[userList removeObject:[[noti userInfo] objectForKey:@"FROM"]];
 	[userList sortUsingFunction:sortUsers context:self];
