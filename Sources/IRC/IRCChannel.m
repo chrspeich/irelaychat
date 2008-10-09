@@ -177,7 +177,6 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	
 	[userList addObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage object:self userInfo:[NSDictionary dictionaryWithObject:ircMessage forKey:@"MESSAGE"]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 	
 	[ircMessage release];
@@ -204,7 +203,6 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	
 	[userList removeObject:user];
 	[userList sortUsingFunction:sortUsers context:self];
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage object:self userInfo:[NSDictionary dictionaryWithObject:ircMessage forKey:@"MESSAGE"]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged object:self];
 	
 	[ircMessage release];
@@ -278,9 +276,6 @@ NSComparisonResult sortUsers(id first, id second, void *contex) {
 	[userList removeObject:[[noti userInfo] objectForKey:@"FROM"]];
 	[userList sortUsingFunction:sortUsers context:self];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage
-														object:self 
-													  userInfo:[NSDictionary dictionaryWithObject:message forKey:@"MESSAGE"]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:IRCUserListHasChanged 
 														object:self];
 	
