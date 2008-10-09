@@ -104,11 +104,7 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 	mess.date = [NSDate date];
 	
 	[self addMessage:mess];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage 
-														object:self 
-													  userInfo:[NSDictionary dictionaryWithObject:mess forKey:@"MESSAGE"]];
-	
+
 	[mess release];
 }
 
@@ -128,10 +124,6 @@ NSString *IRCConversationNewMessage = @"iRelayChat-IRCConversationNewMessage";
 	ircMessage.date = [messageDict objectForKey:@"TIME"];
 	
 	[self addMessage:ircMessage];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:IRCConversationNewMessage 
-														object:self 
-													  userInfo:[NSDictionary dictionaryWithObject:ircMessage forKey:@"MESSAGE"]];
 
 	[ircMessage release];
 }

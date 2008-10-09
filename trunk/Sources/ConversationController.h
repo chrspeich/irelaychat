@@ -32,9 +32,16 @@
 - (NSString*) name;
 
 - (bool) isShowTimeStamps;
+- (void) setShowTimeStamps:(bool)showTimeStamps;
+
 - (bool) isShowJoinMessages;
+- (void) setShowJoinMessages:(bool)showJoinMessages;
+
 - (bool) isShowPartMessages;
+- (void) setShowPartMessages:(bool)showPartMessages;
+
 - (bool) isShowQuitMessages;
+- (void) setShowQuitMessages:(bool)showQuitMessages;
 
 // Actions
 - (IBAction) showOrHideTimeStamps:(id)sender;
