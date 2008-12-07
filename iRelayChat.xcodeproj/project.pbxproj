@@ -3,116 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* MyDocument.xib */; };
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
-		92026D2A0E98DFBA00C86141 /* AutoHyperlinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
-		92026D360E98DFCD00C86141 /* AutoHyperlinks.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */; };
-		92026D6F0E98EAC700C86141 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92026D6E0E98EAC700C86141 /* AboutWindow.xib */; };
-		92026D740E98EFDA00C86141 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92026D730E98EFDA00C86141 /* AboutController.m */; };
-		92026DFE0E990B0800C86141 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 92026DFD0E990B0800C86141 /* Credits.html */; };
-		92026EF10E9A4E9300C86141 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92026EF00E9A4E9300C86141 /* ConversationCell.m */; };
-		9213F3380E96765900CA2CAE /* IRCConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F3370E96765900CA2CAE /* IRCConversation.m */; };
-		9213F37B0E96823300CA2CAE /* IRCConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213F37A0E96823300CA2CAE /* IRCConversationMessage.m */; };
-		9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
-		921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
-		921EA2420DE5C6A3009A9FDB /* NSObject+Unproxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */; };
-		921EA2600DE5CBFD009A9FDB /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921EA25F0DE5CBFD009A9FDB /* MessageView.m */; };
-		921ECCC10DE9706B006C9A52 /* HTMLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 921ECCC00DE9706B006C9A52 /* HTMLCache.m */; };
-		921ECCC50DE9770A006C9A52 /* MessageStyleDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */; };
-		922297160E9BBE9900F374DD /* ConversationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922297150E9BBE9900F374DD /* ConversationController.m */; };
-		922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9224306D0DD1E912005FF883 /* IRCUserMode.m */; };
-		922430D00DD1F732005FF883 /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CE0DD1F732005FF883 /* green.tiff */; };
-		922430D10DD1F732005FF883 /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430CF0DD1F732005FF883 /* red.tiff */; };
-		922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 922430FC0DD1FD8A005FF883 /* yellow.tiff */; };
-		9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 926705390DCF31C800E5D085 /* IRCUser.m */; };
-		926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AAC270DD9E83B00E1794E /* ScreenSaver.framework */; };
-		927717910DE4B10D00BA551A /* PreferencesServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9277176A0DE4B01C00BA551A /* PreferencesServers.m */; };
-		927717A60DE4B1E800BA551A /* PreferenceServers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927717A50DE4B1E800BA551A /* PreferenceServers.xib */; };
-		927717FD0DE4BCF000BA551A /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 927717CE0DE4BA4600BA551A /* Debug.m */; };
-		927718110DE4BD1100BA551A /* Debug.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 927717F70DE4BC9500BA551A /* Debug.bundle */; };
-		927718680DE4C0ED00BA551A /* IRCServerDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215360A0DE1F5920051B01A /* IRCServerDebug.m */; };
-		927718690DE4C0ED00BA551A /* IRCUserDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 921536AD0DE213840051B01A /* IRCUserDebug.m */; };
-		9277186A0DE4C0EE00BA551A /* RegexKitDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 921535F20DE1EBC50051B01A /* RegexKitDebug.m */; };
-		927718930DE4C13300BA551A /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9214424D0DD6274C00A19EAF /* RegexKit.framework */; };
-		927718A50DE4C1D300BA551A /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80960DE1C10400263396 /* SS_PrefsController.m */; };
-		9277195C0DE4C8B600BA551A /* IRCServerDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536510DE1FCCF0051B01A /* IRCServerDebug.xib */; };
-		9277195D0DE4C8B700BA551A /* IRCUserDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536C80DE217DB0051B01A /* IRCUserDebug.xib */; };
-		9277195E0DE4C8B800BA551A /* RegexKitDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921536030DE1F0C40051B01A /* RegexKitDebug.xib */; };
-		927FF8E40E6AA7D6007DF62F /* IRCMessagesDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */; };
-		927FF8E50E6AA7DB007DF62F /* IRCMessagesDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */; };
-		928F1AF80E703B4C0024B515 /* RBSplitView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F1AF70E703B4C0024B515 /* RBSplitView.framework */; };
-		928F1B030E703B5F0024B515 /* RBSplitView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 928F1AF70E703B4C0024B515 /* RBSplitView.framework */; };
-		92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92911F280DD71DBA009C2C16 /* IRCMeUser.m */; };
-		9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9294743D0DCC63EC0022A391 /* WebKit.framework */; };
-		9296F5E50DE046CB008F323E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9296F5E40DE046CB008F323E /* main.m */; };
-		9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9298CC550DD841D700023EBE /* DebugWindow.xib */; };
-		9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9298CC980DD85BD500023EBE /* IRCProtocol.m */; };
-		929F80120DE1BD1100263396 /* InternetRelayChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80110DE1BD1100263396 /* InternetRelayChat.m */; };
-		929F80970DE1C10400263396 /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80960DE1C10400263396 /* SS_PrefsController.m */; };
-		929F809E0DE1C36900263396 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F809D0DE1C36900263396 /* Preferences.m */; };
-		929F80A40DE1C46C00263396 /* PreferenceGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 929F80A30DE1C46C00263396 /* PreferenceGeneral.m */; };
-		929F80AB0DE1C52800263396 /* PreferenceGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */; };
-		92AE27E40DE43F7A00AE0C5F /* Plugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 92AE27E30DE43F7A00AE0C5F /* Plugin.icns */; };
-		92AE27E80DE4412000AE0C5F /* PreferencePlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */; };
-		92AE27F00DE4446200AE0C5F /* PreferencePlugins.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */; };
-		92B293230DE46EA300574C88 /* IRCPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B293220DE46EA300574C88 /* IRCPlugin.m */; };
-		92B293610DE4764A00574C88 /* RawLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B293600DE4764A00574C88 /* RawLog.m */; };
-		92B293850DE4779D00574C88 /* RawLog.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92B2935A0DE4761900574C88 /* RawLog.bundle */; };
-		92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 92FD87620DCC7CAF0024661C /* MessageTemplate.html */; };
-		AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E0B40DB785660018FBCC /* IRCServer.m */; };
-		AA05E1BB0DB7DED80018FBCC /* IRCChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */; };
-		AA3CC4990DCB117B002D70DC /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3CC4980DCB117B002D70DC /* ChannelView.xib */; };
+		92BAA9AD0ED1CAC700AB6D3C /* IRCRawMessage-Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAA99C0ED1C9EF00AB6D3C /* IRCRawMessage-Tests.m */; };
+		92BAA9C10ED1CBB900AB6D3C /* IRCRawMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C795A90EC71E8300A86028 /* IRCRawMessage.m */; };
+		92C795AA0EC71E8300A86028 /* IRCRawMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C795A90EC71E8300A86028 /* IRCRawMessage.m */; };
+		92D7121D0EDEF8340041AD7A /* IRCRawMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C795A80EC71E8300A86028 /* IRCRawMessage.h */; };
+		92D7121E0EDEF8340041AD7A /* IRCRawMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C795A90EC71E8300A86028 /* IRCRawMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9277180B0DE4BCFF00BA551A /* PBXContainerItemProxy */ = {
+		92D712200EDEF8400041AD7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 927717F60DE4BC9500BA551A;
-			remoteInfo = Debug.ircplugin;
-		};
-		92B2936F0DE4777800574C88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92B293590DE4761900574C88;
-			remoteInfo = RawLog.ircplugin;
+			remoteGlobalIDString = 92BAA9A70ED1CABA00AB6D3C /* IRC-Tests */;
+			remoteInfo = "IRC-Tests";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		921442580DD6277A00A19EAF /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				92026D360E98DFCD00C86141 /* AutoHyperlinks.framework in CopyFiles */,
-				928F1B030E703B5F0024B515 /* RBSplitView.framework in CopyFiles */,
-				921442530DD6277000A19EAF /* RegexKit.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92B293880DE477A200574C88 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				927718110DE4BD1100BA551A /* Debug.bundle in CopyFiles */,
-				92B293850DE4779D00574C88 /* RawLog.bundle in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -122,95 +39,21 @@
 		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRelayChat_Prefix.pch; sourceTree = "<group>"; };
-		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iRelayChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRelayChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AutoHyperlinks.framework; path = Frameworks/AutoHyperlinks.framework; sourceTree = "<group>"; };
-		92026D6E0E98EAC700C86141 /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
-		92026D720E98EFDA00C86141 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
-		92026D730E98EFDA00C86141 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
-		92026DFD0E990B0800C86141 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
-		92026EEF0E9A4E9300C86141 /* ConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
-		92026EF00E9A4E9300C86141 /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
-		9213F3360E96765900CA2CAE /* IRCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversation.h; sourceTree = "<group>"; };
-		9213F3370E96765900CA2CAE /* IRCConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCConversation.m; sourceTree = "<group>"; };
-		9213F3790E96823300CA2CAE /* IRCConversationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCConversationMessage.h; sourceTree = "<group>"; };
-		9213F37A0E96823300CA2CAE /* IRCConversationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCConversationMessage.m; sourceTree = "<group>"; };
-		9214424D0DD6274C00A19EAF /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
-		921535F10DE1EBC50051B01A /* RegexKitDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitDebug.h; sourceTree = "<group>"; };
-		921535F20DE1EBC50051B01A /* RegexKitDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitDebug.m; sourceTree = "<group>"; };
-		921536030DE1F0C40051B01A /* RegexKitDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegexKitDebug.xib; path = ../../Resources/RegexKitDebug.xib; sourceTree = "<group>"; };
-		921536090DE1F5920051B01A /* IRCServerDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCServerDebug.h; sourceTree = "<group>"; };
-		9215360A0DE1F5920051B01A /* IRCServerDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCServerDebug.m; sourceTree = "<group>"; };
-		921536510DE1FCCF0051B01A /* IRCServerDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IRCServerDebug.xib; path = ../../Resources/IRCServerDebug.xib; sourceTree = "<group>"; };
-		921536AC0DE213840051B01A /* IRCUserDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserDebug.h; sourceTree = "<group>"; };
-		921536AD0DE213840051B01A /* IRCUserDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserDebug.m; sourceTree = "<group>"; };
-		921536C80DE217DB0051B01A /* IRCUserDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IRCUserDebug.xib; path = ../../Resources/IRCUserDebug.xib; sourceTree = "<group>"; };
-		921EA2400DE5C6A3009A9FDB /* NSObject+Unproxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Unproxy.h"; sourceTree = "<group>"; };
-		921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Unproxy.m"; sourceTree = "<group>"; };
-		921EA25E0DE5CBFD009A9FDB /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
-		921EA25F0DE5CBFD009A9FDB /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
-		921ECCBF0DE9706B006C9A52 /* HTMLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLCache.h; sourceTree = "<group>"; };
-		921ECCC00DE9706B006C9A52 /* HTMLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLCache.m; sourceTree = "<group>"; };
-		921ECCC30DE9770A006C9A52 /* MessageStyleDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageStyleDefault.h; sourceTree = "<group>"; };
-		921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageStyleDefault.m; sourceTree = "<group>"; };
-		922297140E9BBE9900F374DD /* ConversationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationController.h; sourceTree = "<group>"; };
-		922297150E9BBE9900F374DD /* ConversationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationController.m; sourceTree = "<group>"; };
-		9224306C0DD1E912005FF883 /* IRCUserMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUserMode.h; sourceTree = "<group>"; };
-		9224306D0DD1E912005FF883 /* IRCUserMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUserMode.m; sourceTree = "<group>"; };
-		922430CE0DD1F732005FF883 /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
-		922430CF0DD1F732005FF883 /* red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = red.tiff; sourceTree = "<group>"; };
-		922430FC0DD1FD8A005FF883 /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = yellow.tiff; sourceTree = "<group>"; };
-		926705380DCF31C800E5D085 /* IRCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCUser.h; sourceTree = "<group>"; };
-		926705390DCF31C800E5D085 /* IRCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCUser.m; sourceTree = "<group>"; };
-		926AAC270DD9E83B00E1794E /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
-		927717690DE4B01C00BA551A /* PreferencesServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesServers.h; sourceTree = "<group>"; };
-		9277176A0DE4B01C00BA551A /* PreferencesServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesServers.m; sourceTree = "<group>"; };
-		927717A50DE4B1E800BA551A /* PreferenceServers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceServers.xib; sourceTree = "<group>"; };
-		927717CD0DE4BA4600BA551A /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
-		927717CE0DE4BA4600BA551A /* Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
-		927717F70DE4BC9500BA551A /* Debug.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Debug.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		927717F80DE4BC9500BA551A /* Debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Debug-Info.plist"; sourceTree = "<group>"; };
-		927FF8DF0E6AA780007DF62F /* IRCMessagesDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMessagesDebug.h; sourceTree = "<group>"; };
-		927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMessagesDebug.m; sourceTree = "<group>"; };
-		927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRCMessagesDebug.xib; sourceTree = "<group>"; };
-		928F1AF70E703B4C0024B515 /* RBSplitView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RBSplitView.framework; path = Frameworks/RBSplitView.framework; sourceTree = "<group>"; };
-		92911F270DD71DBA009C2C16 /* IRCMeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCMeUser.h; sourceTree = "<group>"; };
-		92911F280DD71DBA009C2C16 /* IRCMeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCMeUser.m; sourceTree = "<group>"; };
-		9294743D0DCC63EC0022A391 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
-		9296F5E40DE046CB008F323E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sources/main.m; sourceTree = "<group>"; };
-		9298CC550DD841D700023EBE /* DebugWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DebugWindow.xib; sourceTree = "<group>"; };
-		9298CC970DD85BD500023EBE /* IRCProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCProtocol.h; sourceTree = "<group>"; };
-		9298CC980DD85BD500023EBE /* IRCProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCProtocol.m; sourceTree = "<group>"; };
-		929F80100DE1BD1100263396 /* InternetRelayChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetRelayChat.h; sourceTree = "<group>"; };
-		929F80110DE1BD1100263396 /* InternetRelayChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetRelayChat.m; sourceTree = "<group>"; };
-		929F80940DE1C10400263396 /* SS_PreferencePaneProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PreferencePaneProtocol.h; sourceTree = "<group>"; };
-		929F80950DE1C10400263396 /* SS_PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PrefsController.h; sourceTree = "<group>"; };
-		929F80960DE1C10400263396 /* SS_PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_PrefsController.m; sourceTree = "<group>"; };
-		929F809C0DE1C36900263396 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
-		929F809D0DE1C36900263396 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
-		929F80A20DE1C46C00263396 /* PreferenceGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceGeneral.h; sourceTree = "<group>"; };
-		929F80A30DE1C46C00263396 /* PreferenceGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceGeneral.m; sourceTree = "<group>"; };
-		929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceGeneral.xib; sourceTree = "<group>"; };
-		92AE27E30DE43F7A00AE0C5F /* Plugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Plugin.icns; sourceTree = "<group>"; };
-		92AE27E60DE4412000AE0C5F /* PreferencePlugins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencePlugins.h; sourceTree = "<group>"; };
-		92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencePlugins.m; sourceTree = "<group>"; };
-		92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencePlugins.xib; sourceTree = "<group>"; };
-		92B2931C0DE46D8F00574C88 /* IRCPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCPlugin.h; sourceTree = "<group>"; };
-		92B293220DE46EA300574C88 /* IRCPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCPlugin.m; sourceTree = "<group>"; };
-		92B293320DE471C500574C88 /* IRCPluginProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCPluginProtocol.h; sourceTree = "<group>"; };
-		92B2935A0DE4761900574C88 /* RawLog.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RawLog.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		92B2935B0DE4761900574C88 /* RawLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RawLog-Info.plist"; sourceTree = "<group>"; };
-		92B2935F0DE4764A00574C88 /* RawLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawLog.h; sourceTree = "<group>"; };
-		92B293600DE4764A00574C88 /* RawLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawLog.m; sourceTree = "<group>"; };
-		92FD87620DCC7CAF0024661C /* MessageTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MessageTemplate.html; sourceTree = "<group>"; };
-		AA05E0B30DB785660018FBCC /* IRCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCServer.h; sourceTree = "<group>"; };
-		AA05E0B40DB785660018FBCC /* IRCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCServer.m; sourceTree = "<group>"; };
-		AA05E1B90DB7DED80018FBCC /* IRCChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCChannel.h; sourceTree = "<group>"; };
-		AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCChannel.m; sourceTree = "<group>"; };
-		AA3CC4980DCB117B002D70DC /* ChannelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
+		92BAA99B0ED1C9EF00AB6D3C /* IRCRawMessage-Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IRCRawMessage-Tests.h"; sourceTree = "<group>"; };
+		92BAA99C0ED1C9EF00AB6D3C /* IRCRawMessage-Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IRCRawMessage-Tests.m"; sourceTree = "<group>"; };
+		92BAA9A80ED1CABA00AB6D3C /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92BAA9A90ED1CABA00AB6D3C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		92C795A80EC71E8300A86028 /* IRCRawMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCRawMessage.h; sourceTree = "<group>"; };
+		92C795A90EC71E8300A86028 /* IRCRawMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCRawMessage.m; sourceTree = "<group>"; };
+		92D712170EDEF80A0041AD7A /* IRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IRC.framework; path = build/Debug/IRC.framework; sourceTree = "<group>"; };
+		92D712180EDEF80A0041AD7A /* IRC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRC-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,23 +62,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
-				9294743E0DCC63EC0022A391 /* WebKit.framework in Frameworks */,
-				9214424E0DD6274C00A19EAF /* RegexKit.framework in Frameworks */,
-				926AAC280DD9E83B00E1794E /* ScreenSaver.framework in Frameworks */,
-				928F1AF80E703B4C0024B515 /* RBSplitView.framework in Frameworks */,
-				92026D2A0E98DFBA00C86141 /* AutoHyperlinks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		927717F50DE4BC9500BA551A /* Frameworks */ = {
+		92BAA9A50ED1CABA00AB6D3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927718930DE4C13300BA551A /* RegexKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92B293580DE4761900574C88 /* Frameworks */ = {
+		92D712150EDEF80A0041AD7A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -248,11 +85,6 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				92026D290E98DFBA00C86141 /* AutoHyperlinks.framework */,
-				926AAC270DD9E83B00E1794E /* ScreenSaver.framework */,
-				9214424D0DD6274C00A19EAF /* RegexKit.framework */,
-				9294743D0DCC63EC0022A391 /* WebKit.framework */,
-				928F1AF70E703B4C0024B515 /* RBSplitView.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -272,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				8D15AC370486D014006FF6A4 /* iRelayChat.app */,
-				92B2935A0DE4761900574C88 /* RawLog.bundle */,
-				927717F70DE4BC9500BA551A /* Debug.bundle */,
+				92BAA9A80ED1CABA00AB6D3C /* Tests.octest */,
+				92D712170EDEF80A0041AD7A /* IRC.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,45 +113,33 @@
 		2A37F4AAFDCFA73011CA2CEA /* iRelayChat */ = {
 			isa = PBXGroup;
 			children = (
-				92B293530DE475D100574C88 /* Plugins */,
-				929F80930DE1C0D100263396 /* SS_Preferences */,
-				AA05E0B00DB784CC0018FBCC /* IRC */,
-				2A37F4ABFDCFA73011CA2CEA /* Sources */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				92C795A70EC71E5F00A86028 /* IRC.framework */,
+				92C795A40EC71E4900A86028 /* IRC.framework-Tests */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
+				92BAA9A90ED1CABA00AB6D3C /* Tests-Info.plist */,
+				92D712180EDEF80A0041AD7A /* IRC-Info.plist */,
 			);
 			name = iRelayChat;
 			sourceTree = "<group>";
 		};
-		2A37F4ABFDCFA73011CA2CEA /* Sources */ = {
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				922297130E9BBE3C00F374DD /* Controllers */,
-				92026D710E98EFAB00C86141 /* AboutWindow */,
-				9277175E0DE4AFC000BA551A /* Preferences */,
 				2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */,
-				921EA2400DE5C6A3009A9FDB /* NSObject+Unproxy.h */,
-				921EA2410DE5C6A3009A9FDB /* NSObject+Unproxy.m */,
-				921EA25E0DE5CBFD009A9FDB /* MessageView.h */,
-				921EA25F0DE5CBFD009A9FDB /* MessageView.m */,
-				921ECCBF0DE9706B006C9A52 /* HTMLCache.h */,
-				921ECCC00DE9706B006C9A52 /* HTMLCache.m */,
-				921ECCC30DE9770A006C9A52 /* MessageStyleDefault.h */,
-				921ECCC40DE9770A006C9A52 /* MessageStyleDefault.m */,
-				92026EEF0E9A4E9300C86141 /* ConversationCell.h */,
-				92026EF00E9A4E9300C86141 /* ConversationCell.m */,
 			);
-			path = Sources;
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9296F5E40DE046CB008F323E /* main.m */,
 				32DBCF750370BD2300C91783 /* iRelayChat_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -327,22 +147,13 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9277175D0DE4AF9F00BA551A /* Preferences */,
-				92AE27E30DE43F7A00AE0C5F /* Plugin.icns */,
-				922430FC0DD1FD8A005FF883 /* yellow.tiff */,
-				922430CE0DD1F732005FF883 /* green.tiff */,
-				922430CF0DD1F732005FF883 /* red.tiff */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
 				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
-				AA3CC4980DCB117B002D70DC /* ChannelView.xib */,
-				92FD87620DCC7CAF0024661C /* MessageTemplate.html */,
-				9298CC550DD841D700023EBE /* DebugWindow.xib */,
-				92026D6E0E98EAC700C86141 /* AboutWindow.xib */,
-				92026DFD0E990B0800C86141 /* Credits.html */,
 			);
-			path = Resources;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
@@ -354,131 +165,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		92026D710E98EFAB00C86141 /* AboutWindow */ = {
+		92C795A40EC71E4900A86028 /* IRC.framework-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				92026D720E98EFDA00C86141 /* AboutController.h */,
-				92026D730E98EFDA00C86141 /* AboutController.m */,
+				92BAA99B0ED1C9EF00AB6D3C /* IRCRawMessage-Tests.h */,
+				92BAA99C0ED1C9EF00AB6D3C /* IRCRawMessage-Tests.m */,
 			);
-			name = AboutWindow;
+			name = "IRC.framework-Tests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		922297130E9BBE3C00F374DD /* Controllers */ = {
+		92C795A70EC71E5F00A86028 /* IRC.framework */ = {
 			isa = PBXGroup;
 			children = (
-				922297140E9BBE9900F374DD /* ConversationController.h */,
-				922297150E9BBE9900F374DD /* ConversationController.m */,
+				92C795A80EC71E8300A86028 /* IRCRawMessage.h */,
+				92C795A90EC71E8300A86028 /* IRCRawMessage.m */,
 			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		9277175D0DE4AF9F00BA551A /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				92AE27EF0DE4446200AE0C5F /* PreferencePlugins.xib */,
-				929F80AA0DE1C52800263396 /* PreferenceGeneral.xib */,
-				927717A50DE4B1E800BA551A /* PreferenceServers.xib */,
-			);
-			name = Preferences;
-			sourceTree = "<group>";
-		};
-		9277175E0DE4AFC000BA551A /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				929F809C0DE1C36900263396 /* Preferences.h */,
-				929F809D0DE1C36900263396 /* Preferences.m */,
-				929F80A20DE1C46C00263396 /* PreferenceGeneral.h */,
-				929F80A30DE1C46C00263396 /* PreferenceGeneral.m */,
-				92AE27E60DE4412000AE0C5F /* PreferencePlugins.h */,
-				92AE27E70DE4412000AE0C5F /* PreferencePlugins.m */,
-				927717690DE4B01C00BA551A /* PreferencesServers.h */,
-				9277176A0DE4B01C00BA551A /* PreferencesServers.m */,
-			);
-			name = Preferences;
-			sourceTree = "<group>";
-		};
-		927717CC0DE4BA1B00BA551A /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				921536030DE1F0C40051B01A /* RegexKitDebug.xib */,
-				921536510DE1FCCF0051B01A /* IRCServerDebug.xib */,
-				921536C80DE217DB0051B01A /* IRCUserDebug.xib */,
-				927717F80DE4BC9500BA551A /* Debug-Info.plist */,
-				927717CD0DE4BA4600BA551A /* Debug.h */,
-				927717CE0DE4BA4600BA551A /* Debug.m */,
-				921535F10DE1EBC50051B01A /* RegexKitDebug.h */,
-				921535F20DE1EBC50051B01A /* RegexKitDebug.m */,
-				921536090DE1F5920051B01A /* IRCServerDebug.h */,
-				9215360A0DE1F5920051B01A /* IRCServerDebug.m */,
-				921536AC0DE213840051B01A /* IRCUserDebug.h */,
-				921536AD0DE213840051B01A /* IRCUserDebug.m */,
-				927FF8DF0E6AA780007DF62F /* IRCMessagesDebug.h */,
-				927FF8E00E6AA780007DF62F /* IRCMessagesDebug.m */,
-				927FF8E20E6AA7D0007DF62F /* IRCMessagesDebug.xib */,
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
-		929F80930DE1C0D100263396 /* SS_Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				929F80940DE1C10400263396 /* SS_PreferencePaneProtocol.h */,
-				929F80950DE1C10400263396 /* SS_PrefsController.h */,
-				929F80960DE1C10400263396 /* SS_PrefsController.m */,
-			);
-			name = SS_Preferences;
-			path = Sources/SS_Preferences;
-			sourceTree = "<group>";
-		};
-		92B293530DE475D100574C88 /* Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				927717CC0DE4BA1B00BA551A /* Debug */,
-				92B293540DE475F100574C88 /* RawLog */,
-			);
-			path = Plugins;
-			sourceTree = "<group>";
-		};
-		92B293540DE475F100574C88 /* RawLog */ = {
-			isa = PBXGroup;
-			children = (
-				92B2935B0DE4761900574C88 /* RawLog-Info.plist */,
-				92B2935F0DE4764A00574C88 /* RawLog.h */,
-				92B293600DE4764A00574C88 /* RawLog.m */,
-			);
-			path = RawLog;
-			sourceTree = "<group>";
-		};
-		AA05E0B00DB784CC0018FBCC /* IRC */ = {
-			isa = PBXGroup;
-			children = (
-				AA05E0B30DB785660018FBCC /* IRCServer.h */,
-				AA05E0B40DB785660018FBCC /* IRCServer.m */,
-				AA05E1B90DB7DED80018FBCC /* IRCChannel.h */,
-				AA05E1BA0DB7DED80018FBCC /* IRCChannel.m */,
-				926705380DCF31C800E5D085 /* IRCUser.h */,
-				926705390DCF31C800E5D085 /* IRCUser.m */,
-				9224306C0DD1E912005FF883 /* IRCUserMode.h */,
-				9224306D0DD1E912005FF883 /* IRCUserMode.m */,
-				92911F270DD71DBA009C2C16 /* IRCMeUser.h */,
-				92911F280DD71DBA009C2C16 /* IRCMeUser.m */,
-				9298CC970DD85BD500023EBE /* IRCProtocol.h */,
-				9298CC980DD85BD500023EBE /* IRCProtocol.m */,
-				929F80100DE1BD1100263396 /* InternetRelayChat.h */,
-				929F80110DE1BD1100263396 /* InternetRelayChat.m */,
-				92B2931C0DE46D8F00574C88 /* IRCPlugin.h */,
-				92B293220DE46EA300574C88 /* IRCPlugin.m */,
-				92B293320DE471C500574C88 /* IRCPluginProtocol.h */,
-				9213F3360E96765900CA2CAE /* IRCConversation.h */,
-				9213F3370E96765900CA2CAE /* IRCConversation.m */,
-				9213F3790E96823300CA2CAE /* IRCConversationMessage.h */,
-				9213F37A0E96823300CA2CAE /* IRCConversationMessage.m */,
-			);
-			name = IRC;
-			path = Sources/IRC;
+			name = IRC.framework;
+			path = Sources/IRC.framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		92D712120EDEF80A0041AD7A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92D7121D0EDEF8340041AD7A /* IRCRawMessage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8D15AC270486D014006FF6A4 /* iRelayChat */ = {
@@ -488,15 +206,10 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
-				921442580DD6277A00A19EAF /* CopyFiles */,
-				92B293880DE477A200574C88 /* CopyFiles */,
-				92026DA40E98FD9E00C86141 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9277180C0DE4BCFF00BA551A /* PBXTargetDependency */,
-				92B293700DE4777800574C88 /* PBXTargetDependency */,
 			);
 			name = iRelayChat;
 			productInstallPath = "$(HOME)/Applications";
@@ -504,58 +217,58 @@
 			productReference = 8D15AC370486D014006FF6A4 /* iRelayChat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		927717F60DE4BC9500BA551A /* Debug.ircplugin */ = {
+		92BAA9A70ED1CABA00AB6D3C /* IRC-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 927717FB0DE4BC9500BA551A /* Build configuration list for PBXNativeTarget "Debug.ircplugin" */;
+			buildConfigurationList = 92BAA9AC0ED1CABA00AB6D3C /* Build configuration list for PBXNativeTarget "IRC-Tests" */;
 			buildPhases = (
-				927717F30DE4BC9500BA551A /* Resources */,
-				927717F40DE4BC9500BA551A /* Sources */,
-				927717F50DE4BC9500BA551A /* Frameworks */,
+				92BAA9A30ED1CABA00AB6D3C /* Resources */,
+				92BAA9A40ED1CABA00AB6D3C /* Sources */,
+				92BAA9A50ED1CABA00AB6D3C /* Frameworks */,
+				92BAA9A60ED1CABA00AB6D3C /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Debug.ircplugin;
-			productName = Debug;
-			productReference = 927717F70DE4BC9500BA551A /* Debug.bundle */;
+			name = "IRC-Tests";
+			productName = Tests;
+			productReference = 92BAA9A80ED1CABA00AB6D3C /* Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		92B293590DE4761900574C88 /* RawLog.ircplugin */ = {
+		92D712160EDEF80A0041AD7A /* IRC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92B2935E0DE4761A00574C88 /* Build configuration list for PBXNativeTarget "RawLog.ircplugin" */;
+			buildConfigurationList = 92D7121B0EDEF80A0041AD7A /* Build configuration list for PBXNativeTarget "IRC" */;
 			buildPhases = (
-				92B293560DE4761900574C88 /* Resources */,
-				92B293570DE4761900574C88 /* Sources */,
-				92B293580DE4761900574C88 /* Frameworks */,
+				92D712120EDEF80A0041AD7A /* Headers */,
+				92D712130EDEF80A0041AD7A /* Resources */,
+				92D712140EDEF80A0041AD7A /* Sources */,
+				92D712150EDEF80A0041AD7A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				92D712210EDEF8400041AD7A /* PBXTargetDependency */,
 			);
-			name = RawLog.ircplugin;
-			productName = RawLog;
-			productReference = 92B2935A0DE4761900574C88 /* RawLog.bundle */;
-			productType = "com.apple.product-type.bundle";
+			name = IRC;
+			productName = IRC;
+			productReference = 92D712170EDEF80A0041AD7A /* IRC.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = YES;
-			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "iRelayChat" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* iRelayChat */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* iRelayChat */,
-				92B293590DE4761900574C88 /* RawLog.ircplugin */,
-				927717F60DE4BC9500BA551A /* Debug.ircplugin */,
+				92BAA9A70ED1CABA00AB6D3C /* IRC-Tests */,
+				92D712160EDEF80A0041AD7A /* IRC */,
 			);
 		};
 /* End PBXProject section */
@@ -565,36 +278,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */,
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
-				AA3CC4990DCB117B002D70DC /* ChannelView.xib in Resources */,
-				92FD87630DCC7CAF0024661C /* MessageTemplate.html in Resources */,
-				922430D00DD1F732005FF883 /* green.tiff in Resources */,
-				922430D10DD1F732005FF883 /* red.tiff in Resources */,
-				922430FD0DD1FD8A005FF883 /* yellow.tiff in Resources */,
-				9298CC560DD841D700023EBE /* DebugWindow.xib in Resources */,
-				929F80AB0DE1C52800263396 /* PreferenceGeneral.xib in Resources */,
-				92AE27E40DE43F7A00AE0C5F /* Plugin.icns in Resources */,
-				92AE27F00DE4446200AE0C5F /* PreferencePlugins.xib in Resources */,
-				927717A60DE4B1E800BA551A /* PreferenceServers.xib in Resources */,
-				92026D6F0E98EAC700C86141 /* AboutWindow.xib in Resources */,
-				92026DFE0E990B0800C86141 /* Credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		927717F30DE4BC9500BA551A /* Resources */ = {
+		92BAA9A30ED1CABA00AB6D3C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9277195C0DE4C8B600BA551A /* IRCServerDebug.xib in Resources */,
-				9277195D0DE4C8B700BA551A /* IRCUserDebug.xib in Resources */,
-				9277195E0DE4C8B800BA551A /* RegexKitDebug.xib in Resources */,
-				927FF8E40E6AA7D6007DF62F /* IRCMessagesDebug.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92B293560DE4761900574C88 /* Resources */ = {
+		92D712130EDEF80A0041AD7A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -604,7 +302,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		92026DA40E98FD9E00C86141 /* ShellScript */ = {
+		92BAA9A60ED1CABA00AB6D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -615,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n\tbuildnummer -d $CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH\nelse\n\tbuildnummer $CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH\nfi";
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -625,65 +323,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
-				AA05E0B50DB785660018FBCC /* IRCServer.m in Sources */,
-				AA05E1BB0DB7DED80018FBCC /* IRCChannel.m in Sources */,
-				9267053A0DCF31C800E5D085 /* IRCUser.m in Sources */,
-				922430890DD1EBE2005FF883 /* IRCUserMode.m in Sources */,
-				92911F290DD71DBA009C2C16 /* IRCMeUser.m in Sources */,
-				9298CC990DD85BD500023EBE /* IRCProtocol.m in Sources */,
-				9296F5E50DE046CB008F323E /* main.m in Sources */,
-				929F80120DE1BD1100263396 /* InternetRelayChat.m in Sources */,
-				929F80970DE1C10400263396 /* SS_PrefsController.m in Sources */,
-				929F809E0DE1C36900263396 /* Preferences.m in Sources */,
-				929F80A40DE1C46C00263396 /* PreferenceGeneral.m in Sources */,
-				92AE27E80DE4412000AE0C5F /* PreferencePlugins.m in Sources */,
-				92B293230DE46EA300574C88 /* IRCPlugin.m in Sources */,
-				927717910DE4B10D00BA551A /* PreferencesServers.m in Sources */,
-				921EA2420DE5C6A3009A9FDB /* NSObject+Unproxy.m in Sources */,
-				921EA2600DE5CBFD009A9FDB /* MessageView.m in Sources */,
-				921ECCC10DE9706B006C9A52 /* HTMLCache.m in Sources */,
-				921ECCC50DE9770A006C9A52 /* MessageStyleDefault.m in Sources */,
-				9213F3380E96765900CA2CAE /* IRCConversation.m in Sources */,
-				9213F37B0E96823300CA2CAE /* IRCConversationMessage.m in Sources */,
-				92026D740E98EFDA00C86141 /* AboutController.m in Sources */,
-				92026EF10E9A4E9300C86141 /* ConversationCell.m in Sources */,
-				922297160E9BBE9900F374DD /* ConversationController.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				92C795AA0EC71E8300A86028 /* IRCRawMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		927717F40DE4BC9500BA551A /* Sources */ = {
+		92BAA9A40ED1CABA00AB6D3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927717FD0DE4BCF000BA551A /* Debug.m in Sources */,
-				927718680DE4C0ED00BA551A /* IRCServerDebug.m in Sources */,
-				927718690DE4C0ED00BA551A /* IRCUserDebug.m in Sources */,
-				9277186A0DE4C0EE00BA551A /* RegexKitDebug.m in Sources */,
-				927718A50DE4C1D300BA551A /* SS_PrefsController.m in Sources */,
-				927FF8E50E6AA7DB007DF62F /* IRCMessagesDebug.m in Sources */,
+				92BAA9AD0ED1CAC700AB6D3C /* IRCRawMessage-Tests.m in Sources */,
+				92BAA9C10ED1CBB900AB6D3C /* IRCRawMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92B293570DE4761900574C88 /* Sources */ = {
+		92D712140EDEF80A0041AD7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B293610DE4764A00574C88 /* RawLog.m in Sources */,
+				92D7121E0EDEF8340041AD7A /* IRCRawMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9277180C0DE4BCFF00BA551A /* PBXTargetDependency */ = {
+		92D712210EDEF8400041AD7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 927717F60DE4BC9500BA551A /* Debug.ircplugin */;
-			targetProxy = 9277180B0DE4BCFF00BA551A /* PBXContainerItemProxy */;
-		};
-		92B293700DE4777800574C88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92B293590DE4761900574C88 /* RawLog.ircplugin */;
-			targetProxy = 92B2936F0DE4777800574C88 /* PBXContainerItemProxy */;
+			target = 92BAA9A70ED1CABA00AB6D3C /* IRC-Tests */;
+			targetProxy = 92D712200EDEF8400041AD7A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -712,84 +380,87 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		927717F90DE4BC9500BA551A /* Debug */ = {
+		92BAA9AA0ED1CABA00AB6D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Plugins/Debug/Debug-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
+					Cocoa,
 					"-framework",
-					AppKit,
+					SenTestingKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = Debug;
-				WRAPPER_EXTENSION = bundle;
+				PRODUCT_NAME = Tests;
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		927717FA0DE4BC9500BA551A /* Release */ = {
+		92BAA9AB0ED1CABA00AB6D3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Debug-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
+					Cocoa,
 					"-framework",
-					AppKit,
+					SenTestingKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = Debug;
-				WRAPPER_EXTENSION = bundle;
+				PRODUCT_NAME = Tests;
+				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
-		92B2935C0DE4761A00574C88 /* Debug */ = {
+		92D712190EDEF80A0041AD7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Plugins/RawLog/RawLog-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				INFOPLIST_FILE = "IRC-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -797,27 +468,25 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = RawLog;
-				WRAPPER_EXTENSION = bundle;
+				PRODUCT_NAME = IRC;
 			};
 			name = Debug;
 		};
-		92B2935D0DE4761A00574C88 /* Release */ = {
+		92D7121A0EDEF80A0041AD7A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "RawLog-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				INFOPLIST_FILE = "IRC-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -825,8 +494,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = RawLog;
-				WRAPPER_EXTENSION = bundle;
+				PRODUCT_NAME = IRC;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -835,16 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)/../../../Downloads/RBSplitView/build/Release\"",
-					"\"$(SRCROOT)/build/Debug\"",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -862,13 +521,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)/../../../Downloads/RBSplitView/build/Release\"",
-					"\"$(SRCROOT)/build/Debug\"",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRelayChat_Prefix.pch;
@@ -881,53 +533,47 @@
 		C05733CC08A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
-				OTHER_CFLAGS = "-fstack-protector-all";
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
 		C05733CD08A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = "-fstack-protector-all";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		927717FB0DE4BC9500BA551A /* Build configuration list for PBXNativeTarget "Debug.ircplugin" */ = {
+		92BAA9AC0ED1CABA00AB6D3C /* Build configuration list for PBXNativeTarget "IRC-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				927717F90DE4BC9500BA551A /* Debug */,
-				927717FA0DE4BC9500BA551A /* Release */,
+				92BAA9AA0ED1CABA00AB6D3C /* Debug */,
+				92BAA9AB0ED1CABA00AB6D3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92B2935E0DE4761A00574C88 /* Build configuration list for PBXNativeTarget "RawLog.ircplugin" */ = {
+		92D7121B0EDEF80A0041AD7A /* Build configuration list for PBXNativeTarget "IRC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				92B2935C0DE4761A00574C88 /* Debug */,
-				92B2935D0DE4761A00574C88 /* Release */,
+				92D712190EDEF80A0041AD7A /* Debug */,
+				92D7121A0EDEF80A0041AD7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
