@@ -16,11 +16,11 @@
 
 @implementation IRCRawMessage
 
-- (id) initWithCString: (char*)cstring usingEncoding:(NSStringEncoding)_encoding
+- (id) initWithCString: (char*)cstring usingEncoding:(NSStringEncoding)iencoding
 {
 	self = [self init];
 	if (self != nil) {
-		encoding = _encoding;
+		encoding = iencoding;
 		
 		// Make a private copy of the Message
 		rawCString = malloc(sizeof(cstring));
