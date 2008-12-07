@@ -33,5 +33,6 @@
 @property(retain) NSString	*user;
 @property(retain) NSString	*command;
 @property(retain) NSArray	*args;
+@property(readonly)	char	*rawCString;
 
 @end
