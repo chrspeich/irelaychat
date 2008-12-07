@@ -7,13 +7,12 @@
 //
 
 #import "IRCRawMessage.h"
+
 @interface IRCRawMessage (PRIVATE)
 
 - (void) parseMessage;
 
 @end
-
-
 
 @implementation IRCRawMessage
 
@@ -36,33 +35,83 @@
 {
 	free(rawCString);
 	[rawString release];
+	self.user = Nil;
+	self.command = Nil;
+	self.args = Nil;
 	
 	[super dealloc];
 }
 
 #pragma mark -
-#pragma mark Getters
+#pragma mark Getters and Setters
 
-- (NSStringEncoding) encoding {
+- (NSStringEncoding) encoding 
+{
 	return encoding;
 }
 
-- (NSString*) user {
+- (void) setEncoding: (NSStringEncoding) iencoding
+{
+	if (encoding == iencoding)
+		return;
+	
+	encoding = iencoding;
+	// The encoding has changed, so we have to reparse the message
+	[self parseMessage];
+}
+
+- (NSString*) user 
+{
 	return [user retain];
 }
 
-- (NSString*) command {
+- (void) setUser:(NSString*) iuser
+{
+	if ([iuser isEqualToString:user])
+		return;
+	
+	[user release];
+	user = [iuser retain];
+}
+
+- (NSString*) command 
+{
 	return [command retain];
 }
 
-- (NSArray*) args {
+- (void) setCommand:(NSString*) icommand
+{
+	if ([icommand isEqualToString:command])
+		return;
+	
+	[command release];
+	command = [icommand retain];
+}
+
+- (NSArray*) args 
+{
 	return [args retain];
+}
+
+- (void) setArgs:(NSArray*) iargs
+{
+	if ([iargs isEqualToArray:args])
+		return;
+	
+	[args release];
+	args = [iargs retain];
+}
+
+- (char*) rawCString
+{
+	return rawCString;
 }
 
 #pragma mark -
 #pragma mark Debug Methods
 
-- (NSString*) description {
+- (NSString*) description 
+{
 	NSString *description;
 	
 	description = [[NSString alloc] 
@@ -83,9 +132,9 @@
 	
 	// Release the old strings
 	[rawString release];
-	[user release];
-	[command release];
-	[args release];
+	self.user = Nil;
+	self.command = Nil;
+	self.args = Nil;
 	
 	rawString = [[NSString alloc] initWithCString:rawCString 
 										 encoding:[self encoding]];
@@ -99,15 +148,15 @@
 	
 	components = [rawString componentsSeparatedByString:@" "];
 	
-	// The First component is the user
-	user = [components objectAtIndex:0];
-	
+	// First component is the User
 	// If we have a : at the beginig of the user, so remove it
-	if ([user characterAtIndex:0] == ':')
-		user = [user substringFromIndex:1];
+	if ([[components objectAtIndex:0] characterAtIndex:0] == ':')
+		self.user = [[components objectAtIndex:0] substringFromIndex:1];
+	else
+		self.user = [components objectAtIndex:0];
 	
 	// The second component is the command
-	command = [components objectAtIndex:1];
+	self.command = [components objectAtIndex:1];
 	
 	// Assemble the args array
 	tmpArgs = [[NSMutableArray alloc] init];
@@ -134,7 +183,7 @@
 	}
 	
 	// Make the args array imutable
-	args = [tmpArgs copy];
+	self.args = [[tmpArgs copy] autorelease];
 	
 	[tmpArgs release];
 }
